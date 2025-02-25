@@ -1,57 +1,6 @@
 import { ChatGroq } from "@langchain/groq";
 
 const data = {
-    metadata: {
-        title: "Cove",
-        description: "More than Just a Finance App. Creative saving. Stash money on your island with decorations and unleash your creativity",
-        url: "https://usecove.com/",
-        icon: "https://cove-tau.vercel.app/favicon.ico",
-        thumbnail: "https://cove-tau.vercel.app/opengraphimage.png"
-
-    },
-    herosection: {
-        herotagline: "Finance for next generation",
-        heading: "How to grow your savings without the hassle of spreadsheets",
-        subheading: "The only gamified finance app for young adults that makes saving and investing simple, rewarding, and fun.",
-        insurance: "Protected by FDIC and SIPC insurance for peace of mind.",
-        buttonslinks: {
-            appstore: "https://apps.apple.com/us/app/cove-your-money-haven/id1589645033",
-            playstore: "https://play.google.com/store/apps/details?id=com.EdenFinancialTechnologies.Eden"
-        }
-    },
-    trustedby: {
-        headers: "Trusted by industry leaders",
-    },
-    beforeaftersection: {
-        heading: "Old Way Vs. New Way",
-        subheading: "Imagine what you could do if managing money felt like a game",
-        beforelist: [
-            "Tracking savings felt boring and tedious",
-            "Investing seemed too complex to start",
-            "Financial apps left you feeling unmotivated"
-        ],
-        afterlist: [
-            "Watch your savings grow while customizing your own island",
-            "Invest effortlessly with a system designed for instant gratification",
-            "Feel excited about reaching your financial goals"
-        ]
-    },
-    howitworkssection: {
-        heading: "How it works",
-        subheading: "Start building wealth in just 5 minutes",
-        signup: {
-            heading: "Sign Up",
-            subheading: "Create your account with secure, hassle-free onboarding.",
-        },
-        stashandearn: {
-            heading: "Stash and Earn",
-            subheading: "Watch your savings grow and earn rewards along the way.",
-        },
-        setgoals: {
-            heading: "Set Goals",
-            subheading: "Decide how much you want to save or invest.",
-        }
-    },
     benefitssection: {
         heading: "Benefits",
         subheading: "Our Offerings",
@@ -72,15 +21,6 @@ const data = {
                 title: "Direct integrations with your favorite tools",
                 description: "Cove syncs seamlessly with your bank accounts, ensuring you have complete control over your money without any extra effort."
             }
-        ]
-    },
-    gettoknowussection: {
-        heading: "Who We Are",
-        subheading: "Get to know us",
-        title: "Lorem ipsum dolor sit amet consectetur. Congue elementum id arcu consectetur tortor erat tortor egestas sit.",
-        list: [
-            "Nullam duis convallis sem cras scelerisque aliquam. Sodales volutpat pulvinar amet curabitur pellentesque vestibulum turpis a at. Suspendisse lorem nisi lobortis donec ornare feugiat penatibus egestas amet. Amet sit scelerisque enim volutpat adipiscing.",
-            "Nullam duis convallis sem cras scelerisque aliquam. Sodales volutpat pulvinar amet curabitur pellentesque vestibulum turpis a at. Suspendisse lorem nisi lobortis donec ornare feugiat penatibus egestas amet. Amet sit scelerisque enim volutpat adipiscing."
         ]
     },
     faqsection: {
@@ -105,37 +45,43 @@ const data = {
             },
         ]
     },
+};
 
-}
 const dataString = JSON.stringify(data, null, 2);
 
+export async function AiChatBotCall(content: string) {
+    const aiMsg = await llm.invoke([
+        {
+            role: 'assistant',
+            content: `
+                You are a polite and professional sales agent for Cove, a financial savings and investment platform. Your goal is to engage the customer, highlight the benefits of Cove, and gather information using the provided questions.
+
+                Start the conversation by courteously asking for the customer's phone number or email to follow up later, using a warm and human-like tone.
+
+                After their response, progress the conversation using the questions listed under "faqsection.list" in the following data: 
+                ${dataString}
+
+                Rules to follow:
+                - Use the "title" fields from "faqsection.list" as the questions to ask the customer, one at a time, in the order provided.
+                - When asking a question from the "faqsection.list" data, append the keyword "(complete)" at the end of the question. This is mandatory and must only be used for these specific questions.
+                - Do not ask questions outside of the "faqsection.list" titles or deviate from the provided list.
+                - Use the information from "benefitssection.list" naturally in the conversation to promote Cove and its features, but only when relevant to the customer’s responses or as a lead-in to the FAQ questions.
+                - If the customer provides their phone number or email, acknowledge it politely before moving to the next question.
+                - Always maintain a respectful, friendly, and professional tone, acting as a human sales agent would.
+                - Do not repeat questions unless clarification is needed based on the customer’s response.
+
+                Begin the conversation now.
+            `,
+        },
+        { role: "user", content: content },
+    ]);
+    return aiMsg;
+}
+
 const llm = new ChatGroq({
-    apiKey: process.env.OLLAMA_API_KEY,
-    model: "llama-3.1-70b-versatile", // Default value
+    apiKey: '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',
+    model: "llama-3.1-8b-instant",
     temperature: 0,
     maxRetries: 2,
 
 });
-
-export const aiMsg = await llm.invoke([
-    {
-        role: 'assistant',
-        content: `
-        You will get an data of questions that you must ask the customer. 
-        
-        Progress the conversation using those questions. 
-        
-        Whenever you ask a question from the data i need you to add a keyword at the end of the question (complete) this keyword is extremely important. 
-        
-        Do not forget it here the data of information ${dataString}
-
-        dont answer out of data
-        only add this keyword when your asking a question from the data of questions. No other question satisfies this condition
-
-        Always maintain character and stay respectfull.
-    `,
-    },
-    { role: "user", content: " what is hyderabad" },
-]);
-
-aiMsg;
