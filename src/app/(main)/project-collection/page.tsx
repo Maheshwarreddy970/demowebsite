@@ -26,32 +26,29 @@ export default function page() {
     };
     return (
         <section>
-            <div className=' w-full bg-[#aa8867] grid grid-cols-2 h-screen '>
+            <div className=' w-full bg-[#ede9cf] grid grid-cols-2 h-screen '>
                 <div className=' flex flex-col gap-28 pl-20 justify-center'>
-                    <div className=' flex items-center gap-2 '>
-                        <img src='/b79bf2b3-bd8b-410f-8022-7be6172fe960.svg' className=' size-24' alt='svg icon '></img>
-                        <div className='text-[1.75rem] text-[rgb(62,54,46)] tracking-tightest leading-none'>
-                            <span className=' font-semibold'>OAKWOOD</span>
-                            <br></br>
-                            <span className='font-thin'>
-                                ARCHITECTS
-                            </span>
-                        </div>
-                    </div>
-                    <h1 className=' text-[66px] leading-[1.2em] tracking-[-2px] text-left text-[rgb(62,54,46)] max-w-2xl'>Where housing innovation is shaped.</h1>
+
+                    <h1 className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[rgb(102,79,53)] max-w-xl'>Explore Our Interior Design Project Collection</h1>
                 </div>
                 <div className='h-full w-full relative'>
-                    <img className='  absolute left-0 top-0 w-full h-full object-cover   ' src='bWFZ6VKV9dQV7yjOspAjXxx0D4.avif'></img>
+                    <video
+                        className="absolute inset-0 w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    >
+                        <source src={'/b0MCHKyxCogsLlrolRnEnoL01I.mp4'} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
-            <div className='bg-[#3e362e] flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
-                <h1 className='text-[112px] tracking-[-6.8px] leading-[1em] text-[#AA8867] text-center'>Explore Journal</h1>
-                <p className='text-[1.5rem] max-w-2xl mx-auto tracking-[-0.0375rem] text-center text-[rgb(170,136,103)]'>
-                    Highlights of cases that we passionately built with forward-thinking clients and friends over the years.
-                </p>
-                <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10'>
+            <div className='bg-[#664f35] flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
+                <h1 className='text-[112px] font-semibold tracking-[-6.8px] leading-[1em] text-[rgb(170,136,103)] text-center'>Project Collection</h1>
+                <div className='grid lg:grid-cols-3 px-10 gap-6 mt-28'>
                     {articles.map((article, index) => (
-                        <div key={index} className='bg-white p-4'>
+                        <div key={index} className='bg-[rgb(170,136,103)] p-4'>
                             <div className='w-full h-[24.25rem]'>
                                 <motion.img
                                     variants={imageVariants}
@@ -69,16 +66,11 @@ export default function page() {
                         </div>
                     ))}
                 </div>
-                <div className=' flex  items-center justify-center'>
-                    <a className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-medium text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
-                        <Icons.ButtonIcon className=' size-5' ></Icons.ButtonIcon>
-                        Explore More
-                    </a>
-                </div>
+              
             </div>
             <section className=' bg-[#664f35] pt-36'>
-                <div className=' flex flex-col gap-6'>
-                    <h1 className=' text-[112px] tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</h1>
+            <div className=' flex flex-col gap-6 '>
+                    <h1 className=' text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</h1>
                     <TextRotate></TextRotate>
                 </div>
                 <AnimatedLogoCloud></AnimatedLogoCloud>
@@ -88,7 +80,7 @@ export default function page() {
 }
 
 
-const text = ['Hospitality','Showroom', 'Offices']
+const text = ['Hospitality', 'Showroom', 'Offices']
 
 const TextRotate = () => {
     const [index, setIndex] = useState(0)

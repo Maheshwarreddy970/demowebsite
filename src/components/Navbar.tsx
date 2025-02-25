@@ -41,7 +41,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className=' flex  items-center justify-center'>
-          <button onClick={() => setisMenuOpen(true)} className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-medium text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
+          <button onClick={() => setisMenuOpen(true)} className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-semibold text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
             <Icons.ButtonIcon className=' size-5' ></Icons.ButtonIcon>
             Menu
           </button>

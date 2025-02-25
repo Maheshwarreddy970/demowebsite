@@ -10,6 +10,9 @@ export default {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				bricolage: ["var(--font-bricolage)", "serif"], // Use the CSS variable
+			  },
 			keyframes: {
 				'logo-cloud': {
 				  from: { transform: 'translateX(0)' },
