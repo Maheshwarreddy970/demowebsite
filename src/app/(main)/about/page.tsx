@@ -1,6 +1,5 @@
 'use client'
 
-import { Icons } from '@/icons'
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -13,18 +12,53 @@ const images = [
     { src: '/6mVf040uObmMYQk0MdjLSZvyx6U.avif', x: ['0%', '130%'], y: ['0%', '-30%'], scale: 0.7 },
     { src: '/OrrgufLqjfZi9vZsEUQQEHmWXLA.avif', x: ['0%', '40%'], y: ['0%', '70%'], scale: 0.4 },
     { src: '/DErGBXCKfVwGZjfxm4iDjYawu9s.avif', x: ['0%', '100%'], y: ['0%', '40%'], scale: 0.5 },
-  ];
+];
+const awards = [
+    {
+        id: "01",
+        title: "2023 AIA Architecture Award",
+        description: "Recognized for innovative design of the Eco-Friendly Urban Housing Project.",
+    },
+    {
+        id: "02",
+        title: "RIBA Stirling Prize",
+        description: "Given by the Royal Institute of British Architects for the best new building in the UK.",
+    },
+    {
+        id: "03",
+        title: "Elle Decor International Design Awards",
+        description: "Celebrates exceptional interior design across various categories.",
+    }
+];
 
+
+const approaches = [
+    {
+        id: 1,
+        title: "The Human-Centric Approach",
+        description:
+            "Our team is passionate about creating spaces that enrich lives. With a deep understanding of human needs and desires, we design environments that inspire and connect.",
+    },
+    {
+        id: 2,
+        title: "The Design Philosophy Approach",
+        description:
+            "We believe architecture is a powerful tool for positive change. Our designs are rooted in sustainability, functionality, and aesthetic excellence.",
+    },
+    {
+        id: 3,
+        title: "The Impact-Driven Approach",
+        description:
+            "Our designs go beyond aesthetics. We strive to create spaces that enhance people's lives and contribute to a sustainable future.",
+    },
+];
 export default function page() {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
-    const imageVariants = {
-      hover: { borderRadius: 999, transition: { duration: 1, ease: 'easeInOut' } },
-      exit: { borderRadius: 0, transition: { duration: 0.8, ease: 'easeInOut' } },
-    };
+
     const scalecenter = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
     const opacitycenter = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  
+
     return (
         <section>
             <div className=' w-full bg-[rgb(102,79,53)]  grid grid-cols-2 h-screen '>
@@ -62,11 +96,7 @@ export default function page() {
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                     <div className="col-span-3 group p-4">
-                        <div className=' mt-10'>
-                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
-                        </div>
-                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
-                        <div className=' flex flex-col gap-6 mt-32'>
+                        <div className=' flex flex-col gap-6 mt-10'>
                             <div className="flex items-center gap-5 justify-start">
                                 <img
                                     src="/4b82a821-5705-4ea8-be11-a60951a0bebe.svg"
@@ -74,45 +104,171 @@ export default function page() {
                                     className="size-7"
                                 />
                                 <h1 className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(170,136,103)]">
-                                    Diversity of Expertise
+                                    Our Belief
                                 </h1>
                             </div>
-                            <p className='text-[24px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>Highlights of cases that we passionately built
-                                with forward- thinking clients and friends over
-                                the years.
+                            <p className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                                we believe that architecture is more than just structures; it's about crafting experiences and shaping environments.
                             </p>
-                            <div className=' mt-5 flex  items-center justify-start'>
-                                <a className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-semibold text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
-                                    <Icons.ButtonIcon className=' size-5' ></Icons.ButtonIcon>
-                                    Meet Team
-                                </a>
-                            </div>
                         </div>
+                        <div className=' mt-60'>
+                            <img src='/q01CbGPUmMmrTo4Ik80tuXaiIgE.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                        </div>
+                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
+
+                    </div>
+                </div>
+                <div className="grid grid-cols-7">
+                    <div className="col-span-3 group p-4">
+                        <div className=' mt-[40rem]'>
+                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='pr-20 w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                        </div>
+                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
+                    </div>
+                    <div className="col-span-4 mt-36 group flex flex-col items-end">
+                        <img src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover w-[80%]  '></img>
+                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
+                    </div>
+                </div>
+                <div className="grid grid-cols-7 mt-24">
+                    <div className="col-span-4 mt-14 group">
+                        <img src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full pr-20'></img>
+                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
+                    </div>
+                    <div className="col-span-3 group p-4">
+                        <div className=' flex flex-col gap-6 mt-10'>
+                            <div className="flex items-center gap-5 justify-start">
+                                <img
+                                    src="/4b82a821-5705-4ea8-be11-a60951a0bebe.svg"
+                                    alt="icon"
+                                    className="size-7"
+                                />
+                                <h1 className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(170,136,103)]">
+                                    Focus on sustainability
+                                </h1>
+                            </div>
+                            <p className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                                With a focus on sustainability, functionality, and aesthetic appeal, we strive to exceed expectations in every aspect of our work.
+                            </p>
+                        </div>
+                        <div className=' mt-96'>
+                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                        </div>
+                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
+
                     </div>
                 </div>
             </section>
-                <div ref={ref} className='h-[400vh] relative'>
-                    <div className='h-screen sticky overflow-hidden top-0 flex items-center justify-center'>
-                        {images.map((pos, index) => {
-                            const x = useTransform(scrollYProgress, [0, 1], pos.x);
-                            const y = useTransform(scrollYProgress, [0, 1], pos.y);
-                            const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
-                            return (
-                                <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
-                                    <img className='object-cover h-full w-full' src={pos.src} alt='image' />
-                                </motion.div>
-                            );
-                        })}
-                        <motion.div
-                            style={{ scale: scalecenter, opacity: opacitycenter }}
-                            transition={{ duration: 0.5, ease: 'easeInOut', stiffness: 200, type: 'spring' }}
-                            className='w-[27rem]' >
-                            <h1 className=' text-[66px] font-bold tracking-[-0.01em] leading-[1em] text-center text-[rgb(102,79,53)]'>Designing Excellence
-                                Worldwide</h1>
-                            <p className='tracking-[-0.02em] font-semibold text-center text-wrap  mt-5 text-[rgb(170,136,103)] '>A global leader in high-end architecture, known for our commitment to excellence, sustainability, and transformative designs that inspire and endure.</p>
-                        </motion.div>
-                    </div>
+            <div className="px-[60px] py-36 bg-[#ede9cf]">
+                <div className=' px-20'>
+                    <h1 className=' font-semibold text-[112px] tracking-[-2.6px] leading-[1em] text-left text-[#aa8867]'>Our Approach</h1>
+                    <p className=' font-semibold text-left text-[#aa8867] pl-5 text-3xl max-w-4xl'>At Oakwood Architects, we believe that design should be both functional and inspiring. </p>
                 </div>
+                <div className=' grid grid-cols-3 gap-6 max-w-6xl mx-auto mt-20'>
+                    {
+                        approaches.map((approach) => (
+                            <div className='bg-[#664f35] py-8 px-12  w-full' key={approach.id}>
+                                <h1 className='text-[11rem] font-bold text-[#ede9cf]'>{approach.id}</h1>
+                                <h1 className='text-[24px] text-[#ede9cf]'>{approach.title}</h1>
+                                <p className='text-[rgb(204,161,118)] mt-2 '>{approach.description}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+            <div className="bg-[#3e362e] py-[160px] px-[40px]">
+                <h2 className=' ml-20  font-bold  text-8xl text-left text-[rgb(170,136,103)]'>Awards and
+                    <br></br>
+                    Recognition</h2>
+                <AnimatedLogoCloud></AnimatedLogoCloud>
+                <div className="mt-24">
+                    {awards.map((award) => (
+                        <div key={award.id} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[rgb(170,136,103)]">
+                            <div className="col-span-1 text-[60px] tracking-[-2.2px] text-center text-[rgb(170,136,103)]">
+                                {award.id}
+                            </div>
+                            <div className="col-span-1 text-[50px] tracking-[-2.2px] text-left text-[rgb(170,136,103)]">
+                                {award.title}
+                            </div>
+                            <div className="col-span-2 text-[18px] tracking-[0.2px] text-left text-[rgb(170,136,103)]">
+                                {award.description}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div ref={ref} className='h-[400vh] relative'>
+                <div className='h-screen sticky overflow-hidden top-0 flex items-center justify-center'>
+                    {images.map((pos, index) => {
+                        const x = useTransform(scrollYProgress, [0, 1], pos.x);
+                        const y = useTransform(scrollYProgress, [0, 1], pos.y);
+                        const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
+                        return (
+                            <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
+                                <img className='object-cover h-full w-full' src={pos.src} alt='image' />
+                            </motion.div>
+                        );
+                    })}
+                    <motion.div
+                        style={{ scale: scalecenter, opacity: opacitycenter }}
+                        transition={{ duration: 0.5, ease: 'easeInOut', stiffness: 200, type: 'spring' }}
+                        className='w-[27rem]' >
+                        <h1 className=' text-[66px] font-bold tracking-[-0.01em] leading-[1em] text-center text-[rgb(102,79,53)]'>Designing Excellence
+                            Worldwide</h1>
+                        <p className='tracking-[-0.02em] font-semibold text-center text-wrap  mt-5 text-[rgb(170,136,103)] '>A global leader in high-end architecture, known for our commitment to excellence, sustainability, and transformative designs that inspire and endure.</p>
+                    </motion.div>
+                </div>
+            </div>
         </section>
+    )
+}
+
+const logos = [
+    {
+        name: 'Vercel',
+        url: '427fa326-b014-4938-9c77-4916aec8dade.svg',
+    },
+    {
+        name: 'Nextjs',
+        url: 'cfbf7305-dab6-43f6-b82f-04638740642b.svg',
+    },
+    {
+        name: 'Prime',
+        url: 'e65bbfbb-df3d-4500-a847-7e6589a356e3.svg',
+    }
+
+]
+
+const AnimatedLogoCloud = () => {
+    return (
+        <div className="w-full py-12">
+            <div className="mx-auto w-full px-4 md:px-8">
+                <div
+                    className="group relative mt-6 flex gap-6 overflow-hidden p-2"
+                    style={{
+                        maskImage:
+                            'linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 95%)',
+                    }}
+                >
+                    {Array.from({ length: 5 }, (_, i) => (
+                        <div
+                            key={i} // Ensure each outer div has a unique key
+                            className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-6"
+                        >
+                            {logos.map((logo) => (
+                                <div key={logo.name} className='bg-[rgb(170,136,103)] flex items-center gap-[10px] h-[213px] justify-center relative w-[213px] p-8'>
+                                    <img
+                                        src={logo.url}
+                                        className="brightness-0 dark:invert"
+                                        alt={`${logo.name}`}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     )
 }

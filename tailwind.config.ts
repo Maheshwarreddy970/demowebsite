@@ -20,7 +20,7 @@ export default {
 				},
 			  },
 			  animation: {
-				'logo-cloud': 'logo-cloud 5s linear infinite',
+				'logo-cloud': 'logo-cloud 10s linear infinite',
 			  },
 			colors: {
 				
