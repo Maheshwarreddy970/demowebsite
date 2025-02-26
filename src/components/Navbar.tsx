@@ -62,7 +62,7 @@ export default function Navbar() {
               <div className="text-[rgb(170,136,103)] ">
                 <p className=' text-xs'><span className=' text-lg'>© 2024</span><br></br> Aurum Company. All rights reserved.</p>
               </div>
-              <div className="relative flex flex-col items-center justify-center w-[310px] h-[184px] overflow-hidden rounded-[16px]">
+              <div className="relative flex mt-5 flex-col items-center justify-center w-[310px] h-[184px] overflow-hidden rounded-[16px]">
                 {/* Background Image */}
                 <img
                   src="xY2ltysjjeDPAv2h8IdjICqEio_1.png"
