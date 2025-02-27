@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Icons } from '@/icons';
+import { TextAnimate } from '../ui/text-animate';
 
 const images = [
   { src: '/RuMqGgeq1yJlrDGasQTyq8Ii9I.avif', x: ['0%', '-70%'], y: ['0%', '-80%'], scale: 0.4 },
@@ -17,17 +18,35 @@ const images = [
 
 const articles = [
   {
-    src: '/istockphoto-1405772777-612x612.jpg',
-    title: 'The concept of biophilia—human beings\' inherent connection to nature.',
+      src: '/istockphoto-1405772777-612x612.jpg',
+      title: 'The concept of biophilia—human beings\' inherent connection to nature.',
+      href: '/journal/the-meadow-house'
   },
   {
-    src: '/xY2ltysjjeDPAv2h8IdjICqEio_1.png',
-    title: 'Smart Homes and Buildings: Integrating Technology and Design',
+      src: '/xY2ltysjjeDPAv2h8IdjICqEio_1.png',
+      title: 'Smart Homes and Buildings: Integrating Technology and Design',
+      href: '/journal/the-meadow-house'
   },
   {
-    src: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
-    title: 'Wellness-Centric Design: Creating Healthy Interiors',
-  }
+      src: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
+      title: 'Wellness-Centric Design: Creating Healthy Interiors',
+      href: '/journal/the-meadow-house'
+  },
+  {
+      src: '/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif',
+      title: 'Cultural Heritage and Interior Design: Preserving History',
+      href: '/journal/the-meadow-house'
+  },
+  {
+      src: '/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif',
+      title: 'The Future of Workspaces: Trends and Innovations',
+      href: '/journal/the-meadow-house'
+  },
+  {
+      src: '/LplpVPUpxDHnVTfRW8XsfQNw.avif',
+      title: 'Sustainable Spaces: Eco-Friendly Design Solutions',
+      href: '/journal/the-meadow-house'
+  },
 ];
 
 export default function ExploreSections() {
@@ -65,13 +84,13 @@ export default function ExploreSections() {
         </div>
       </div>
       <div className=' bg-[#3e362e] flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
-        <h1 className='text-[112px]  tracking-[-6.8px] leading-[1em] text-[#AA8867] text-center'>Explore Journal</h1>
-        <p className='text-[1.5rem] max-w-2xl mx-auto tracking-[-0.0375rem] text-center text-[rgb(170,136,103)]'>
+        <TextAnimate animation="slideLeft" by="character" className='text-[112px]  tracking-[-6.8px] leading-[1em] text-[#AA8867] text-center'>Explore Journal</TextAnimate>
+        <TextAnimate animation="fadeIn" by="line" as="p" className='text-[1.5rem] max-w-2xl mx-auto tracking-[-0.0375rem] text-center text-[rgb(170,136,103)]'>
           Highlights of cases that we passionately built with forward-thinking clients and friends over the years.
-        </p>
+        </TextAnimate>
         <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10'>
           {articles.map((article, index) => (
-            <div key={index} className='bg-white p-4'>
+            <motion.div viewport={{once:true}} initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} transition={{duration:0.7,delay:index*0.2,ease:'easeInOut',type:'spring',stiffness:200}} key={index} className='bg-white p-4'>
               <div className='w-full h-[24.25rem]'>
                 <motion.img
                   variants={imageVariants}
@@ -83,10 +102,10 @@ export default function ExploreSections() {
                 />
               </div>
               <h1 className='text-[22px] mt-5 leading-7 text-left'>{article.title}</h1>
-              <a href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
+              <a href={article.href} className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
                 <Icons.ButtonIcon className='size-[1.12rem]' />Read
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className=' mt-5 flex  items-center justify-center'>

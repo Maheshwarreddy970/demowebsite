@@ -3,32 +3,39 @@
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { Icons } from '@/icons';
 import React, { useRef } from 'react'
+import { TextAnimate } from '@/components/ui/text-animate';
 
 
 const articles = [
     {
         src: '/istockphoto-1405772777-612x612.jpg',
         title: 'The concept of biophilia—human beings\' inherent connection to nature.',
+        href: '/journal/the-meadow-house'
     },
     {
         src: '/xY2ltysjjeDPAv2h8IdjICqEio_1.png',
         title: 'Smart Homes and Buildings: Integrating Technology and Design',
+        href: '/journal/the-meadow-house'
     },
     {
         src: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
         title: 'Wellness-Centric Design: Creating Healthy Interiors',
+        href: '/journal/the-meadow-house'
     },
     {
         src: '/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif',
         title: 'Cultural Heritage and Interior Design: Preserving History',
+        href: '/journal/the-meadow-house'
     },
     {
         src: '/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif',
         title: 'The Future of Workspaces: Trends and Innovations',
+        href: '/journal/the-meadow-house'
     },
     {
         src: '/LplpVPUpxDHnVTfRW8XsfQNw.avif',
         title: 'Sustainable Spaces: Eco-Friendly Design Solutions',
+        href: '/journal/the-meadow-house'
     },
 ];
 
@@ -57,10 +64,9 @@ export default function page() {
         <section>
             <div className=' w-full bg-[rgb(102,79,53)]  grid grid-cols-2 h-screen '>
                 <div className=' flex flex-col gap-28 pl-20 justify-center'>
-
-                    <h1 className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[#ede9cf] max-w-xl'>
+                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[#ede9cf] max-w-xl'>
                         Interior Design Journal: Crafting Meaningful Spaces
-                    </h1>
+                    </TextAnimate>
                 </div>
                 <div className='h-full w-full relative'>
                     <video
@@ -76,10 +82,11 @@ export default function page() {
                 </div>
             </div>
             <div className=' bg-[#AA8867]  flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
-                <h1 className='text-[112px] ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Journals</h1>
+                <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Journals</TextAnimate>
                 <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10'>
                     {articles.map((article, index) => (
-                        <div key={index} className='bg-white p-4'>
+                        <motion.div
+                            viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>
                             <div className='w-full h-[24.25rem]'>
                                 <motion.img
                                     variants={imageVariants}
@@ -91,10 +98,10 @@ export default function page() {
                                 />
                             </div>
                             <h1 className='text-[22px] mt-5 leading-7 text-left'>{article.title}</h1>
-                            <a href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
+                            <a href={article.href} className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
                                 <Icons.ButtonIcon className='size-[1.12rem]' />Read
                             </a>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

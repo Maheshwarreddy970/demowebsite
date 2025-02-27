@@ -1,78 +1,150 @@
-import React from 'react'
+import React from 'react';
+import { TextAnimate } from '../ui/text-animate';
+import data from '@/lib/data.json'
 
-export default function Worksections() {
-    return (
-        <>
-            <section className='flex flex-col  bg-white overflow-hidden gap-[100px]   w-full h-min py-[3.7rem] pr-[5rem] pl-[10rem]  mx-auto relative'>
-                <h1 className='text-[112px] mt-28 tracking-[-4px] text-left font-semibold leading-[1em] text-[rgb(170,136,103)]'> Work Collection
-                </h1>
-                <div className="grid grid-cols-7">
-                    <div className="col-span-4 mt-14 group ">
-                    <img src='/Y1SlBye7bzROKCM4Z8mb5VbHg.avif' className=' h-[45rem]  group-hover:block hidden object-cover w-full pr-20 ' alt='sofa'></img>
-                        <img src='/CtqdgxpGYO4WFK0ftEeQyDERY0w.avif' className=' h-[45rem]  group-hover:hidden object-cover w-full pr-20'></img>
-                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
-                    </div>
-                    <div className="col-span-3 group p-4">
-                        <div className=' flex flex-col gap-6'>
-                            <div className="flex mt-20 items-center gap-6 justify-start">
-                                <img
-                                    src="/41328140-da2b-4d17-9f32-4ee3288447e1.svg"
-                                    alt="icon"
-                                    className="size-7"
-                                />
+export default function WorkSections() {
+  const { work_collection, work_collection_footer } = data;
 
-                                <h1 className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(102,79,53)]">
-                                    Featured Projects
-                                </h1>
-                            </div>
-                            <p className='text-[24px] font-medium pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>Highlights of cases that we passionately built
-                                with forward- thinking clients and friends over
-                                the years.
-                            </p>
-                        </div>
-                        <div className=' mt-80 group'>
-                                <img src='/MrwrMt2iox7UPFuxfxwQoOg4s.avif' className='hidden h-[36rem] transition-all duration-150 ease-in-out group-hover:block w-full  object-cover ' alt='sofa'></img>
-                            <img src='/TTdNsUIJ7hNa3fW196hmNHfRznM.png' className='w-full group-hover:hidden h-[36rem]  object-cover ' alt='sofa'></img>
-                        </div>
-                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
-                    </div>
+  return (
+    <>
+      <section className='flex flex-col bg-white overflow-hidden gap-[100px] w-full h-min py-[3.7rem] pr-[5rem] pl-[10rem] mx-auto relative'>
+        <TextAnimate 
+          animation="slideLeft" 
+          by="character" 
+          className='text-[112px] mt-28 tracking-[-4px] text-left font-semibold leading-[1em] text-[rgb(170,136,103)]'
+        >
+          {work_collection.title}
+        </TextAnimate>
 
+        <div className="grid grid-cols-7">
+          <a href={work_collection.projects[0].link} className="col-span-4 mt-14 group">
+            <img 
+              src={work_collection.projects[0].images[0]} 
+              className='h-[45rem] group-hover:block hidden object-cover w-full pr-20' 
+              alt='project'
+            />
+            <img 
+              src={work_collection.projects[0].images[1]} 
+              className='h-[45rem] group-hover:hidden object-cover w-full pr-20' 
+              alt='project'
+            />
+            <TextAnimate 
+              animation="slideLeft" 
+              by="character" 
+              className='text-xl font-medium mt-2 group-hover:font-semibold'
+            >
+              {work_collection.projects[0].name}
+            </TextAnimate>
+          </a>
 
-                </div>
-                <div className="grid grid-cols-7">
-                    <div className="col-span-3 pr-7 group mt-[34rem]">
-                        <img src='/xY2ltysjjeDPAv2h8IdjICqEio_1.png' className=' transition-all duration-150 ease-in-out group-hover:hidden w-full h-[36rem]  object-cover ' alt='sofa'></img>
-                        <img src='/apr1iyeVu0giJ4G3Ouvu0nDGOmE.avif' className=' hidden transition-all duration-150 ease-in-out group-hover:block w-full h-[36rem]  object-cover ' alt='sofa'></img>
-                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>Scorpia</h1>
-
-                    </div>
-                    <div className="col-span-4  mt-20 group ml-24   overflow-hidden">
-                        <img src='/fpSz08cqO9CONW7pXT8QyafavKA_1.png' className=' h-[45rem]  w-full transition-all duration-150 ease-in-out group-hover:hidden object-cover '></img>
-                        <img src='/MOLE-ARCHITECTS-HOUSEBOAT-AT-WEB-phRoryGardiner001.jpg' className=' h-[45rem]  hidden transition-all duration-150 ease-in-out group-hover:block w-full  object-cover ' alt='sofa'></img>
-                        <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>Dovecote</h1>
-                    </div>
-                </div>
-            </section>
-            <div className=' w-full bg-[#aa8867] grid grid-cols-2 h-screen '>
-                <div className=' flex flex-col gap-28 pl-20 justify-center'>
-                    <div className=' flex items-center gap-2 '>
-                        <img src='/b79bf2b3-bd8b-410f-8022-7be6172fe960.svg' className=' size-24' alt='svg icon '></img>
-                        <div className='text-[1.75rem] text-[rgb(62,54,46)] tracking-tightest leading-none'>
-                            <span className=' font-semibold'>OAKWOOD</span>
-                            <br></br>
-                            <span className='font-thin'>
-                                ARCHITECTS
-                            </span>
-                        </div>
-                    </div>
-                    <h1 className=' text-[66px] font-semibold leading-[1.2em] tracking-[-4px] text-left text-[rgb(62,54,46)] max-w-2xl'>Where housing innovation is shaped.</h1>
-                </div>
-                <div className='h-full w-full relative'>
-                    <img className='  absolute left-0 top-0 w-full h-full object-cover   ' src='bWFZ6VKV9dQV7yjOspAjXxx0D4.avif'></img>
-                </div>
+          <div className="col-span-3 group p-4">
+            <div className='flex flex-col gap-6'>
+              <div className="flex mt-20 items-center gap-6 justify-start">
+                <img
+                  src={work_collection.featured_projects.icon}
+                  alt="icon"
+                  className="size-7"
+                />
+                <TextAnimate 
+                  animation="slideLeft" 
+                  by="character" 
+                  className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(102,79,53)]"
+                >
+                  {work_collection.featured_projects.title}
+                </TextAnimate>
+              </div>
+              <TextAnimate 
+                animation="fadeIn" 
+                by="line" 
+                as="p" 
+                className='text-[24px] font-medium pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'
+              >
+                {work_collection.featured_projects.description}
+              </TextAnimate>
             </div>
+            <a href={work_collection.projects[1].link} className='mt-80 group'>
+              <img 
+                src={work_collection.projects[1].images[0]} 
+                className='hidden h-[36rem] transition-all duration-150 ease-in-out group-hover:block w-full object-cover' 
+                alt='project'
+              />
+              <img 
+                src={work_collection.projects[1].images[1]} 
+                className='w-full group-hover:hidden h-[36rem] object-cover' 
+                alt='project'
+              />
+            </a>
+            <h1 className='text-xl font-medium mt-2 group-hover:font-semibold'>
+              {work_collection.projects[1].name}
+            </h1>
+          </div>
+        </div>
 
-        </>
+        <div className="grid grid-cols-7">
+          <a href={work_collection.projects[2].link} className="col-span-3 pr-7 group mt-[34rem]">
+            <img 
+              src={work_collection.projects[2].images[0]} 
+              className='transition-all duration-150 ease-in-out group-hover:hidden w-full h-[36rem] object-cover' 
+              alt='project'
+            />
+            <img 
+              src={work_collection.projects[2].images[1]} 
+              className='hidden transition-all duration-150 ease-in-out group-hover:block w-full h-[36rem] object-cover' 
+              alt='project'
+            />
+            <h1 className='text-xl font-medium mt-2 group-hover:font-semibold'>
+              {work_collection.projects[2].name}
+            </h1>
+          </a>
 
-    )
+          <a href={work_collection.projects[3].link} className="col-span-4 mt-20 group ml-24 overflow-hidden">
+            <img 
+              src={work_collection.projects[3].images[0]} 
+              className='h-[45rem] w-full transition-all duration-150 ease-in-out group-hover:hidden object-cover' 
+              alt='project'
+            />
+            <img 
+              src={work_collection.projects[3].images[1]} 
+              className='h-[45rem] hidden transition-all duration-150 ease-in-out group-hover:block w-full object-cover' 
+              alt='project'
+            />
+            <h1 className='text-xl font-medium mt-2 group-hover:font-semibold'>
+              {work_collection.projects[3].name}
+            </h1>
+          </a>
+        </div>
+      </section>
+
+      <div className='w-full bg-[#aa8867] grid grid-cols-2 h-screen'>
+        <div className='flex flex-col gap-28 pl-20 justify-center'>
+          <div className='flex items-center gap-2'>
+            <img 
+              src={work_collection_footer.company.logo} 
+              className='size-24' 
+              alt='logo'
+            />
+            <div className='text-[1.75rem] text-[rgb(62,54,46)] tracking-tightest leading-none'>
+              <span className='font-semibold'>{work_collection_footer.company.name.split(' ')[0]}</span>
+              <br />
+              <span className='font-thin'>{work_collection_footer.company.name.split(' ')[1]}</span>
+            </div>
+          </div>
+          <TextAnimate 
+            animation="slideUp" 
+            by="word" 
+            className='text-[66px] font-semibold leading-[1.2em] tracking-[-4px] text-left text-[rgb(62,54,46)] max-w-2xl'
+          >
+            {work_collection_footer.company.tagline}
+          </TextAnimate>
+        </div>
+        <div className='h-full w-full relative'>
+          <img 
+            className='absolute left-0 top-0 w-full h-full object-cover' 
+            src={work_collection_footer.image} 
+            alt='footer background'
+          />
+        </div>
+      </div>
+    </>
+  );
 }

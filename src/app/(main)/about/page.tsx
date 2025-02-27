@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { TextAnimate } from '@/components/ui/text-animate';
 
 const images = [
     { src: '/RuMqGgeq1yJlrDGasQTyq8Ii9I.avif', x: ['0%', '-70%'], y: ['0%', '-80%'], scale: 0.4 },
@@ -64,9 +65,9 @@ export default function page() {
             <div className=' w-full bg-[rgb(102,79,53)]  grid grid-cols-2 h-screen '>
                 <div className=' flex flex-col gap-28 pl-20 justify-center'>
 
-                    <h1 className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[#ede9cf] max-w-xl'>
+                    <TextAnimate animation="slideLeft"  className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[#ede9cf] max-w-xl'>
                         About Oakwood Architects: Crafting Spaces with Purpose
-                    </h1>
+                    </TextAnimate>
                 </div>
                 <div className='h-full w-full relative'>
                     <video
@@ -82,14 +83,14 @@ export default function page() {
                 </div>
             </div>
             <section className='flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] pr-[5rem] pl-[10rem]  mx-auto relative'>
-                <div className=" font-semibold max-w-xl text-[112px] tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
+                <TextAnimate animation="slideLeft" by="character" className=" font-semibold max-w-xl text-[112px] tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
                 >
                     Our talented
                     team
-                </div>
-                <p className='text-[24px] font-medium max-w-2xl pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                </TextAnimate>
+                <TextAnimate animation="slideLeft" className='text-[24px] font-medium max-w-2xl pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
                     A world-class team of architects, designers, and visionaries dedicated to creating timeless, innovative spaces around the globe.
-                </p>
+                </TextAnimate>
                 <div className="grid grid-cols-7">
                     <div className="col-span-4 mt-14 group">
                         <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full pr-20'></img>
@@ -103,13 +104,13 @@ export default function page() {
                                     alt="icon"
                                     className="size-7"
                                 />
-                                <h1 className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(170,136,103)]">
+                                <TextAnimate animation="slideLeft" by="character" className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(170,136,103)]">
                                     Our Belief
-                                </h1>
+                                </TextAnimate>
                             </div>
-                            <p className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                            <TextAnimate animation="slideLeft" className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
                                 we believe that architecture is more than just structures; it's about crafting experiences and shaping environments.
-                            </p>
+                            </TextAnimate>
                         </div>
                         <div className=' mt-60'>
                             <img src='/q01CbGPUmMmrTo4Ik80tuXaiIgE.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
@@ -143,13 +144,13 @@ export default function page() {
                                     alt="icon"
                                     className="size-7"
                                 />
-                                <h1 className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(170,136,103)]">
+                                <TextAnimate animation="slideLeft" by="character" className="text-[24px] font-semibold tracking-[-1px] text-left text-[rgb(170,136,103)]">
                                     Focus on sustainability
-                                </h1>
+                                </TextAnimate>
                             </div>
-                            <p className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                            <TextAnimate animation="slideLeft" className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
                                 With a focus on sustainability, functionality, and aesthetic appeal, we strive to exceed expectations in every aspect of our work.
-                            </p>
+                            </TextAnimate>
                         </div>
                         <div className=' mt-96'>
                             <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
@@ -161,29 +162,31 @@ export default function page() {
             </section>
             <div className="px-[60px] py-36 bg-[#ede9cf]">
                 <div className=' px-20'>
-                    <h1 className=' font-semibold text-[112px] tracking-[-2.6px] leading-[1em] text-left text-[#aa8867]'>Our Approach</h1>
-                    <p className=' font-semibold text-left text-[#aa8867] pl-5 text-3xl max-w-4xl'>At Oakwood Architects, we believe that design should be both functional and inspiring. </p>
+                    <TextAnimate animation="slideLeft" by="character" className=' font-semibold text-[112px] tracking-[-2.6px] leading-[1em] text-left text-[#aa8867]'>Our Approach</TextAnimate>
+                    <TextAnimate animation="slideLeft" className='mt-3 font-semibold text-left text-[#aa8867] pl-5 text-3xl max-w-4xl'>At Oakwood Architects, we believe that design should be both functional and inspiring. </TextAnimate>
                 </div>
                 <div className=' grid grid-cols-3 gap-6 max-w-6xl mx-auto mt-20'>
                     {
-                        approaches.map((approach) => (
-                            <div className='bg-[#664f35] py-8 px-12  w-full' key={approach.id}>
+                        approaches.map((approach, index) => (
+                            <motion.div 
+                            viewport={{once:true}} initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} transition={{duration:0.7,delay:index*0.2,ease:'easeInOut',type:'spring',stiffness:200}} className='bg-[#664f35] py-8 px-12  w-full' key={approach.id}>
                                 <h1 className='text-[11rem] font-bold text-[#ede9cf]'>{approach.id}</h1>
                                 <h1 className='text-[24px] text-[#ede9cf]'>{approach.title}</h1>
                                 <p className='text-[rgb(204,161,118)] mt-2 '>{approach.description}</p>
-                            </div>
+                            </motion.div>
                         ))
                     }
                 </div>
             </div>
             <div className="bg-[#3e362e] py-[160px] px-[40px]">
-                <h2 className=' ml-20  font-bold  text-8xl text-left text-[rgb(170,136,103)]'>Awards and
-                    <br></br>
-                    Recognition</h2>
+                <TextAnimate animation="slideLeft" by="character"  className=' max-w-xl ml-20  font-bold  text-8xl text-left text-[rgb(170,136,103)]'>Awards and
+            
+                    Recognition</TextAnimate>
                 <AnimatedLogoCloud></AnimatedLogoCloud>
                 <div className="mt-24">
-                    {awards.map((award) => (
-                        <div key={award.id} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[rgb(170,136,103)]">
+                    {awards.map((award,index) => (
+                        <motion.div 
+                                                 viewport={{once:true}} initial={{opacity:0,y:50}} whileInView={{opacity:1,y:0}} transition={{duration:0.7,delay:index*0.2,ease:'easeInOut',type:'spring',stiffness:200}} key={award.id} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[rgb(170,136,103)]">
                             <div className="col-span-1 text-[60px] tracking-[-2.2px] text-center text-[rgb(170,136,103)]">
                                 {award.id}
                             </div>
@@ -193,7 +196,7 @@ export default function page() {
                             <div className="col-span-2 text-[18px] tracking-[0.2px] text-left text-[rgb(170,136,103)]">
                                 {award.description}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

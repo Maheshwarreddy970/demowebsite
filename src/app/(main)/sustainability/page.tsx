@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Icons } from '@/icons';
+import { TextAnimate } from '@/components/ui/text-animate';
 
 const data = [
     {
@@ -46,9 +47,9 @@ export default function page() {
         <section>
             <div className=' w-full bg-[#0c652d]  grid grid-cols-2 h-screen '>
                 <div className=' flex flex-col gap-28 pl-20 justify-center'>
-                    <h1 className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[rgb(129,201,149)] max-w-xl'>
+                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[rgb(129,201,149)] max-w-xl'>
                         Sustainable Architecture: The Future of Green Building
-                    </h1>
+                    </TextAnimate>
                 </div>
                 <div className='h-full w-full relative'>
                     <video
@@ -64,10 +65,11 @@ export default function page() {
                 </div>
             </div>
             <div className=' bg-[rgb(129,201,149)] text-[#0c652d] px-16 py-28'>
-                <h1 className='text-[50px] font-bold max-w-2xl tracking-[-2.2px] text-left text-[rgb(12,101,45)]'>Sustainability main pillars for a responsible construction</h1>
+                <TextAnimate animation="slideLeft" className='text-[50px] font-bold max-w-2xl tracking-[-2.2px] text-left text-[rgb(12,101,45)]'>Sustainability main pillars for a responsible construction</TextAnimate>
                 <div className="mt-24">
-                    {data.map((award) => (
-                        <div key={award.id} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[#0c652d]">
+                    {data.map((award, index) => (
+                        <motion.div
+                                                    viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[#0c652d]">
                             <div className="col-span-1 text-[60px] tracking-[-2.2px] text-center text-[#0c652d]">
                                 {award.id}
                             </div>
@@ -77,15 +79,16 @@ export default function page() {
                             <div className="col-span-2 text-[18px] tracking-[0.2px] text-left text-[#0c652d]">
                                 {award.description}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
             <div className=' bg-[rgb(244,239,235)] py-36'>
-                <h1 className=' font-bold px-14 text-[112px] tracking-[-0.04em] leading-[1.4em] text-[rgb(51,51,51)]'>Sustainability                </h1>
+                <TextAnimate animation="slideLeft" by="character" className=' font-bold px-14 text-[112px] tracking-[-0.04em] leading-[1.4em] text-[rgb(51,51,51)]'>Sustainability                </TextAnimate>
                 <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10 '>
                     {articles.map((article, index) => (
-                        <div key={index} className='bg-white p-4'>
+                        <motion.div
+                            viewport={{ once: true }} initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>
                             <div className='w-full h-[24.25rem]'>
                                 <motion.img
                                     variants={imageVariants}
@@ -100,7 +103,7 @@ export default function page() {
                             <a href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
                                 <Icons.ButtonIcon className='size-[1.12rem]' />Read
                             </a>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

@@ -8,12 +8,12 @@ import Worksections from "@/components/landingpage/Worksections";
 
 export default function Home() {
   return (
-    <section>
+    <>
       <Heroserction></Heroserction>
       <Worksections></Worksections>
       <Desgines></Desgines>
       <Exploresections></Exploresections>
       <Team></Team>
-    </section>
+    </>
   );
 }
