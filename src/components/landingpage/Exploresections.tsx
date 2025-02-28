@@ -61,27 +61,27 @@ export default function ExploreSections() {
 
   return (
     <section>
-      <div ref={ref} className='h-[400vh]  relative '>
-        <div className='h-screen sticky left-0 overflow-hidden top-0 flex items-center justify-center'>
-          {images.map((pos, index) => {
-            const x = useTransform(scrollYProgress, [0, 1], pos.x);
-            const y = useTransform(scrollYProgress, [0, 1], pos.y);
-            const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
-            return (
-              <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
-                <img className='object-cover h-full w-full' src={pos.src} alt='image' />
-              </motion.div>
-            );
-          })}
-          <motion.div
-            style={{ scale: scalecenter, opacity: opacitycenter }}
-            transition={{ duration: 0.5, ease: 'easeInOut', stiffness: 200, type: 'spring' }}
-            className='w-[27rem]' >
-            <h1 className=' text-[66px] font-bold tracking-[-0.01em] leading-[1em] text-center text-[rgb(102,79,53)]'>Designing Excellence
-              Worldwide</h1>
-            <p className='tracking-[-0.02em] font-semibold text-center text-wrap  mt-5 text-[rgb(170,136,103)] '>A global leader in high-end architecture, known for our commitment to excellence, sustainability, and transformative designs that inspire and endure.</p>
-          </motion.div>
-        </div>
+      <div ref={ref} className="w-full relative h-[400vh] ">
+          <div className=" h-screen sticky top-0 left-0 flex items-center justify-center  overflow-hidden">
+            {images.map((pos, index) => {
+              const x = useTransform(scrollYProgress, [0, 1], pos.x);
+              const y = useTransform(scrollYProgress, [0, 1], pos.y);
+              const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
+              return (
+                <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
+                  <img className='object-cover h-full w-full' src={pos.src} alt='image' />
+                </motion.div>
+              );
+            })}
+            <motion.div
+              style={{ scale: scalecenter, opacity: opacitycenter }}
+              transition={{ duration: 0.5, ease: 'easeInOut', stiffness: 200, type: 'spring' }}
+              className='w-[27rem]' >
+              <h1 className=' text-[66px] font-bold tracking-[-0.01em] leading-[1em] text-center text-[rgb(102,79,53)]'>Designing Excellence
+                Worldwide</h1>
+              <p className='tracking-[-0.02em] font-semibold text-center text-wrap  mt-5 text-[rgb(170,136,103)] '>A global leader in high-end architecture, known for our commitment to excellence, sustainability, and transformative designs that inspire and endure.</p>
+            </motion.div>
+          </div>
       </div>
       <div className=' bg-[#3e362e] flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
         <TextAnimate animation="slideLeft" by="character" className='text-[112px]  tracking-[-6.8px] leading-[1em] text-[#AA8867] text-center'>Explore Journal</TextAnimate>
@@ -115,6 +115,7 @@ export default function ExploreSections() {
           </a>
         </div>
       </div>
+
     </section>
   );
 }

@@ -170,7 +170,7 @@ export function FamilyButtonDemo() {
         }
     };
     return (
-        <div className=" w-full  h-full min-h-[240px] z-[50]">
+        <div className=" z-[50]">
             <div className="fixed  bottom-4 right-4 z-[50]">
                 <FamilyButton>
                     {/* Header */}
@@ -189,7 +189,7 @@ export function FamilyButtonDemo() {
 
                     <ScrollArea className="h-[80%] w-full px-3 ">
                         {messages.map((msg, index) => (
-                            <div key={index} className={cn(`flex ${msg.isBot ? "justify-start" : "justify-end"}`,index===messages.length-1 && "mb-20")}>
+                            <div key={index} className={cn(`flex ${msg.isBot ? "justify-start" : "justify-end"}`,index===messages.length-1 && "mb-20",index===0 && "mt-20")}>
                                 <div
                                     className={`max-w-[80%]  shadow px-4 py-1.5 ${msg.isBot ? "bg-gray-100 text-gray-800 rounded-r-3xl rounded-tl-3xl" : "bg-[rgb(170,136,103)] text-white rounded-s-3xl  rounded-tr-3xl"}`}
                                 >
