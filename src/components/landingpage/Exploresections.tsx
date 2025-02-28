@@ -62,33 +62,33 @@ export default function ExploreSections() {
   return (
     <section>
       <div ref={ref} className="w-full relative h-[400vh] ">
-          <div className=" h-screen sticky top-0 left-0 flex items-center justify-center  overflow-hidden">
-            {images.map((pos, index) => {
-              const x = useTransform(scrollYProgress, [0, 1], pos.x);
-              const y = useTransform(scrollYProgress, [0, 1], pos.y);
-              const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
-              return (
-                <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
-                  <img className='object-cover h-full w-full' src={pos.src} alt='image' />
-                </motion.div>
-              );
-            })}
-            <motion.div
-              style={{ scale: scalecenter, opacity: opacitycenter }}
-              transition={{ duration: 0.5, ease: 'easeInOut', stiffness: 200, type: 'spring' }}
-              className='w-[27rem]' >
-              <h1 className=' text-[66px] font-bold tracking-[-0.01em] leading-[1em] text-center text-[rgb(102,79,53)]'>Designing Excellence
-                Worldwide</h1>
-              <p className='tracking-[-0.02em] font-semibold text-center text-wrap  mt-5 text-[rgb(170,136,103)] '>A global leader in high-end architecture, known for our commitment to excellence, sustainability, and transformative designs that inspire and endure.</p>
-            </motion.div>
-          </div>
+        <div className=" h-screen sticky top-0 left-0 flex items-center justify-center  overflow-hidden">
+          {images.map((pos, index) => {
+            const x = useTransform(scrollYProgress, [0, 1], pos.x);
+            const y = useTransform(scrollYProgress, [0, 1], pos.y);
+            const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
+            return (
+              <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
+                <img className='object-cover h-full w-full' src={pos.src} alt='image' />
+              </motion.div>
+            );
+          })}
+          <motion.div
+            style={{ scale: scalecenter, opacity: opacitycenter }}
+            transition={{ duration: 0.5, ease: 'easeInOut', stiffness: 200, type: 'spring' }}
+            className='w-[27rem]' >
+            <h1 className=' text-[66px] font-bold tracking-[-0.01em] leading-[1em] text-center text-[rgb(102,79,53)]'>Designing Excellence
+              Worldwide</h1>
+            <p className='tracking-[-0.02em] font-semibold text-center text-wrap  mt-5 text-[rgb(170,136,103)] '>A global leader in high-end architecture, known for our commitment to excellence, sustainability, and transformative designs that inspire and endure.</p>
+          </motion.div>
+        </div>
       </div>
-      <div className=' bg-[#3e362e] flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
-        <TextAnimate animation="slideLeft" by="character" className='text-[112px]  tracking-[-6.8px] leading-[1em] text-[#AA8867] text-center'>Explore Journal</TextAnimate>
+      <div className=' bg-[#3e362e]  flex flex-col gap-3 py-[9.75rem] px-4 overflow-hidden w-full lg:px-[2.5rem]'>
+        <TextAnimate animation="slideLeft" className='text-[112px]  tracking-[-6.8px] leading-[1em] text-[#AA8867] text-center'>Explore Journal</TextAnimate>
         <TextAnimate animation="fadeIn" by="line" as="p" className='text-[1.5rem] max-w-2xl mx-auto tracking-[-0.0375rem] text-center text-[rgb(170,136,103)]'>
           Highlights of cases that we passionately built with forward-thinking clients and friends over the years.
         </TextAnimate>
-        <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10'>
+        <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10'>
           {articles.map((article, index) => (
             <motion.div viewport={{ once: true }} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>
               <div className='w-full h-[24.25rem]'>

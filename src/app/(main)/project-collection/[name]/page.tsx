@@ -33,7 +33,7 @@ export default function ProjectPage() {
             title: 'Wellness-Centric Design: Creating Healthy Interiors',
         },
     ];
-    
+
     const params = useParams();
     const name = params?.name as string;
 
@@ -93,7 +93,7 @@ export default function ProjectPage() {
                 </div>
             </section>
             <section>
-                <div className='bg-[#664f35] flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
+                <div className='bg-[#664f35] flex flex-col gap-3 py-[9.75rem] px-[1rem] lg:px-[2.5rem]'>
                     <h1 className='text-[112px] font-semibold tracking-[-6.8px] leading-[1em] text-[rgb(170,136,103)] text-center'>Project Collection</h1>
                     <div className='grid lg:grid-cols-3 px-10 gap-8 mt-28'>
                         {articles.map((article, index) => (

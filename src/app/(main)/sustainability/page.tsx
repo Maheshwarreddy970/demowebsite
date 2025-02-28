@@ -69,7 +69,7 @@ export default function page() {
                 <div className="mt-24">
                     {data.map((award, index) => (
                         <motion.div
-                                                    viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[#0c652d]">
+                            viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[#0c652d]">
                             <div className="col-span-1 text-[60px] tracking-[-2.2px] text-center text-[#0c652d]">
                                 {award.id}
                             </div>
@@ -85,7 +85,7 @@ export default function page() {
             </div>
             <div className=' bg-[rgb(244,239,235)] py-36'>
                 <TextAnimate animation="slideLeft" by="character" className=' font-bold px-14 text-[112px] tracking-[-0.04em] leading-[1.4em] text-[rgb(51,51,51)]'>Sustainability                </TextAnimate>
-                <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10 '>
+                <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10 '>
                     {articles.map((article, index) => (
                         <motion.div
                             viewport={{ once: true }} initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>

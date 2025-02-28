@@ -26,8 +26,8 @@ const FooterList = [
 ]
 export default function Footer() {
   return (
-    <footer className=' px-8 pt-10 bg-[rgb(62,54,46)] w-full '>
-      <div className=' grid grid-cols-2 gap-3 '>
+    <footer className=' overflow-hidden md:px-8 pt-10 bg-[rgb(62,54,46)] w-full '>
+      <div className=' grid md:grid-cols-2 gap-3 '>
         <div className='border border-[rgb(170,136,103)] flex flex-col px-20 py-5'>
           {
             FooterList.map((item, index) => (
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <h1 className='text-[149px] tracking-[-2.7px] font-semibold leading-[1em] text-center text-[rgb(170,136,103)] mt-16'>Oakwood Architects</h1>
+      <h1 className=' text-6xl md:text-[149px] tracking-[-2.7px] font-semibold leading-[1em] text-center text-[rgb(170,136,103)] mt-16'>Oakwood Architects</h1>
     </footer>
   )
 }

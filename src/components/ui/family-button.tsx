@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, ReactNode, useState } from "react"
+import React, { FC, ReactNode, useState } from "react"
 import { PlusIcon, XIcon } from "lucide-react"
 import {motion} from 'framer-motion'
 
@@ -64,6 +64,18 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
   toggleExpand,
   children,
 }) => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth <= 868);
+      };
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => {
+        window.removeEventListener("resize", checkMobile);
+      };
+    }, []);
   return (
     <motion.div
       className={cn(
@@ -79,7 +91,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
         isExpanded
           ? {
               borderRadius: 20,
-              width: 400,
+              width: isMobile ? '95vw' : 400,
               height: "90vh",
 
               transition: {

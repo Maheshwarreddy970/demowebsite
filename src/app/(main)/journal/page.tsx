@@ -81,9 +81,9 @@ export default function page() {
                     </video>
                 </div>
             </div>
-            <div className=' bg-[#AA8867]  flex flex-col gap-3 py-[9.75rem] px-[2.5rem]'>
+            <div className=' bg-[#AA8867]  flex flex-col gap-3 py-[9.75rem] px-[1rem] lg:px-[2.5rem]'>
                 <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Journals</TextAnimate>
-                <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10'>
+                <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10'>
                     {articles.map((article, index) => (
                         <motion.div
                             viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>

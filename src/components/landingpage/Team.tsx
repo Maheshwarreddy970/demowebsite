@@ -8,21 +8,21 @@ import { TextAnimate } from '../ui/text-animate';
 export default function Team() {
     return (
         <>
-            <section className='flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] pr-[5rem] pl-[10rem]  mx-auto relative'>
-                <TextAnimate animation="slideLeft" by="character" className=" font-semibold max-w-xl text-[112px] tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
+            <section className=' flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] lg:pr-[5rem] lg:pl-[10rem]  mx-auto relative'>
+                <TextAnimate animation="slideLeft" by="character" className="px-4 lg:px-0 font-semibold max-w-xl text-[112px] tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
                 >
                     Our talented
                     team
                 </TextAnimate>
-                <TextAnimate animation="slideLeft"  className='text-[24px] font-medium max-w-2xl pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                <TextAnimate animation="slideLeft" className='px-4 lg:px-0 text-[24px] font-medium max-w-2xl pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
                     A world-class team of architects, designers, and visionaries dedicated to creating timeless, innovative spaces around the globe.
                 </TextAnimate>
-                <div className="grid grid-cols-7">
+                <div className="lg:grid px-4 lg:px-0 lg:grid-cols-7">
                     <div className="col-span-4 mt-14 group">
-                        <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full pr-20'></img>
+                        <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
-                    <div className="col-span-3 group p-4">
+                    <div className=" w-full lg:col-span-3 group p-4">
                         <div className=' mt-10'>
                             <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
@@ -52,9 +52,9 @@ export default function Team() {
                     </div>
                 </div>
             </section>
-            <section className=' bg-[#664f35] pt-36'>
+            <section className=' bg-[#664f35] pt-36 overflow-hidden'>
                 <div className=' flex flex-col gap-6 '>
-                    <TextAnimate animation="slideLeft" by="character" className=' text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
+                    <TextAnimate animation="slideLeft" className=' text-6xl md:text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
                     <TextRotate></TextRotate>
                 </div>
                 <AnimatedLogoCloud></AnimatedLogoCloud>
@@ -82,7 +82,7 @@ const TextRotate = () => {
         <div className="relative font-semibold flex w-full items-center justify-center text-center">
             <AnimatePresence>
                 <motion.div
-                    className="absolute text-[47px] tracking-[-1.4px] text-center text-[rgb(237,233,207)]"
+                    className="absolute text-4xl md:text-[47px] tracking-[-1.4px] text-center text-[rgb(237,233,207)]"
                     key={index}
                     initial={{ y: 20, opacity: 0, scale: 0.8 }}
                     animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -131,7 +131,7 @@ const AnimatedLogoCloud = () => {
                             <img
                                 key={i}
                                 src={logo.url}
-                                className="h-[25rem] w-[28rem] object-cover  dark:brightness-0 dark:invert"
+                                className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
                                 alt={'images'}
                             />
                         ))}
@@ -140,7 +140,7 @@ const AnimatedLogoCloud = () => {
                             <img
                                 key={i}
                                 src={logo.url}
-                                className="h-[25rem] w-[28rem] object-cover  dark:brightness-0 dark:invert"
+                                className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
                                 alt={'images'}
                             />
                         ))}

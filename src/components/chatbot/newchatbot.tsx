@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import React, { useEffect, useMemo, useRef, useState } from "react"
 import { AnimatePresence, MotionConfig, motion } from "framer-motion"
 
 import { FamilyButton } from "../ui/family-button"
@@ -137,6 +137,7 @@ export function FamilyButtonDemo() {
         return aiMsg.content as string;
     };
 
+
     const handleSend = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!message.trim()) return;
@@ -169,6 +170,8 @@ export function FamilyButtonDemo() {
             setIsTyping(false);
         }
     };
+
+
     return (
         <div className=" z-[50]">
             <div className="fixed  bottom-4 right-4 z-[50]">
