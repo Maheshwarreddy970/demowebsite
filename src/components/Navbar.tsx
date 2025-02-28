@@ -3,6 +3,7 @@
 import { Icons } from '@/icons'
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, X } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react'
 const FooterList = [
 
@@ -30,8 +31,8 @@ export default function Navbar() {
   const [isMenuOpen, setisMenuOpen] = React.useState(false);
   return (
     <>
-      {!isMenuOpen && <nav className=' fixed flex items-center justify-between w-full z-50 px-8 py-6 '>
-        <a href='/' className=' flex items-center gap-2 '>
+      {!isMenuOpen && <nav className=' fixed flex items-center justify-between w-full z-50 px-4 lg:px-8 py-6 '>
+        <Link href='/' className=' flex items-center gap-2 '>
           <img src='/aa8c7f48-de04-4d37-98aa-da071b0809be.svg' className=' size-12' alt='svg icon '></img>
           <div className='text-[1.1875rem] leading-5 tracking-[-1.9px] text-left text-[rgb(170,136,103)]'>
             <span className=' font-semibold'>OAKWOOD</span>
@@ -40,7 +41,7 @@ export default function Navbar() {
               ARCHITECTS
             </span>
           </div>
-        </a>
+        </Link>
         <div className=' flex  items-center justify-center'>
           <button onClick={() => setisMenuOpen(true)} className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-semibold text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
             <Icons.ButtonIcon className=' size-5' ></Icons.ButtonIcon>
@@ -64,8 +65,8 @@ export default function Navbar() {
                 <X className="size-6" />
               </button>
             </div>
-            <div className="grid grid-cols-3 h-full">
-              <div className="border-r border-[rgba(170,136,103,0.3)] p-10">
+            <div className="lg:grid lg:grid-cols-3 h-full">
+              <div className="border-r border-[rgba(170,136,103,0.3)] p-4 lg:p-10">
                 <div className="text-[rgb(170,136,103)] ">
                   <p className=' text-xs'><span className=' text-lg'>© 2024</span><br></br> Aurum Company. All rights reserved.</p>
                 </div>
@@ -89,10 +90,10 @@ export default function Navbar() {
                 </div>
 
               </div>
-              <div className=" border-r border-[rgba(170,136,103,0.3)] p-24">
+              <div className=" border-r border-[rgba(170,136,103,0.3)] p-5 lg:p-24">
                 {
                   FooterList.map((item, index) => (
-                    <a href={item.link} key={index} className=' group hover:text-[#ede9cf] ease-in-out duration-500 flex gap-2 items-center  text-[42px] font-extralight text-[rgb(170,136,103)]'>
+                    <a href={item.link} key={index} className='my-3 lg:my-5 group hover:text-[#ede9cf] ease-in-out duration-500 flex gap-2 items-center  text-4xl lg:text-[42px] font-extralight text-[rgb(170,136,103)]'>
                       <ArrowRight className=' hidden group-hover:block    size-11' />
                       <span className='group-hover:text-[#ede9cf] group-hover:translate-x-2 ease-in-out duration-500'>
                         {item.name}
@@ -101,7 +102,7 @@ export default function Navbar() {
                   ))
                 }
               </div>
-              <div className=" flex flex-col  h-full ">
+              <div className=" flex  lg:flex-col  h-full ">
                 <div className=' h-1/2 px-10 py-16'>
                   <p className='text-[rgb(170,136,103)] text-sm mb-3'> Social</p>
                   <div className=' flex gap-6 items-center '>

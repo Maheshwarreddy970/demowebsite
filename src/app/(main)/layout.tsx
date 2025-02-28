@@ -19,14 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className={`${bricolageGrotesque.className}  font-bricolage bg-background text-foreground`}>
+    <main className={`${bricolageGrotesque.className}  font-bricolage bg-background text-foreground`} >
       <SmoothScrollProvider>
-
-      <CursorFollower />
-      <Navbar />
-      {children}
-      <Footer />
-      <FamilyButtonDemo />
+        <CursorFollower />
+        <Navbar />
+        {children}
+        <Footer />
+        <FamilyButtonDemo />
       </SmoothScrollProvider>
     </main>
   );

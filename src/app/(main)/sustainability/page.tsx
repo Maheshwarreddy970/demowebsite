@@ -45,9 +45,9 @@ export default function page() {
     };
     return (
         <section>
-            <div className=' w-full bg-[#0c652d]  grid grid-cols-2 h-screen '>
-                <div className=' flex flex-col gap-28 pl-20 justify-center'>
-                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[rgb(129,201,149)] max-w-xl'>
+            <div className=' w-full bg-[#0c652d]  lg:grid lg:grid-cols-2  overflow-hidden  h-[150vh] lg:h-screen '>
+            <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
+                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] px-5 py-28 lg:px-0 lg:py-0 text-center lg:text-left text-[#ede9cf] max-w-xl'>
                         Sustainable Architecture: The Future of Green Building
                     </TextAnimate>
                 </div>
@@ -64,13 +64,13 @@ export default function page() {
                     </video>
                 </div>
             </div>
-            <div className=' bg-[rgb(129,201,149)] text-[#0c652d] px-16 py-28'>
-                <TextAnimate animation="slideLeft" className='text-[50px] font-bold max-w-2xl tracking-[-2.2px] text-left text-[rgb(12,101,45)]'>Sustainability main pillars for a responsible construction</TextAnimate>
+            <div className=' bg-[rgb(129,201,149)] text-[#0c652d] px-4 lg:px-16 py-28'>
+                <TextAnimate animation="slideLeft" className=' text-[50px] font-bold max-w-2xl tracking-[-2.2px] text-left text-[rgb(12,101,45)]'>Sustainability main pillars for a responsible construction</TextAnimate>
                 <div className="mt-24">
                     {data.map((award, index) => (
                         <motion.div
-                            viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[#0c652d]">
-                            <div className="col-span-1 text-[60px] tracking-[-2.2px] text-center text-[#0c652d]">
+                            viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className="  lg:grid lg:grid-cols-4 gap-6 py-6 lg:mx-10  mx-4 font-semibold border-t border-[#0c652d]">
+                            <div className="col-span-1 text-[60px] tracking-[-2.2px] text-left lg:text-center text-[#0c652d]">
                                 {award.id}
                             </div>
                             <div className="col-span-1 text-[50px] tracking-[-2.2px] text-left text-[#0c652d]">
@@ -84,7 +84,7 @@ export default function page() {
                 </div>
             </div>
             <div className=' bg-[rgb(244,239,235)] py-36'>
-                <TextAnimate animation="slideLeft" by="character" className=' font-bold px-14 text-[112px] tracking-[-0.04em] leading-[1.4em] text-[rgb(51,51,51)]'>Sustainability                </TextAnimate>
+                <TextAnimate animation="slideLeft" by="character" className=' font-bold px-4 lg:px-14 text-[70px] lg:text-[112px] tracking-[-0.04em] leading-[1.4em] text-[rgb(51,51,51)]'>Sustainability                </TextAnimate>
                 <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10 '>
                     {articles.map((article, index) => (
                         <motion.div

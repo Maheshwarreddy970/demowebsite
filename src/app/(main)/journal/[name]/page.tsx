@@ -73,7 +73,7 @@ export default function ProjectPage() {
                 ))}
             </section>
             <div className='  flex flex-col gap-3 py-[9.75rem] px-[1rem] lg:px-[2.5rem]'>
-                <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Explore More</TextAnimate>
+                <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-0 lg:ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Explore More</TextAnimate>
                 <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10'>
                     {articles.map((article, index) => (
                         <motion.div

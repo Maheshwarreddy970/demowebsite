@@ -62,10 +62,10 @@ export default function page() {
 
     return (
         <section>
-            <div className=' w-full bg-[rgb(102,79,53)]  grid grid-cols-2 h-screen '>
-                <div className=' flex flex-col gap-28 pl-20 justify-center'>
+            <div className=' w-full bg-[rgb(102,79,53)]  grid lg:grid-cols-2 h-screen '>
+                <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
 
-                    <TextAnimate animation="slideLeft"  className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[#ede9cf] max-w-xl'>
+                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold mx-auto  leading-[1.1em] text-center lg:text-left text-[#ede9cf] max-w-xl'>
                         About Oakwood Architects: Crafting Spaces with Purpose
                     </TextAnimate>
                 </div>
@@ -82,21 +82,21 @@ export default function page() {
                     </video>
                 </div>
             </div>
-            <section className='flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] pr-[5rem] pl-[10rem]  mx-auto relative'>
-                <TextAnimate animation="slideLeft" by="character" className=" font-semibold max-w-xl text-[112px] tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
+            <section className='flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] lg:pr-[5rem] lg:pl-[10rem]  mx-auto relative'>
+                <TextAnimate animation="slideLeft" className=" px-4 lg:px-0 font-semibold max-w-xl text-6xl lg:text-[112px]  tracking-wide lg:tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
                 >
                     Our talented
                     team
                 </TextAnimate>
-                <TextAnimate animation="slideLeft" className='text-[24px] font-medium max-w-2xl pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                <TextAnimate animation="slideLeft" className=' px-4 lg:px-0 text-[24px] font-medium max-w-2xl pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
                     A world-class team of architects, designers, and visionaries dedicated to creating timeless, innovative spaces around the globe.
                 </TextAnimate>
-                <div className="grid grid-cols-7">
+                <div className="lg:grid lg:grid-cols-7">
                     <div className="col-span-4 mt-14 group">
-                        <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full pr-20'></img>
+                        <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
-                    <div className="col-span-3 group p-4">
+                    <div className="lg:col-span-3 group p-4">
                         <div className=' flex flex-col gap-6 mt-10'>
                             <div className="flex items-center gap-5 justify-start">
                                 <img
@@ -119,21 +119,21 @@ export default function page() {
 
                     </div>
                 </div>
-                <div className="grid grid-cols-7">
+                <div className="lg:grid lg:grid-cols-7">
                     <div className="col-span-3 group p-4">
-                        <div className=' mt-[40rem]'>
-                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='pr-20 w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                        <div className='mt-20 lg:mt-[40rem]'>
+                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='lg:pr-20 w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
                     </div>
                     <div className="col-span-4 mt-36 group flex flex-col items-end">
-                        <img src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover w-[80%]  '></img>
+                        <img src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover  lg:w-[80%]  '></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                 </div>
-                <div className="grid grid-cols-7 mt-24">
+                <div className="lg:grid lg:grid-cols-7 mt-24">
                     <div className="col-span-4 mt-14 group">
-                        <img src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full pr-20'></img>
+                        <img src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                     <div className="col-span-3 group p-4">
@@ -148,11 +148,11 @@ export default function page() {
                                     Focus on sustainability
                                 </TextAnimate>
                             </div>
-                            <TextAnimate animation="slideLeft" className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
+                            <TextAnimate animation="slideLeft" className='text-[20px] lg:pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
                                 With a focus on sustainability, functionality, and aesthetic appeal, we strive to exceed expectations in every aspect of our work.
                             </TextAnimate>
                         </div>
-                        <div className=' mt-96'>
+                        <div className=' mt-20 lg:mt-96'>
                             <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
@@ -160,16 +160,16 @@ export default function page() {
                     </div>
                 </div>
             </section>
-            <div className="px-[60px] py-36 bg-[#ede9cf]">
-                <div className=' px-20'>
-                    <TextAnimate animation="slideLeft" by="character" className=' font-semibold text-[112px] tracking-[-2.6px] leading-[1em] text-left text-[#aa8867]'>Our Approach</TextAnimate>
-                    <TextAnimate animation="slideLeft" className='mt-3 font-semibold text-left text-[#aa8867] pl-5 text-3xl max-w-4xl'>At Oakwood Architects, we believe that design should be both functional and inspiring. </TextAnimate>
+            <div className=" px-5 lg:px-[60px] py-36 bg-[#ede9cf]">
+                <div className='  lg:px-20'>
+                    <TextAnimate animation="slideLeft" className=' font-semibold text-7xl lg:text-[112px] tracking-[-2.6px] leading-[1em] text-left text-[#aa8867]'>Our Approach</TextAnimate>
+                    <TextAnimate animation="slideLeft" className=' mt-8 lg:mt-3 font-semibold text-left text-[#aa8867] lg:pl-5 text-3xl max-w-4xl'>At Oakwood Architects, we believe that design should be both functional and inspiring. </TextAnimate>
                 </div>
-                <div className=' grid grid-cols-3 gap-6 max-w-6xl mx-auto mt-20'>
+                <div className=' lg:grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-20'>
                     {
                         approaches.map((approach, index) => (
-                            <motion.div 
-                            viewport={{once:true}} initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} transition={{duration:0.7,delay:index*0.2,ease:'easeInOut',type:'spring',stiffness:200}} className='bg-[#664f35] py-8 px-12  w-full' key={approach.id}>
+                            <motion.div
+                                viewport={{ once: true }} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} className='bg-[#664f35] py-8 px-12  w-full' key={approach.id}>
                                 <h1 className='text-[11rem] font-bold text-[#ede9cf]'>{approach.id}</h1>
                                 <h1 className='text-[24px] text-[#ede9cf]'>{approach.title}</h1>
                                 <p className='text-[rgb(204,161,118)] mt-2 '>{approach.description}</p>
@@ -178,16 +178,15 @@ export default function page() {
                     }
                 </div>
             </div>
-            <div className="bg-[#3e362e] py-[160px] px-[40px]">
-                <TextAnimate animation="slideLeft" by="character"  className=' max-w-xl ml-20  font-bold  text-8xl text-left text-[rgb(170,136,103)]'>Awards and
-            
+            <div className="bg-[#3e362e] py-[160px] px-4 lg:px-[40px]">
+                <TextAnimate animation="slideLeft" className=' mx-auto max-w-xl ml-0 lg:ml-20  font-bold   text-[4rem] lg:text-8xl text-left text-[rgb(170,136,103)]'>Awards and
                     Recognition</TextAnimate>
                 <AnimatedLogoCloud></AnimatedLogoCloud>
                 <div className="mt-24">
-                    {awards.map((award,index) => (
-                        <motion.div 
-                                                 viewport={{once:true}} initial={{opacity:0,y:50}} whileInView={{opacity:1,y:0}} transition={{duration:0.7,delay:index*0.2,ease:'easeInOut',type:'spring',stiffness:200}} key={award.id} className="grid grid-cols-4 gap-6 py-6 mx-10 font-semibold border-t border-[rgb(170,136,103)]">
-                            <div className="col-span-1 text-[60px] tracking-[-2.2px] text-center text-[rgb(170,136,103)]">
+                    {awards.map((award, index) => (
+                        <motion.div
+                            viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={award.id} className="lg:grid lg:grid-cols-4 gap-6 py-6 lg:mx-10  mx-4 font-semibold border-t border-[rgb(170,136,103)]">
+                            <div className="col-span-1 text-[60px] tracking-[-2.2px] text-left lg:text-center text-[rgb(170,136,103)]">
                                 {award.id}
                             </div>
                             <div className="col-span-1 text-[50px] tracking-[-2.2px] text-left text-[rgb(170,136,103)]">

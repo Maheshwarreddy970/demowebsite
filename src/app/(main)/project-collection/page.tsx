@@ -39,9 +39,9 @@ export default function page() {
     };
     return (
         <section>
-            <div className=' w-full bg-[#ede9cf] grid grid-cols-2 h-screen '>
-                <div className=' flex flex-col gap-28 pl-20 justify-center'>
-                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[rgb(102,79,53)] max-w-xl'>Explore Our Interior Design Project Collection</TextAnimate>
+            <div className=' w-full bg-[#ede9cf] grid lg:grid-cols-2 overflow-hidden  h-screen '>
+                <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
+                    <TextAnimate animation="slideLeft" className=' mx-auto text-7xl lg:text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-center  lg:text-left text-[rgb(102,79,53)] max-w-xl'>Explore Our Interior Design Project Collection</TextAnimate>
                 </div>
                 <div className='h-full w-full relative'>
                     <video
@@ -57,8 +57,8 @@ export default function page() {
                 </div>
             </div>
             <div className='bg-[#664f35] flex flex-col gap-3 py-[9.75rem] px-[1rem] lg:px-[2.5rem]'>
-                <TextAnimate animation="slideLeft" by="character" className='text-[112px] font-semibold tracking-[-6.8px] leading-[1em] text-[rgb(170,136,103)] text-center'>Project Collection</TextAnimate>
-                <div className='grid lg:grid-cols-3 px-10 gap-8 mt-28'>
+                <TextAnimate animation="slideLeft" className=' text-[84px] lg:text-[112px] font-semibold tracking-[-6.8px] leading-[1em] text-[rgb(170,136,103)] text-center'>Project Collection</TextAnimate>
+                <div className='grid lg:grid-cols-3 lg:px-10 gap-8 mt-28'>
                     {articles.map((article, index) => (
                         <motion.div
                             viewport={{ once: true }} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }}
@@ -84,7 +84,7 @@ export default function page() {
             </div>
             <section className=' bg-[#664f35] pt-36 overflow-hidden'>
                 <div className=' flex flex-col gap-6 '>
-                    <TextAnimate animation="slideLeft" by="character" className=' text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
+                    <TextAnimate animation="slideLeft"  className=' text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
                     <TextRotate></TextRotate>
                 </div>
                 <AnimatedLogoCloud></AnimatedLogoCloud>
@@ -162,7 +162,7 @@ const AnimatedLogoCloud = () => {
                             <img
                                 key={i}
                                 src={logo.url}
-                                className="h-[25rem] w-[28rem] object-cover  dark:brightness-0 dark:invert"
+                                className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
                                 alt={'images'}
                             />
                         ))}
@@ -171,7 +171,7 @@ const AnimatedLogoCloud = () => {
                             <img
                                 key={i}
                                 src={logo.url}
-                                className="h-[25rem] w-[28rem] object-cover  dark:brightness-0 dark:invert"
+                                className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
                                 alt={'images'}
                             />
                         ))}

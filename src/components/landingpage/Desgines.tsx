@@ -19,7 +19,7 @@ export default function Desgines() {
                     whileInView={{left:100}}
                     transition={{duration:0.5, ease:'easeInOut'}}
                     viewport={{amount:0.5}}
-                    className='text-[9rem] font-semibold tracking-[-2.6px] text-left text-[rgb(237,233,207)] absolute top-1/2 translate-y-[-50%] left-20'>
+                    className='text-[9rem] hidden md:block font-semibold tracking-[-2.6px] text-left text-[rgb(237,233,207)] absolute top-1/2 translate-y-[-50%] left-20'>
                         Interior
                     </motion.div>
                     <motion.div
@@ -27,7 +27,17 @@ export default function Desgines() {
                      whileInView={{right:100}}
                      transition={{duration:0.5, ease:'easeInOut'}}
                      viewport={{ amount:0.5}}
-                    className='text-[9rem] font-semibold tracking-[-2.6px] text-left text-[rgb(237,233,207)] absolute top-1/2 translate-y-[-50%] right-20'>
+                    className='text-[9rem] hidden md:block font-semibold tracking-[-2.6px] text-left text-[rgb(237,233,207)] absolute top-1/2 translate-y-[-50%] right-20'>
+                        Design
+                    </motion.div>
+                    <motion.div
+                     initial={{y:150}}
+                     whileInView={{y:-50}}
+                     transition={{duration:0.5, ease:'easeInOut'}}
+                     viewport={{ amount:0.5}}
+                    className='text-[7rem] leading-[8rem] block md:hidden font-semibold tracking-[-2.6px] text-left text-[rgb(237,233,207)] absolute top-1/2 translate-y-[-50%] left-[10%] '>
+                        Interior
+                        <br></br>
                         Design
                     </motion.div>
                 </div>

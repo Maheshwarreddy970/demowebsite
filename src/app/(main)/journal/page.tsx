@@ -62,9 +62,9 @@ export default function page() {
 
     return (
         <section>
-            <div className=' w-full bg-[rgb(102,79,53)]  grid grid-cols-2 h-screen '>
-                <div className=' flex flex-col gap-28 pl-20 justify-center'>
-                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] text-left text-[#ede9cf] max-w-xl'>
+            <div className=' w-full bg-[rgb(102,79,53)]  lg:grid lg:grid-cols-2 overflow-hidden  h-[150vh] lg:h-screen '>
+                <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
+                    <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] px-5 py-28 lg:px-0 lg:py-0 text-center lg:text-left text-[#ede9cf] max-w-xl'>
                         Interior Design Journal: Crafting Meaningful Spaces
                     </TextAnimate>
                 </div>
@@ -82,7 +82,7 @@ export default function page() {
                 </div>
             </div>
             <div className=' bg-[#AA8867]  flex flex-col gap-3 py-[9.75rem] px-[1rem] lg:px-[2.5rem]'>
-                <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Journals</TextAnimate>
+                <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-0 lg:ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Journals</TextAnimate>
                 <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10'>
                     {articles.map((article, index) => (
                         <motion.div
