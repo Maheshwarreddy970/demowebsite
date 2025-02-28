@@ -18,34 +18,34 @@ const images = [
 
 const articles = [
   {
-      src: '/istockphoto-1405772777-612x612.jpg',
-      title: 'The concept of biophilia—human beings\' inherent connection to nature.',
-      href: '/journal/the-meadow-house'
+    src: '/istockphoto-1405772777-612x612.jpg',
+    title: 'The concept of biophilia—human beings\' inherent connection to nature.',
+    href: '/journal/the-meadow-house'
   },
   {
-      src: '/xY2ltysjjeDPAv2h8IdjICqEio_1.png',
-      title: 'Smart Homes and Buildings: Integrating Technology and Design',
-      href: '/journal/the-meadow-house'
+    src: '/xY2ltysjjeDPAv2h8IdjICqEio_1.png',
+    title: 'Smart Homes and Buildings: Integrating Technology and Design',
+    href: '/journal/the-meadow-house'
   },
   {
-      src: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
-      title: 'Wellness-Centric Design: Creating Healthy Interiors',
-      href: '/journal/the-meadow-house'
+    src: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
+    title: 'Wellness-Centric Design: Creating Healthy Interiors',
+    href: '/journal/the-meadow-house'
   },
   {
-      src: '/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif',
-      title: 'Cultural Heritage and Interior Design: Preserving History',
-      href: '/journal/the-meadow-house'
+    src: '/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif',
+    title: 'Cultural Heritage and Interior Design: Preserving History',
+    href: '/journal/the-meadow-house'
   },
   {
-      src: '/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif',
-      title: 'The Future of Workspaces: Trends and Innovations',
-      href: '/journal/the-meadow-house'
+    src: '/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif',
+    title: 'The Future of Workspaces: Trends and Innovations',
+    href: '/journal/the-meadow-house'
   },
   {
-      src: '/LplpVPUpxDHnVTfRW8XsfQNw.avif',
-      title: 'Sustainable Spaces: Eco-Friendly Design Solutions',
-      href: '/journal/the-meadow-house'
+    src: '/LplpVPUpxDHnVTfRW8XsfQNw.avif',
+    title: 'Sustainable Spaces: Eco-Friendly Design Solutions',
+    href: '/journal/the-meadow-house'
   },
 ];
 
@@ -61,8 +61,8 @@ export default function ExploreSections() {
 
   return (
     <section>
-      <div ref={ref} className='h-[400vh] relative'>
-        <div className='h-screen sticky overflow-hidden top-0 flex items-center justify-center'>
+      <div ref={ref} className='h-[400vh]  relative '>
+        <div className='h-screen sticky left-0 overflow-hidden top-0 flex items-center justify-center'>
           {images.map((pos, index) => {
             const x = useTransform(scrollYProgress, [0, 1], pos.x);
             const y = useTransform(scrollYProgress, [0, 1], pos.y);
@@ -90,7 +90,7 @@ export default function ExploreSections() {
         </TextAnimate>
         <div className='grid lg:grid-cols-3 px-10 gap-6 mt-10'>
           {articles.map((article, index) => (
-            <motion.div viewport={{once:true}} initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} transition={{duration:0.7,delay:index*0.2,ease:'easeInOut',type:'spring',stiffness:200}} key={index} className='bg-white p-4'>
+            <motion.div viewport={{ once: true }} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>
               <div className='w-full h-[24.25rem]'>
                 <motion.img
                   variants={imageVariants}

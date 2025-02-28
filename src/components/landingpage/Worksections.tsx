@@ -7,25 +7,24 @@ export default function WorkSections() {
 
   return (
     <>
-      <section className='flex flex-col bg-white overflow-hidden gap-[100px] w-full h-min py-[3.7rem] pr-[5rem] pl-[10rem] mx-auto relative'>
+      <section className='flex flex-col bg-white overflow-hidden gap-[100px] w-full h-min  md:py-[3.7rem] md:pr-[5rem] md:pl-[10rem] mx-auto relative'>
         <TextAnimate 
           animation="slideLeft" 
-          by="character" 
-          className='text-[112px] mt-28 tracking-[-4px] text-left font-semibold leading-[1em] text-[rgb(170,136,103)]'
+          className='text-7xl pl-5 md:pl-0  md:text-[112px] mt-28 tracking-[-4px] text-left font-semibold leading-[1em] text-[rgb(170,136,103)]'
         >
           {work_collection.title}
         </TextAnimate>
 
-        <div className="grid grid-cols-7">
-          <a href={work_collection.projects[0].link} className="col-span-4 mt-14 group">
+        <div className="md:grid md:grid-cols-7 p-4 md:p-0">
+          <a href={work_collection.projects[0].link} className="md:col-span-4 mt-14 group">
             <img 
               src={work_collection.projects[0].images[0]} 
-              className='h-[45rem] group-hover:block hidden object-cover w-full pr-20' 
+              className='h-[45rem] group-hover:block hidden object-cover w-full md:pr-20' 
               alt='project'
             />
             <img 
               src={work_collection.projects[0].images[1]} 
-              className='h-[45rem] group-hover:hidden object-cover w-full pr-20' 
+              className='h-[45rem] group-hover:hidden object-cover w-full md:pr-20' 
               alt='project'
             />
             <TextAnimate 
@@ -37,7 +36,7 @@ export default function WorkSections() {
             </TextAnimate>
           </a>
 
-          <div className="col-span-3 group p-4">
+          <div className="col-span-3 group md:p-4">
             <div className='flex flex-col gap-6'>
               <div className="flex mt-20 items-center gap-6 justify-start">
                 <img
@@ -57,7 +56,7 @@ export default function WorkSections() {
                 animation="fadeIn" 
                 by="line" 
                 as="p" 
-                className='text-[24px] font-medium pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'
+                className='text-[24px] mb-5 font-medium pr-7 tracking-[-0.6px] text-left text-[rgb(170,136,103)]'
               >
                 {work_collection.featured_projects.description}
               </TextAnimate>
@@ -80,8 +79,8 @@ export default function WorkSections() {
           </div>
         </div>
 
-        <div className="grid grid-cols-7">
-          <a href={work_collection.projects[2].link} className="col-span-3 pr-7 group mt-[34rem]">
+        <div className="md:grid md:grid-cols-7 p-4 md:p-0">
+          <a href={work_collection.projects[2].link} className="md:col-span-3 pr-7 group mt-[34rem]">
             <img 
               src={work_collection.projects[2].images[0]} 
               className='transition-all duration-150 ease-in-out group-hover:hidden w-full h-[36rem] object-cover' 
@@ -97,7 +96,7 @@ export default function WorkSections() {
             </h1>
           </a>
 
-          <a href={work_collection.projects[3].link} className="col-span-4 mt-20 group ml-24 overflow-hidden">
+          <a href={work_collection.projects[3].link} className="md:col-span-4 mt-20 group ml-24 overflow-hidden">
             <img 
               src={work_collection.projects[3].images[0]} 
               className='h-[45rem] w-full transition-all duration-150 ease-in-out group-hover:hidden object-cover' 
@@ -115,12 +114,12 @@ export default function WorkSections() {
         </div>
       </section>
 
-      <div className='w-full bg-[#aa8867] grid grid-cols-2 h-screen'>
-        <div className='flex flex-col gap-28 pl-20 justify-center'>
+      <div className='w-full overflow-hidden bg-[#aa8867] md:grid md:grid-cols-2 h-screen'>
+        <div className='flex flex-col gap-10 md:gap-28 md:pl-20 py-10 md:py-0 px-4 md:px-0 justify-center'>
           <div className='flex items-center gap-2'>
             <img 
               src={work_collection_footer.company.logo} 
-              className='size-24' 
+              className='size-24 ' 
               alt='logo'
             />
             <div className='text-[1.75rem] text-[rgb(62,54,46)] tracking-tightest leading-none'>
@@ -132,14 +131,14 @@ export default function WorkSections() {
           <TextAnimate 
             animation="slideUp" 
             by="word" 
-            className='text-[66px] font-semibold leading-[1.2em] tracking-[-4px] text-left text-[rgb(62,54,46)] max-w-2xl'
+            className=' text-6xl md:text-[66px] font-semibold leading-[1.2em] tracking-[-4px] text-left text-[rgb(62,54,46)] max-w-2xl'
           >
             {work_collection_footer.company.tagline}
           </TextAnimate>
         </div>
         <div className='h-full w-full relative'>
           <img 
-            className='absolute left-0 top-0 w-full h-full object-cover' 
+            className='absolute left-0 top-0 w-full h-1/2 md:h-full object-cover' 
             src={work_collection_footer.image} 
             alt='footer background'
           />

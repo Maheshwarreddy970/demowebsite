@@ -40,10 +40,10 @@ const getReferralSource = () => {
 const extractContactInfo = (text: string) => {
   const phoneRegex = /(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/;
   const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-  
+
   const phoneMatch = text.match(phoneRegex);
   const emailMatch = text.match(emailRegex);
-  
+
   return {
     phone: phoneMatch ? phoneMatch[0].replace(/[-.\s]/g, "") : undefined,
     email: emailMatch ? emailMatch[0] : undefined,
@@ -55,7 +55,7 @@ export const saveChatMessage = async (text: string, isBot: boolean, userId?: str
   try {
     const currentUserId = userId || getUserIP();
     const userDocRef = doc(db, "users", currentUserId);
-    
+
     // Get existing user data or initialize it
     const userDoc = await getDoc(userDocRef);
     let userData: UserChatData = userDoc.exists()
@@ -159,29 +159,16 @@ export function ChatBot() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      {/* Chat button */}
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={`p-4 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all ${isOpen ? "hidden" : "flex"}`}
-      >
-        <MessageCircle size={24} />
-      </button>
+    <div className="fixed bottom-24 right-9 z-50 ">
+
 
       {/* Chat window */}
       {isOpen && (
-        <div className="bg-white rounded-lg shadow-xl w-[350px] h-[500px] flex flex-col">
+        <div className="bg-white rounded-lg shadow-xl  w-[350px] h-[500px] flex flex-col">
           {/* Header */}
-          <div className="p-4 bg-blue-600 text-white rounded-t-lg flex justify-between items-center">
+          <div className="p-4 bg-[rgb(170,136,103)] text-white rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold">Chat Support</h3>
-            <div className="flex gap-2">
-              <button onClick={() => setIsOpen(false)} className="hover:text-blue-200">
-                <MinusCircle size={20} />
-              </button>
-              <button onClick={() => setIsOpen(false)} className="hover:text-blue-200">
-                <X size={20} />
-              </button>
-            </div>
+            
           </div>
 
           {/* Messages */}
@@ -224,6 +211,17 @@ export function ChatBot() {
           </form>
         </div>
       )}
+
+      {/* Chat button */}
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={`p-2 fixed bottom-6 right-6 z-50   rounded-full  shadow-xl bg-[rgb(170,136,103)] `}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="  size-9  fill-white" x="0px" y="0px" width="50" height="50" viewBox="0 0 24 24">
+            <path className="" d="M 12 2 A 9 9 0 0 0 3 11 A 9 9 0 0 0 12 20 L 12 23 C 12 23 19.39165 19.370314 20.761719 13.015625 A 9 9 0 0 0 20.839844 12.65625 C 20.880821 12.423525 20.923277 12.190914 20.947266 11.951172 A 9 9 0 0 0 20.957031 11.863281 C 20.982749 11.579721 21 11.293169 21 11 A 9 9 0 0 0 12 2 z"></path>
+          </svg>
+
+        </button>
     </div>
   );
 }

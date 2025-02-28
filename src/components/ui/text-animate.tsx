@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, MotionProps, Variants } from "motion/react";
+import { AnimatePresence, motion, MotionProps, Variants } from "framer-motion";
 import { ElementType } from "react";
 
 type AnimationType = "text" | "word" | "character" | "line";
@@ -319,24 +319,24 @@ export function TextAnimate({
   // Use provided variants or default variants based on animation type
   const finalVariants = animation
     ? {
-        container: {
-          ...defaultItemAnimationVariants[animation].container,
-          show: {
-            ...defaultItemAnimationVariants[animation].container.show,
-            transition: {
-              staggerChildren: staggerTimings[by],
-            },
-          },
-          exit: {
-            ...defaultItemAnimationVariants[animation].container.exit,
-            transition: {
-              staggerChildren: staggerTimings[by],
-              staggerDirection: -1,
-            },
+      container: {
+        ...defaultItemAnimationVariants[animation].container,
+        show: {
+          ...defaultItemAnimationVariants[animation].container.show,
+          transition: {
+            staggerChildren: staggerTimings[by],
           },
         },
-        item: defaultItemAnimationVariants[animation].item,
-      }
+        exit: {
+          ...defaultItemAnimationVariants[animation].container.exit,
+          transition: {
+            staggerChildren: staggerTimings[by],
+            staggerDirection: -1,
+          },
+        },
+      },
+      item: defaultItemAnimationVariants[animation].item,
+    }
     : { container: defaultContainerVariants, item: defaultItemVariants };
 
   let segments: string[] = [];
