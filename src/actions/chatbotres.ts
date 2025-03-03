@@ -51,17 +51,13 @@ const data = {
 const dataString = JSON.stringify(data, null, 2);
 
 // Track whether the welcome message has been sent
-let welcomeMessageSent = false;
 
 export async function AiChatBotCall(messages: Message[]) {
-    console.log(messages);
 
     // Convert messages array to a string for the LLM
     const chatHistory = messages.map(msg => `${msg.isBot ? "Bot" : "User"}: ${msg.text}`).join("\n");
 
     // Check if the latest message is from the user and is a short greeting
-    const latestMessage = messages.length > 0 && !messages[messages.length - 1].isBot ? messages[messages.length - 1].text.toLowerCase() : "";
-    const isShortGreeting = ["hi", "hello", "hey"].includes(latestMessage);
 
     // Dynamic responses for short greetings
     const greetingResponses = [
@@ -72,11 +68,6 @@ export async function AiChatBotCall(messages: Message[]) {
 
     // Randomly select a greeting response
     const randomGreeting = greetingResponses[Math.floor(Math.random() * greetingResponses.length)];
-
-    // Check if contact info has been provided
-    const hasContactInfo = messages.some(msg => 
-        !msg.isBot && (/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/.test(msg.text) || /\S+@\S+\.\S+/.test(msg.text))
-    );
 
     // Construct the prompt for the LLM
     const prompt = `

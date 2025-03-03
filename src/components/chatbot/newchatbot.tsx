@@ -191,14 +191,14 @@ export function FamilyButtonDemo() {
       const userData: UserChatData = userDoc.exists()
         ? (userDoc.data() as UserChatData)
         : {
-            messages: [],
-            summary: "",
-            referralSource: referralSource,
-            visitCount: 0,
-            lastVisit: Date.now(),
-            deviceInfo: getDeviceInfo(navigator.userAgent),
-            totalVisits: 0,
-          };
+          messages: [],
+          summary: "",
+          referralSource: referralSource,
+          visitCount: 0,
+          lastVisit: Date.now(),
+          deviceInfo: getDeviceInfo(navigator.userAgent),
+          totalVisits: 0,
+        };
 
       const newMessage: Message = {
         text,
@@ -278,9 +278,8 @@ export function FamilyButtonDemo() {
       <div className="fixed bottom-4 right-4 z-[50]">
         <FamilyButton>
           <div className="h-[10%] flex items-center gap-2 py-3 shadow-sm border-b pl-7">
-            <img
-              width={50}
-              height={50}
+            <img width={40} height={40}
+
               src="/aa8c7f48-de04-4d37-98aa-da071b0809be.svg"
               className="size-8"
               alt="svg icon"
@@ -307,11 +306,10 @@ export function FamilyButtonDemo() {
                   )}
                 >
                   <div
-                    className={`max-w-[80%] shadow px-4 py-1.5 ${
-                      msg.isBot
-                        ? "bg-gray-100 text-gray-800 rounded-r-3xl rounded-tl-3xl"
-                        : "bg-[rgb(170,136,103)] text-white rounded-s-3xl rounded-tr-3xl"
-                    }`}
+                    className={`max-w-[80%] shadow px-4 py-1.5 ${msg.isBot
+                      ? "bg-gray-100 text-gray-800 rounded-r-3xl rounded-tl-3xl"
+                      : "bg-[rgb(170,136,103)] text-white rounded-s-3xl rounded-tr-3xl"
+                      }`}
                   >
                     {msg.text}
                   </div>

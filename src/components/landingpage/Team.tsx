@@ -1,10 +1,10 @@
 'use client'
 
 import { Icons } from '@/icons';
-import { AnimatePresence, motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react'
-    ;
+import React from 'react'
 import { TextAnimate } from '../ui/text-animate';
+import { TextRotate } from '../TextRotate';
+import { AnimatedImagesCloud } from '../AnimatedImagesCloud';
 
 export default function Team() {
     return (
@@ -58,97 +58,8 @@ export default function Team() {
                     <TextAnimate animation="slideLeft" className=' text-6xl md:text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
                     <TextRotate></TextRotate>
                 </div>
-                <AnimatedLogoCloud></AnimatedLogoCloud>
+                <AnimatedImagesCloud></AnimatedImagesCloud>
             </section>
         </>
-    )
-}
-
-const text = ['Hospitality', 'Showroom', 'Offices']
-
-const TextRotate = () => {
-    const [index, setIndex] = useState(0)
-
-    useEffect(() => {
-        const id = setInterval(() => {
-            setIndex((state) => {
-                if (state >= text.length - 1) return 0
-                return state + 1
-            })
-        }, 2000)
-        return () => clearInterval(id)
-    }, [])
-
-    return (
-        <div className="relative font-semibold flex w-full items-center justify-center text-center">
-            <AnimatePresence>
-                <motion.div
-                    className="absolute text-4xl md:text-[47px] tracking-[-1.4px] text-center text-[rgb(237,233,207)]"
-                    key={index}
-                    initial={{ y: 20, opacity: 0, scale: 0.8 }}
-                    animate={{ y: 0, opacity: 1, scale: 1 }}
-                    exit={{ y: -20, opacity: 0, scale: 0.8 }}
-                    transition={{ ease: 'easeInOut', delay: 0.2, duration: 0.5 }}
-                    whileHover={{ scale: 1.1 }}
-                >
-                    {text[index]}
-                </motion.div>
-            </AnimatePresence>
-        </div>
-    )
-}
-
-const logos = [
-    {
-        url: '/Y1SlBye7bzROKCM4Z8mb5VbHg.avif',
-    },
-    {
-        url: '/Vxz3I7vSm7BfUriKNWDn6GkGDU.avif',
-    },
-    {
-        url: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
-    },
-    {
-        url: '/fpSz08cqO9CONW7pXT8QyafavKA_1.png',
-    },
-    {
-        url: '/ClPv4MxK9a7IemxIhEl4txbDyA4.avif',
-    },
-]
-
-const AnimatedLogoCloud = () => {
-    return (
-        <div className="w-full py-12">
-            <div className="mx-auto w-full px-4 md:px-8">
-                <div
-                    className="group relative mt-6 flex gap-6 overflow-hidden p-2"
-                >
-                    <motion.div
-                        animate={{ translateX: '-50%' }}
-                        transition={{ duration: 15, repeat: Infinity, ease: 'linear', repeatType: 'loop' }}
-                        className="flex shrink-0 flex-row justify-around gap-2 pr-6"
-                    >
-                        {logos.map((logo, i) => (
-                            <img width={50} height={50}
-                                key={i}
-                                src={logo.url}
-                                className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
-                                alt={'images'}
-                            />
-                        ))}
-                        {/** second set of logo */}
-                        {logos.map((logo, i) => (
-                            <img width={50} height={50}
-                                key={i}
-                                src={logo.url}
-                                className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
-                                alt={'images'}
-                            />
-                        ))}
-                    </motion.div>
-
-                </div>
-            </div>
-        </div>
     )
 }
