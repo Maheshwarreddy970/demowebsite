@@ -70,6 +70,7 @@ export function ExploreJournal() {
                 >
                   <div className="w-full h-[24.25rem]">
                     <motion.img
+                    alt="journal"
                       src={article.titleimg}
                       className="w-full h-full object-cover"
                     />

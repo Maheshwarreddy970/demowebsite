@@ -83,6 +83,7 @@ export default function Heroserction() {
             loop
             muted
             playsInline
+            
           >
             <source src={content.foregroundVideo} type="video/mp4" />
             Your browser does not support the video tag.

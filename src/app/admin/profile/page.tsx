@@ -101,6 +101,7 @@ export default function Heroserction() {
             className="w-full h-full object-cover"
             autoPlay
             loop
+          
             muted
             playsInline
             src={content.foregroundVideo}

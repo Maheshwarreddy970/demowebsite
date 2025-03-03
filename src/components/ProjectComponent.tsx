@@ -163,11 +163,13 @@ export default function ProjectPage({
                             <div key={index} className="bg-[rgb(170,136,103)] p-4">
                                 <div className="w-full h-[24.25rem]">
                                     <motion.img
+                                    alt="journal"
                                         variants={imageVariants}
                                         initial="exit"
                                         whileHover="hover"
                                         animate="exit"
                                         src={article.src}
+                                        
                                         className="w-full h-full object-cover"
                                     />
                                 </div>

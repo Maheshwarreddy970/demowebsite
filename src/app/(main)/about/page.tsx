@@ -130,13 +130,13 @@ export default function Page() {
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
                     </div>
                     <div className="col-span-4 mt-36 group flex flex-col items-end">
-                        <img width={50} height={50} alt='' src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover  lg:w-[80%]  '></img>
+                        <img width={50} height={50} alt='sofa' src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover  lg:w-[80%]  '></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                 </div>
                 <div className="lg:grid lg:grid-cols-7 mt-24">
                     <div className="col-span-4 mt-14 group">
-                        <img width={50} height={50} alt='' src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full lg:pr-20'></img>
+                        <img width={50} height={50} alt='sofa' src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                     <div className="col-span-3 group p-4">
