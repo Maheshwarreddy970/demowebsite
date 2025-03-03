@@ -2,8 +2,10 @@
 
 import { Icons } from '@/icons';
 import React, { useEffect, useState } from 'react'
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { TextAnimate } from '@/components/ui/text-animate';
+import Link from 'next/link';
 
 const articles = [
     {
@@ -74,9 +76,9 @@ export default function page() {
                                 />
                             </div>
                             <h1 className='text-[22px] mt-5 leading-7 text-left'>{article.title}</h1>
-                            <a href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
+                            <Link href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
                                 <Icons.ButtonIcon className='size-[1.12rem]' />Read
-                            </a>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
@@ -84,7 +86,7 @@ export default function page() {
             </div>
             <section className=' bg-[#664f35] pt-36 overflow-hidden'>
                 <div className=' flex flex-col gap-6 '>
-                    <TextAnimate animation="slideLeft"  className=' text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
+                    <TextAnimate animation="slideLeft" className=' text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
                     <TextRotate></TextRotate>
                 </div>
                 <AnimatedLogoCloud></AnimatedLogoCloud>
@@ -159,7 +161,7 @@ const AnimatedLogoCloud = () => {
                         className="flex shrink-0 flex-row justify-around gap-2 pr-6"
                     >
                         {logos.map((logo, i) => (
-                            <img
+                            <img width={50} height={50}
                                 key={i}
                                 src={logo.url}
                                 className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
@@ -168,7 +170,7 @@ const AnimatedLogoCloud = () => {
                         ))}
                         {/** second set of logo */}
                         {logos.map((logo, i) => (
-                            <img
+                            <img width={50} height={50}
                                 key={i}
                                 src={logo.url}
                                 className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"

@@ -1,3 +1,4 @@
+import { Message } from "@/components/chatbot/newchatbot";
 import { ChatGroq } from "@langchain/groq";
 
 const data = {
@@ -49,39 +50,85 @@ const data = {
 
 const dataString = JSON.stringify(data, null, 2);
 
-export async function AiChatBotCall(content: string) {
+// Track whether the welcome message has been sent
+let welcomeMessageSent = false;
+
+export async function AiChatBotCall(messages: Message[]) {
+    console.log(messages);
+
+    // Convert messages array to a string for the LLM
+    const chatHistory = messages.map(msg => `${msg.isBot ? "Bot" : "User"}: ${msg.text}`).join("\n");
+
+    // Check if the latest message is from the user and is a short greeting
+    const latestMessage = messages.length > 0 && !messages[messages.length - 1].isBot ? messages[messages.length - 1].text.toLowerCase() : "";
+    const isShortGreeting = ["hi", "hello", "hey"].includes(latestMessage);
+
+    // Dynamic responses for short greetings
+    const greetingResponses = [
+        "Hi there! 😊 Nice to see you again! How can I assist you today?",
+        "Hello! 😊 Great to have you back. What can I help you with?",
+        "Hey! 😊 Welcome back. Let me know how I can assist you!",
+    ];
+
+    // Randomly select a greeting response
+    const randomGreeting = greetingResponses[Math.floor(Math.random() * greetingResponses.length)];
+
+    // Check if contact info has been provided
+    const hasContactInfo = messages.some(msg => 
+        !msg.isBot && (/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/.test(msg.text) || /\S+@\S+\.\S+/.test(msg.text))
+    );
+
+    // Construct the prompt for the LLM
+    const prompt = `
+        You are a polite and professional sales agent for Cove, a financial savings and investment platform. Your goal is to engage the customer, highlight the benefits of Cove, and gather information using the provided questions. Use a warm, human-like tone with emojis 😊👍 to make the conversation friendly and engaging.
+
+        **Welcome Message Note:**  
+        - The system sends this welcome message at the start: "Hey there! 👋😊 Glad to have you here! How’s your day going? I’d love to help you out—just let me know what you need! Oh, and if you’re cool with it, could you share your phone number or email? It’d make staying in touch so much easier! 😊". 
+        - Do **not** send it again or anything similar (e.g., "Glad to have you here" or "Great to chat with you")—assume it’s already been sent and focus on continuing the conversation naturally.
+
+        **Special Handling for "Hi" or Short Greetings:**  
+        - If the latest user message is a short greeting like "hi," "hello," or similar, respond with a dynamic greeting like "${randomGreeting}".
+        - If the user has not provided contact info, gently ask for it in a different way each time. Use these variations creatively and don’t repeat the same one twice in a row:
+          1. "By the way, could you share your phone or email so we can keep in touch? 😊"
+          2. "Hey, mind tossing me your email or phone? It’d be great to follow up! 🙌"
+          3. "Oh, quick thing—got a phone number or email I can use to stay connected? 😊"
+        - If the user provides a phone number or email, acknowledge it politely (e.g., "Awesome, thanks for sharing your email! 🙌 I’ve got it noted.") and don’t ask again unless clarification is needed.
+
+        **Chat History:**  
+        - The chat history is provided below as "User: [message]\nBot: [response]\n...". Respond only to the latest user message, using the history for context to avoid repetition.
+
+        Progress the conversation using the questions from "faqsection.list" in this data: 
+        ${dataString}
+
+        **Rules to Follow:**  
+        - Use the "title" fields from "faqsection.list" as questions to ask the customer, one at a time, in order, appending "(complete)" (e.g., "How can Cove help you save? (complete)").
+        - Only ask questions from "faqsection.list" titles—don’t deviate or create new ones.
+        - Weave in "benefitssection.list" info naturally when relevant (e.g., "Cove’s automated savings feature could really boost your goals! 😊").
+        - Always keep a respectful, friendly, and professional tone—like a real human sales agent.
+        - Use emojis thoughtfully (e.g., 😊, 🙌, 👍) to sound warm and approachable.
+        - Don’t repeat questions unless clarification is needed.
+
+        **Current Chat History:** 
+        "${chatHistory}"
+
+        Respond to the latest user message now, following the rules above. If it’s a short greeting like "hi" after the welcome message, say something like "${randomGreeting}" and ask for contact info casually if not already provided.
+    `;
+
     const aiMsg = await llm.invoke([
         {
             role: 'assistant',
-            content: `
-                You are a polite and professional sales agent for Cove, a financial savings and investment platform. Your goal is to engage the customer, highlight the benefits of Cove, and gather information using the provided questions.
-
-                Start the conversation by courteously asking for the customer's phone number or email to follow up later, using a warm and human-like tone.
-
-                After their response, progress the conversation using the questions listed under "faqsection.list" in the following data: 
-                ${dataString}
-
-                Rules to follow:
-                - Use the "title" fields from "faqsection.list" as the questions to ask the customer, one at a time, in the order provided.
-                - When asking a question from the "faqsection.list" data, append the keyword "(complete)" at the end of the question. This is mandatory and must only be used for these specific questions.
-                - Do not ask questions outside of the "faqsection.list" titles or deviate from the provided list.
-                - Use the information from "benefitssection.list" naturally in the conversation to promote Cove and its features, but only when relevant to the customer’s responses or as a lead-in to the FAQ questions.
-                - If the customer provides their phone number or email, acknowledge it politely before moving to the next question.
-                - Always maintain a respectful, friendly, and professional tone, acting as a human sales agent would.
-                - Do not repeat questions unless clarification is needed based on the customer’s response.
-
-                Begin the conversation now.
-            `,
+            content: prompt,
         },
-        { role: "user", content: content },
+        // Pass the latest user message as the "user" input, or empty string if none
+        { role: "user", content: messages.length > 0 && !messages[messages.length - 1].isBot ? messages[messages.length - 1].text : "" },
     ]);
+
     return aiMsg;
 }
 
 const llm = new ChatGroq({
     apiKey: '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',
     model: "llama-3.1-8b-instant",
-    temperature: 0,
+    temperature: 0.7, // Adjusted for more human-like variability
     maxRetries: 2,
-
 });

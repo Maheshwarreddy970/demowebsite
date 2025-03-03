@@ -1,9 +1,11 @@
 'use client';
 
-import React from 'react';
+import React from 'react'
+;
 import { motion } from 'framer-motion';
 import { Icons } from '@/icons';
 import { TextAnimate } from '@/components/ui/text-animate';
+import Link from 'next/link';
 
 const data = [
     {
@@ -46,7 +48,7 @@ export default function page() {
     return (
         <section>
             <div className=' w-full bg-[#0c652d]  lg:grid lg:grid-cols-2  overflow-hidden  h-[150vh] lg:h-screen '>
-            <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
+                <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
                     <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] px-5 py-28 lg:px-0 lg:py-0 text-center lg:text-left text-[#ede9cf] max-w-xl'>
                         Sustainable Architecture: The Future of Green Building
                     </TextAnimate>
@@ -100,9 +102,9 @@ export default function page() {
                                 />
                             </div>
                             <h1 className='text-[22px] mt-5 leading-7 text-left'>{article.title}</h1>
-                            <a href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
+                            <Link href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
                                 <Icons.ButtonIcon className='size-[1.12rem]' />Read
-                            </a>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>

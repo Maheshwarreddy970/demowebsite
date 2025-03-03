@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, X } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
+
 const FooterList = [
 
   {
@@ -33,7 +34,7 @@ export default function Navbar() {
     <>
       {!isMenuOpen && <nav className=' fixed flex items-center justify-between w-full z-50 px-4 lg:px-8 py-6 '>
         <Link href='/' className=' flex items-center gap-2 '>
-          <img src='/aa8c7f48-de04-4d37-98aa-da071b0809be.svg' className=' size-12' alt='svg icon '></img>
+          <img width={50} height={50} src='/aa8c7f48-de04-4d37-98aa-da071b0809be.svg' className=' size-12' alt='svg icon '></img>
           <div className='text-[1.1875rem] leading-5 tracking-[-1.9px] text-left text-[rgb(170,136,103)]'>
             <span className=' font-semibold'>OAKWOOD</span>
             <br></br>
@@ -52,11 +53,11 @@ export default function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-          initial={{ opacity: 0,y:'-100%' }}
-          animate={{opacity:1,y:'0%'}}
-          transition={{duration:0.7, ease:'easeInOut',stiffness:100}}
-          exit={{ opacity: 0,y:'-100%' }}
-          className="z-50 fixed left-0 top-0 w-full h-screen bg-[#3d342b] ">
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: '0%' }}
+            transition={{ duration: 0.7, ease: 'easeInOut', stiffness: 100 }}
+            exit={{ opacity: 0, y: '-100%' }}
+            className="z-50 fixed left-0 top-0 w-full h-screen bg-[#3d342b] ">
             <div className='flex items-center justify-end w-full z-50 px-8 py-8' >
               <button
                 onClick={() => setisMenuOpen(false)}
@@ -72,21 +73,21 @@ export default function Navbar() {
                 </div>
                 <div className="relative flex mt-5 flex-col items-center justify-center w-[310px] h-[184px] overflow-hidden rounded-[16px]">
                   {/* Background Image */}
-                  <img
+                  <img width={50} height={50}
                     src="/xY2ltysjjeDPAv2h8IdjICqEio_1.png"
                     alt="Background"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
 
                   {/* Centered Button */}
-                  <a
+                  <Link
                     href='/project-collection/the-meadow-house'
                     className="relative flex items-center justify-center gap-2 bg-[rgb(237,233,207)] rounded-[22px] py-3 px-6 text-[14px] font-medium text-[rgb(102,79,53)] fill-[rgb(102,79,53)] 
                hover:bg-[rgb(170,136,103)] hover:text-white hover:fill-white"
                   >
                     <Icons.ButtonIcon className="size-5" />
                     Get Started
-                  </a>
+                  </Link>
                 </div>
 
               </div>

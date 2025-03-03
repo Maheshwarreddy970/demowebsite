@@ -3,6 +3,7 @@
 import { Icons } from '@/icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
+    ;
 import { TextAnimate } from '../ui/text-animate';
 
 export default function Team() {
@@ -19,17 +20,17 @@ export default function Team() {
                 </TextAnimate>
                 <div className="lg:grid px-4 lg:px-0 lg:grid-cols-7">
                     <div className="col-span-4 mt-14 group">
-                        <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full lg:pr-20'></img>
+                        <img width={50} height={50} alt='sofa' src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                     <div className=" w-full lg:col-span-3 group p-4">
                         <div className=' mt-10'>
-                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                            <img width={50} height={50} src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
                         <div className=' flex flex-col gap-6 mt-32'>
                             <div className="flex items-center gap-5 justify-start">
-                                <img
+                                <img width={50} height={50}
                                     src="/4b82a821-5705-4ea8-be11-a60951a0bebe.svg"
                                     alt="icon"
                                     className="size-7"
@@ -128,7 +129,7 @@ const AnimatedLogoCloud = () => {
                         className="flex shrink-0 flex-row justify-around gap-2 pr-6"
                     >
                         {logos.map((logo, i) => (
-                            <img
+                            <img width={50} height={50}
                                 key={i}
                                 src={logo.url}
                                 className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"
@@ -137,7 +138,7 @@ const AnimatedLogoCloud = () => {
                         ))}
                         {/** second set of logo */}
                         {logos.map((logo, i) => (
-                            <img
+                            <img width={50} height={50}
                                 key={i}
                                 src={logo.url}
                                 className=" h-[20rem] w-[23rem] md:h-[25rem] md:w-[28rem] object-cover  dark:brightness-0 dark:invert"

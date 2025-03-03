@@ -1,193 +1,838 @@
 {
-    "work_collection": {
-    "title": "Work Collection",
-    "projects": [
-      {
-        "name": "The Meadow House",
-        "link":"/project-collection/the-meadow-house",
-        "images": [
-          "/Y1SlBye7bzROKCM4Z8mb5VbHg.avif",
-          "/CtqdgxpGYO4WFK0ftEeQyDERY0w.avif"
-        ]
-      },
-      {
-        "name": "One Great Jones Alley",
-        "link":"/project-collection/the-meadow-house",
-        "images": [
-          "/MrwrMt2iox7UPFuxfxwQoOg4s.avif",
-          "/TTdNsUIJ7hNa3fW196hmNHfRznM.png"
-        ]
-      },
-      {
-        "name": "Scorpia",
-        "link":"/project-collection/the-meadow-house",
-        "images": [
-          "/xY2ltysjjeDPAv2h8IdjICqEio_1.png",
-          "/apr1iyeVu0giJ4G3Ouvu0nDGOmE.avif"
-        ]
-      },
-      {
-        "name": "Dovecote",
-        "link":"/project-collection/the-meadow-house",
-        "images": [
-          "/fpSz08cqO9CONW7pXT8QyafavKA_1.png",
-          "/MOLE-ARCHITECTS-HOUSEBOAT-AT-WEB-phRoryGardiner001.jpg"
-        ]
-      }
-    ],
-    "featured_projects": {
-      "title": "Featured Projects",
-      "description": "Highlights of cases that we passionately built with forward-thinking clients and friends over the years.",
-      "icon": "/41328140-da2b-4d17-9f32-4ee3288447e1.svg"
-    }
-  },
-  "work_collection_footer": {
-    "company": {
-      "name": "OAKWOOD ARCHITECTS",
-      "tagline": "Where housing innovation is shaped.",
-      "logo": "/b79bf2b3-bd8b-410f-8022-7be6172fe960.svg"
+    "workCollection": {
+        "title": "The Meadow House",
+        "description": "The Meadow House by Mark English Architects draws on Californian and Korean influences",
+        "projects": [
+            {
+                "name": "the-meadow-house",
+                "title": "The Meadow House",
+                "link": "/project-collection/the-meadow-house",
+                "titleimg": [
+                    "/Y1SlBye7bzROKCM4Z8mb5VbHg.avif",
+                    "/CtqdgxpGYO4WFK0ftEeQyDERY0w.avif"
+                ],
+                "lines": [
+                    "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+                    "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+                    "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant."
+                ],
+                "images": [
+                    "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+                    "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+                    "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+                    "/6mVf040uObmMYQk0MdjLSZvyx6U.avif"
+                ]
+            },
+            {
+                "name": "one-great-jones-alley",
+                "title": "One Great Jones Alley",
+                "link": "/project-collection/the-meadow-house",
+                "titleimg": [
+                    "/MrwrMt2iox7UPFuxfxwQoOg4s.avif",
+                    "/TTdNsUIJ7hNa3fW196hmNHfRznM.png"
+                ],
+                "lines": [
+                    "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+                    "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+                    "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant."
+                ],
+                "images": [
+                    "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+                    "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+                    "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+                    "/6mVf040uObmMYQk0MdjLSZvyx6U.avif"
+                ]
+            },
+            {
+                "name": "scorpia",
+                "title": "Scorpia",
+                "link": "/project-collection/the-meadow-house",
+                "titleimg": [
+                    "/xY2ltysjjeDPAv2h8IdjICqEio_1.png",
+                    "/apr1iyeVu0giJ4G3Ouvu0nDGOmE.avif"
+                ],
+                "lines": [
+                    "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+                    "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+                    "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant."
+                ],
+                "images": [
+                    "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+                    "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+                    "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+                    "/6mVf040uObmMYQk0MdjLSZvyx6U.avif"
+                ]
+            },
+            {
+                "name": "dovecote",
+                "title": "Dovecote",
+                "link": "/project-collection/the-meadow-house",
+                "titleimg": [
+                    "/fpSz08cqO9CONW7pXT8QyafavKA_1.png",
+                    "/MOLE-ARCHITECTS-HOUSEBOAT-AT-WEB-phRoryGardiner001.jpg"
+                ],
+                "lines": [
+                    "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+                    "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+                    "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant."
+                ],
+                "images": [
+                    "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+                    "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+                    "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+                    "/6mVf040uObmMYQk0MdjLSZvyx6U.avif"
+                ]
+            }
+        ],
+        "featured_projects": {
+            "title": "Featured Projects",
+            "description": "Highlights of cases that we passionately built with forward-thinking clients and friends over the years.",
+            "icon": "/41328140-da2b-4d17-9f32-4ee3288447e1.svg"
+        },
+        "work_collection_footer": {
+            "company": {
+                "name": "OAKWOOD ARCHITECTS",
+                "tagline": "Where housing innovation is shaped.",
+                "logo": "/b79bf2b3-bd8b-410f-8022-7be6172fe960.svg"
+            },
+            "image": "bWFZ6VKV9dQV7yjOspAjXxx0D4.avif"
+        }
     },
-    "image": "bWFZ6VKV9dQV7yjOspAjXxx0D4.avif"
-  },
-    "projects": [
-        {
-            "name": "the-meadow-house",
-            "title": "The Meadow House",
-            "titleimg": "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
-            "lines": [
-                "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
-                "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
-                "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant."
-            ],
-            "images": [
-                "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
-                "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
-                "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
-                "/6mVf040uObmMYQk0MdjLSZvyx6U.avif"
-            ]
-        }
-    ],
-    "journal": [
-        {
-            "name": "the-meadow-house",
-            "title": "Introduction to Smart Homes and Buildings",
-            "img": "/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif",
-            "smartHomesAndBuildings": [
-                {
-                    "title": "Introduction to Smart Homes and Buildings",
-                    "sections": [
-                        {
-                            "name": "Definition and Overview",
-                            "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
-                        },
-                        {
-                            "name": "Historical Evolution",
-                            "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
-                        }
-                    ]
-                },
-                {
-                    "title": "Core Technologies in Smart Homes and Buildings",
-                    "sections": [
-                        {
-                            "name": "Internet of Things (IoT)",
-                            "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
-                        },
-                        {
-                            "name": "Automation Systems",
-                            "description": "Detail various automation systems such as lighting, heating, cooling, and security."
-                        },
-                        {
-                            "name": "Smart Appliances",
-                            "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
-                        },
-                        {
-                            "name": "Energy Management",
-                            "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
-                        }
-                    ]
-                },
-                {
-                    "title": "Design Principles for Smart Homes and Buildings",
-                    "sections": [
-                        {
-                            "name": "User-Centric Design",
-                            "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
-                        },
-                        {
-                            "name": "Aesthetic Integration",
-                            "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
-                        },
-                        {
-                            "name": "Space Optimization",
-                            "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
-                        },
-                        {
-                            "name": "Flexibility and Scalability",
-                            "description": "Examine how designs can accommodate future upgrades and changes in technology."
-                        }
-                    ]
-                },
-                {
-                    "title": "Benefits of Smart Technology",
-                    "sections": [
-                        {
-                            "name": "Convenience and Comfort",
-                            "description": "Highlight how smart technology enhances daily living through automation and remote control."
-                        },
-                        {
-                            "name": "Energy Efficiency",
-                            "description": "Explore how smart systems contribute to energy savings and sustainability."
-                        },
-                        {
-                            "name": "Security and Safety",
-                            "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
-                        },
-                        {
-                            "name": "Health and Well-Being",
-                            "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
-                        }
-                    ]
-                },
-                {
-                    "title": "Case Studies and Examples",
-                    "sections": [
-                        {
-                            "name": "Residential Projects",
-                            "description": "Provide examples of smart homes with integrated technology and innovative design."
-                        },
-                        {
-                            "name": "Commercial Buildings",
-                            "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
-                        },
-                        {
-                            "name": "Public Buildings",
-                            "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
-                        }
-                    ]
-                },
-                {
-                    "title": "Design and Technology Integration Challenges",
-                    "sections": [
-                        {
-                            "name": "Interoperability",
-                            "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
-                        },
-                        {
-                            "name": "Privacy and Security",
-                            "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
-                        },
-                        {
-                            "name": "Complexity and Usability",
-                            "description": "Explore the balance between sophisticated technology and user-friendly design."
-                        },
-                        {
-                            "name": "Cost and Accessibility",
-                            "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+    "ExploreJournal": {
+        "journal": [
+            {
+                "name": "biophilic-design-bringing-nature-indoors",
+                "title": "The concept of biophilia—human beings' inherent connection to nature.",
+                "titleimg": "/istockphoto-1405772777-612x612.jpg",
+                "href": "/journal/biophilic-design-bringing-nature-indoors",
+                "smartHomesAndBuildings": [
+                    {
+                        "title": "Introduction to Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Definition and Overview",
+                                "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
+                            },
+                            {
+                                "name": "Historical Evolution",
+                                "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Core Technologies in Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Internet of Things (IoT)",
+                                "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
+                            },
+                            {
+                                "name": "Automation Systems",
+                                "description": "Detail various automation systems such as lighting, heating, cooling, and security."
+                            },
+                            {
+                                "name": "Smart Appliances",
+                                "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
+                            },
+                            {
+                                "name": "Energy Management",
+                                "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design Principles for Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "User-Centric Design",
+                                "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
+                            },
+                            {
+                                "name": "Aesthetic Integration",
+                                "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
+                            },
+                            {
+                                "name": "Space Optimization",
+                                "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
+                            },
+                            {
+                                "name": "Flexibility and Scalability",
+                                "description": "Examine how designs can accommodate future upgrades and changes in technology."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Benefits of Smart Technology",
+                        "sections": [
+                            {
+                                "name": "Convenience and Comfort",
+                                "description": "Highlight how smart technology enhances daily living through automation and remote control."
+                            },
+                            {
+                                "name": "Energy Efficiency",
+                                "description": "Explore how smart systems contribute to energy savings and sustainability."
+                            },
+                            {
+                                "name": "Security and Safety",
+                                "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
+                            },
+                            {
+                                "name": "Health and Well-Being",
+                                "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Case Studies and Examples",
+                        "sections": [
+                            {
+                                "name": "Residential Projects",
+                                "description": "Provide examples of smart homes with integrated technology and innovative design."
+                            },
+                            {
+                                "name": "Commercial Buildings",
+                                "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
+                            },
+                            {
+                                "name": "Public Buildings",
+                                "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design and Technology Integration Challenges",
+                        "sections": [
+                            {
+                                "name": "Interoperability",
+                                "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
+                            },
+                            {
+                                "name": "Privacy and Security",
+                                "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
+                            },
+                            {
+                                "name": "Complexity and Usability",
+                                "description": "Explore the balance between sophisticated technology and user-friendly design."
+                            },
+                            {
+                                "name": "Cost and Accessibility",
+                                "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "smart-homes-and-buildings-integrating-technology-and-design",
+                "titleimg": "/xY2ltysjjeDPAv2h8IdjICqEio_1.png",
+                "title": "Smart Homes and Buildings: Integrating Technology and Design",
+                "href": "/journal/smart-homes-and-buildings-integrating-technology-and-design",
+                "smartHomesAndBuildings": [
+                    {
+                        "title": "Introduction to Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Definition and Overview",
+                                "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
+                            },
+                            {
+                                "name": "Historical Evolution",
+                                "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Core Technologies in Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Internet of Things (IoT)",
+                                "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
+                            },
+                            {
+                                "name": "Automation Systems",
+                                "description": "Detail various automation systems such as lighting, heating, cooling, and security."
+                            },
+                            {
+                                "name": "Smart Appliances",
+                                "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
+                            },
+                            {
+                                "name": "Energy Management",
+                                "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design Principles for Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "User-Centric Design",
+                                "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
+                            },
+                            {
+                                "name": "Aesthetic Integration",
+                                "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
+                            },
+                            {
+                                "name": "Space Optimization",
+                                "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
+                            },
+                            {
+                                "name": "Flexibility and Scalability",
+                                "description": "Examine how designs can accommodate future upgrades and changes in technology."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Benefits of Smart Technology",
+                        "sections": [
+                            {
+                                "name": "Convenience and Comfort",
+                                "description": "Highlight how smart technology enhances daily living through automation and remote control."
+                            },
+                            {
+                                "name": "Energy Efficiency",
+                                "description": "Explore how smart systems contribute to energy savings and sustainability."
+                            },
+                            {
+                                "name": "Security and Safety",
+                                "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
+                            },
+                            {
+                                "name": "Health and Well-Being",
+                                "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Case Studies and Examples",
+                        "sections": [
+                            {
+                                "name": "Residential Projects",
+                                "description": "Provide examples of smart homes with integrated technology and innovative design."
+                            },
+                            {
+                                "name": "Commercial Buildings",
+                                "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
+                            },
+                            {
+                                "name": "Public Buildings",
+                                "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design and Technology Integration Challenges",
+                        "sections": [
+                            {
+                                "name": "Interoperability",
+                                "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
+                            },
+                            {
+                                "name": "Privacy and Security",
+                                "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
+                            },
+                            {
+                                "name": "Complexity and Usability",
+                                "description": "Explore the balance between sophisticated technology and user-friendly design."
+                            },
+                            {
+                                "name": "Cost and Accessibility",
+                                "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "wellness-centric-design-creating-healthy-interiors",
+                "titleimg": "/TTdNsUIJ7hNa3fW196hmNHfRznM.png",
+                "title": "Wellness-Centric Design: Creating Healthy Interiors",
+                "href": "/journal/wellness-centric-design-creating-healthy-interiors",
+                "smartHomesAndBuildings": [
+                    {
+                        "title": "Introduction to Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Definition and Overview",
+                                "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
+                            },
+                            {
+                                "name": "Historical Evolution",
+                                "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Core Technologies in Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Internet of Things (IoT)",
+                                "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
+                            },
+                            {
+                                "name": "Automation Systems",
+                                "description": "Detail various automation systems such as lighting, heating, cooling, and security."
+                            },
+                            {
+                                "name": "Smart Appliances",
+                                "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
+                            },
+                            {
+                                "name": "Energy Management",
+                                "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design Principles for Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "User-Centric Design",
+                                "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
+                            },
+                            {
+                                "name": "Aesthetic Integration",
+                                "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
+                            },
+                            {
+                                "name": "Space Optimization",
+                                "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
+                            },
+                            {
+                                "name": "Flexibility and Scalability",
+                                "description": "Examine how designs can accommodate future upgrades and changes in technology."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Benefits of Smart Technology",
+                        "sections": [
+                            {
+                                "name": "Convenience and Comfort",
+                                "description": "Highlight how smart technology enhances daily living through automation and remote control."
+                            },
+                            {
+                                "name": "Energy Efficiency",
+                                "description": "Explore how smart systems contribute to energy savings and sustainability."
+                            },
+                            {
+                                "name": "Security and Safety",
+                                "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
+                            },
+                            {
+                                "name": "Health and Well-Being",
+                                "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Case Studies and Examples",
+                        "sections": [
+                            {
+                                "name": "Residential Projects",
+                                "description": "Provide examples of smart homes with integrated technology and innovative design."
+                            },
+                            {
+                                "name": "Commercial Buildings",
+                                "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
+                            },
+                            {
+                                "name": "Public Buildings",
+                                "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design and Technology Integration Challenges",
+                        "sections": [
+                            {
+                                "name": "Interoperability",
+                                "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
+                            },
+                            {
+                                "name": "Privacy and Security",
+                                "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
+                            },
+                            {
+                                "name": "Complexity and Usability",
+                                "description": "Explore the balance between sophisticated technology and user-friendly design."
+                            },
+                            {
+                                "name": "Cost and Accessibility",
+                                "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "wellness-centric-design-creating-healthy-interiors",
+                "title": "Cultural Heritage and Interior Design: Preserving History",
+                "img": "/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif",
+                "titleimg": "/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif",
+                "href": "/journal/wellness-centric-design-creating-healthy-interiors",
+                "smartHomesAndBuildings": [
+                    {
+                        "title": "Introduction to Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Definition and Overview",
+                                "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
+                            },
+                            {
+                                "name": "Historical Evolution",
+                                "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Core Technologies in Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Internet of Things (IoT)",
+                                "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
+                            },
+                            {
+                                "name": "Automation Systems",
+                                "description": "Detail various automation systems such as lighting, heating, cooling, and security."
+                            },
+                            {
+                                "name": "Smart Appliances",
+                                "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
+                            },
+                            {
+                                "name": "Energy Management",
+                                "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design Principles for Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "User-Centric Design",
+                                "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
+                            },
+                            {
+                                "name": "Aesthetic Integration",
+                                "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
+                            },
+                            {
+                                "name": "Space Optimization",
+                                "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
+                            },
+                            {
+                                "name": "Flexibility and Scalability",
+                                "description": "Examine how designs can accommodate future upgrades and changes in technology."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Benefits of Smart Technology",
+                        "sections": [
+                            {
+                                "name": "Convenience and Comfort",
+                                "description": "Highlight how smart technology enhances daily living through automation and remote control."
+                            },
+                            {
+                                "name": "Energy Efficiency",
+                                "description": "Explore how smart systems contribute to energy savings and sustainability."
+                            },
+                            {
+                                "name": "Security and Safety",
+                                "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
+                            },
+                            {
+                                "name": "Health and Well-Being",
+                                "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Case Studies and Examples",
+                        "sections": [
+                            {
+                                "name": "Residential Projects",
+                                "description": "Provide examples of smart homes with integrated technology and innovative design."
+                            },
+                            {
+                                "name": "Commercial Buildings",
+                                "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
+                            },
+                            {
+                                "name": "Public Buildings",
+                                "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design and Technology Integration Challenges",
+                        "sections": [
+                            {
+                                "name": "Interoperability",
+                                "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
+                            },
+                            {
+                                "name": "Privacy and Security",
+                                "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
+                            },
+                            {
+                                "name": "Complexity and Usability",
+                                "description": "Explore the balance between sophisticated technology and user-friendly design."
+                            },
+                            {
+                                "name": "Cost and Accessibility",
+                                "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "the-future-of-workspaces-trends-and-innovations",
+                "title": "The Future of Workspaces: Trends and Innovations",
+                "titleimg": "/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif",
+                "href": "/journal/the-future-of-workspaces-trends-and-innovations",
+                "smartHomesAndBuildings": [
+                    {
+                        "title": "Introduction to Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Definition and Overview",
+                                "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
+                            },
+                            {
+                                "name": "Historical Evolution",
+                                "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Core Technologies in Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Internet of Things (IoT)",
+                                "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
+                            },
+                            {
+                                "name": "Automation Systems",
+                                "description": "Detail various automation systems such as lighting, heating, cooling, and security."
+                            },
+                            {
+                                "name": "Smart Appliances",
+                                "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
+                            },
+                            {
+                                "name": "Energy Management",
+                                "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design Principles for Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "User-Centric Design",
+                                "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
+                            },
+                            {
+                                "name": "Aesthetic Integration",
+                                "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
+                            },
+                            {
+                                "name": "Space Optimization",
+                                "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
+                            },
+                            {
+                                "name": "Flexibility and Scalability",
+                                "description": "Examine how designs can accommodate future upgrades and changes in technology."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Benefits of Smart Technology",
+                        "sections": [
+                            {
+                                "name": "Convenience and Comfort",
+                                "description": "Highlight how smart technology enhances daily living through automation and remote control."
+                            },
+                            {
+                                "name": "Energy Efficiency",
+                                "description": "Explore how smart systems contribute to energy savings and sustainability."
+                            },
+                            {
+                                "name": "Security and Safety",
+                                "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
+                            },
+                            {
+                                "name": "Health and Well-Being",
+                                "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Case Studies and Examples",
+                        "sections": [
+                            {
+                                "name": "Residential Projects",
+                                "description": "Provide examples of smart homes with integrated technology and innovative design."
+                            },
+                            {
+                                "name": "Commercial Buildings",
+                                "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
+                            },
+                            {
+                                "name": "Public Buildings",
+                                "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design and Technology Integration Challenges",
+                        "sections": [
+                            {
+                                "name": "Interoperability",
+                                "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
+                            },
+                            {
+                                "name": "Privacy and Security",
+                                "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
+                            },
+                            {
+                                "name": "Complexity and Usability",
+                                "description": "Explore the balance between sophisticated technology and user-friendly design."
+                            },
+                            {
+                                "name": "Cost and Accessibility",
+                                "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "sustainable-spaces-eco-friendly-design-solutions",
+                "title": "Sustainable Spaces: Eco-Friendly Design Solutions",
+                "titleimg": "/LplpVPUpxDHnVTfRW8XsfQNw.avif",
+                "href": "/journal/sustainable-spaces-eco-friendly-design-solutions",
+                "smartHomesAndBuildings": [
+                    {
+                        "title": "Introduction to Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Definition and Overview",
+                                "description": "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design."
+                            },
+                            {
+                                "name": "Historical Evolution",
+                                "description": "Discuss the development of smart technology and its adoption in residential and commercial buildings over time."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Core Technologies in Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "Internet of Things (IoT)",
+                                "description": "Explain the role of IoT in creating interconnected devices and systems within smart environments."
+                            },
+                            {
+                                "name": "Automation Systems",
+                                "description": "Detail various automation systems such as lighting, heating, cooling, and security."
+                            },
+                            {
+                                "name": "Smart Appliances",
+                                "description": "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits."
+                            },
+                            {
+                                "name": "Energy Management",
+                                "description": "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design Principles for Smart Homes and Buildings",
+                        "sections": [
+                            {
+                                "name": "User-Centric Design",
+                                "description": "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience."
+                            },
+                            {
+                                "name": "Aesthetic Integration",
+                                "description": "Explore how technology can be seamlessly integrated into the design without compromising aesthetics."
+                            },
+                            {
+                                "name": "Space Optimization",
+                                "description": "Discuss how smart technologies can optimize space usage and enhance functionality."
+                            },
+                            {
+                                "name": "Flexibility and Scalability",
+                                "description": "Examine how designs can accommodate future upgrades and changes in technology."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Benefits of Smart Technology",
+                        "sections": [
+                            {
+                                "name": "Convenience and Comfort",
+                                "description": "Highlight how smart technology enhances daily living through automation and remote control."
+                            },
+                            {
+                                "name": "Energy Efficiency",
+                                "description": "Explore how smart systems contribute to energy savings and sustainability."
+                            },
+                            {
+                                "name": "Security and Safety",
+                                "description": "Discuss advanced security features such as smart locks, cameras, and emergency response systems."
+                            },
+                            {
+                                "name": "Health and Well-Being",
+                                "description": "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Case Studies and Examples",
+                        "sections": [
+                            {
+                                "name": "Residential Projects",
+                                "description": "Provide examples of smart homes with integrated technology and innovative design."
+                            },
+                            {
+                                "name": "Commercial Buildings",
+                                "description": "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration."
+                            },
+                            {
+                                "name": "Public Buildings",
+                                "description": "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Design and Technology Integration Challenges",
+                        "sections": [
+                            {
+                                "name": "Interoperability",
+                                "description": "Address the challenges of ensuring that different smart devices and systems work together seamlessly."
+                            },
+                            {
+                                "name": "Privacy and Security",
+                                "description": "Discuss concerns related to data privacy and cybersecurity in smart environments."
+                            },
+                            {
+                                "name": "Complexity and Usability",
+                                "description": "Explore the balance between sophisticated technology and user-friendly design."
+                            },
+                            {
+                                "name": "Cost and Accessibility",
+                                "description": "Consider the cost implications of smart technology and its accessibility for different types of projects."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }

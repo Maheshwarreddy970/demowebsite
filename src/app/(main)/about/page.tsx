@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion';
+
+import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
 import { TextAnimate } from '@/components/ui/text-animate';
 
 const images = [
@@ -50,10 +51,12 @@ const approaches = [
         id: 3,
         title: "The Impact-Driven Approach",
         description:
-            "Our designs go beyond aesthetics. We strive to create spaces that enhance people's lives and contribute to a sustainable future.",
+            "Our designs go beyond aesthetics. We strive to create spaces that enhance people&apos;s lives and contribute to a sustainable future.",
     },
 ];
-export default function page() {
+
+// Component name must start with uppercase letter
+export default function Page() {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
 
@@ -93,13 +96,13 @@ export default function page() {
                 </TextAnimate>
                 <div className="lg:grid lg:grid-cols-7">
                     <div className="col-span-4 mt-14 group">
-                        <img src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full lg:pr-20'></img>
+                        <img width={50} height={50} alt='sofa' src='/TENqsYWRqz8AtyaU1tq6ttYQLqs.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                     <div className="lg:col-span-3 group p-4">
                         <div className=' flex flex-col gap-6 mt-10'>
                             <div className="flex items-center gap-5 justify-start">
-                                <img
+                                <img width={50} height={50}
                                     src="/4b82a821-5705-4ea8-be11-a60951a0bebe.svg"
                                     alt="icon"
                                     className="size-7"
@@ -109,11 +112,11 @@ export default function page() {
                                 </TextAnimate>
                             </div>
                             <TextAnimate animation="slideLeft" className='text-[20px] pr-7 font-semibold tracking-[-0.6px] text-left text-[rgb(170,136,103)]'>
-                                we believe that architecture is more than just structures; it's about crafting experiences and shaping environments.
+                                we believe that architecture is more than just structures; it&apos;s about crafting experiences and shaping environments.
                             </TextAnimate>
                         </div>
                         <div className=' mt-60'>
-                            <img src='/q01CbGPUmMmrTo4Ik80tuXaiIgE.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                            <img width={50} height={50} src='/q01CbGPUmMmrTo4Ik80tuXaiIgE.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
 
@@ -122,24 +125,24 @@ export default function page() {
                 <div className="lg:grid lg:grid-cols-7">
                     <div className="col-span-3 group p-4">
                         <div className='mt-20 lg:mt-[40rem]'>
-                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='lg:pr-20 w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                            <img width={50} height={50} src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='lg:pr-20 w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
                     </div>
                     <div className="col-span-4 mt-36 group flex flex-col items-end">
-                        <img src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover  lg:w-[80%]  '></img>
+                        <img width={50} height={50} alt='' src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover  lg:w-[80%]  '></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                 </div>
                 <div className="lg:grid lg:grid-cols-7 mt-24">
                     <div className="col-span-4 mt-14 group">
-                        <img src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full lg:pr-20'></img>
+                        <img width={50} height={50} alt='' src='/iThY0qNZ007ssbLlaoHSFgFwPYY.avif' className=' object-cover w-full lg:pr-20'></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                     <div className="col-span-3 group p-4">
                         <div className=' flex flex-col gap-6 mt-10'>
                             <div className="flex items-center gap-5 justify-start">
-                                <img
+                                <img width={50} height={50}
                                     src="/4b82a821-5705-4ea8-be11-a60951a0bebe.svg"
                                     alt="icon"
                                     className="size-7"
@@ -153,7 +156,7 @@ export default function page() {
                             </TextAnimate>
                         </div>
                         <div className=' mt-20 lg:mt-96'>
-                            <img src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
+                            <img width={50} height={50} src='/T9DhxklqlCELPRaNFy0te6cDMec.avif' className='w-full h-[36rem]  object-cover ' alt='sofa'></img>
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
 
@@ -203,13 +206,8 @@ export default function page() {
             <div ref={ref} className='h-[400vh] relative'>
                 <div className='h-screen sticky overflow-hidden top-0 flex items-center justify-center'>
                     {images.map((pos, index) => {
-                        const x = useTransform(scrollYProgress, [0, 1], pos.x);
-                        const y = useTransform(scrollYProgress, [0, 1], pos.y);
-                        const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
                         return (
-                            <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
-                                <img className='object-cover h-full w-full' src={pos.src} alt='image' />
-                            </motion.div>
+                            <MovingImage key={index} src={pos.src} xRange={pos.x} yRange={pos.y} scaleRange={pos.scale} scrollYProgress={scrollYProgress} />
                         );
                     })}
                     <motion.div
@@ -260,7 +258,7 @@ const AnimatedLogoCloud = () => {
                         >
                             {logos.map((logo) => (
                                 <div key={logo.name} className='bg-[rgb(170,136,103)] flex items-center gap-[10px] h-[213px] justify-center relative w-[213px] p-8'>
-                                    <img
+                                    <img width={50} height={50}
                                         src={logo.url}
                                         className="brightness-0 dark:invert"
                                         alt={`${logo.name}`}
@@ -273,4 +271,17 @@ const AnimatedLogoCloud = () => {
             </div>
         </div>
     )
+}
+
+
+function MovingImage({ src, xRange, yRange, scaleRange, scrollYProgress }: { src: string; xRange: string[]; yRange: string[]; scaleRange: number; scrollYProgress: MotionValue<number>; }) {
+    const x = useTransform(scrollYProgress, [0, 1], xRange);
+    const y = useTransform(scrollYProgress, [0, 1], yRange);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, scaleRange]);
+
+    return (
+        <motion.div style={{ scale, x, y }} className="absolute z-40 h-[27rem] w-[27rem] overflow-hidden">
+            <img width={50} height={50} className="object-cover h-full w-full" src={src} alt="image" />
+        </motion.div>
+    );
 }

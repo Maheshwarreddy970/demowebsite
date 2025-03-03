@@ -1,7 +1,7 @@
 import { Icons } from '@/icons'
-import { link } from 'fs'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import React from 'react'
+
 
 const FooterList = [
 
@@ -17,8 +17,8 @@ const FooterList = [
   },
   {
     name: 'Journal',
-    link:'/journal'
-  }, 
+    link: '/journal'
+  },
   {
     name: 'Sustainability',
     link: '/sustainability'

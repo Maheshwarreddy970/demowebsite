@@ -1,43 +1,12 @@
 'use client'
 
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import { Icons } from '@/icons';
 import React, { useRef } from 'react'
+import data from '@/lib/data.json'
 import { TextAnimate } from '@/components/ui/text-animate';
 
 
-const articles = [
-    {
-        src: '/istockphoto-1405772777-612x612.jpg',
-        title: 'The concept of biophilia—human beings\' inherent connection to nature.',
-        href: '/journal/the-meadow-house'
-    },
-    {
-        src: '/xY2ltysjjeDPAv2h8IdjICqEio_1.png',
-        title: 'Smart Homes and Buildings: Integrating Technology and Design',
-        href: '/journal/the-meadow-house'
-    },
-    {
-        src: '/TTdNsUIJ7hNa3fW196hmNHfRznM.png',
-        title: 'Wellness-Centric Design: Creating Healthy Interiors',
-        href: '/journal/the-meadow-house'
-    },
-    {
-        src: '/EiUmdEKgrLMDVFEeDQe8g5U30qw.avif',
-        title: 'Cultural Heritage and Interior Design: Preserving History',
-        href: '/journal/the-meadow-house'
-    },
-    {
-        src: '/TGWC6CjvhGXPWkoNVDyxCmm3Ws.avif',
-        title: 'The Future of Workspaces: Trends and Innovations',
-        href: '/journal/the-meadow-house'
-    },
-    {
-        src: '/LplpVPUpxDHnVTfRW8XsfQNw.avif',
-        title: 'Sustainable Spaces: Eco-Friendly Design Solutions',
-        href: '/journal/the-meadow-house'
-    },
-];
 
 const images = [
     { src: '/RuMqGgeq1yJlrDGasQTyq8Ii9I.avif', x: ['0%', '-70%'], y: ['0%', '-80%'], scale: 0.4 },
@@ -50,7 +19,7 @@ const images = [
     { src: '/DErGBXCKfVwGZjfxm4iDjYawu9s.avif', x: ['0%', '100%'], y: ['0%', '40%'], scale: 0.5 },
 ];
 
-export default function page() {
+export default function Page() {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
     const imageVariants = {
@@ -84,7 +53,7 @@ export default function page() {
             <div className=' bg-[#AA8867]  flex flex-col gap-3 py-[9.75rem] px-[1rem] lg:px-[2.5rem]'>
                 <TextAnimate animation="slideLeft" by="character" className='text-[112px] ml-0 lg:ml-20  tracking-[-6.8px] leading-[1em] text-[#4a3e32] font-bold '>Journals</TextAnimate>
                 <div className='grid lg:grid-cols-3 lg:px-10 gap-6 mt-10'>
-                    {articles.map((article, index) => (
+                    {data.ExploreJournal.journal.map((article, index) => (
                         <motion.div
                             viewport={{ once: true }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: index * 0.2, ease: 'easeInOut', type: 'spring', stiffness: 200 }} key={index} className='bg-white p-4'>
                             <div className='w-full h-[24.25rem]'>
@@ -93,7 +62,7 @@ export default function page() {
                                     initial='exit'
                                     whileHover='hover'
                                     animate='exit'
-                                    src={article.src}
+                                    src={article.titleimg}
                                     className='w-full h-full object-cover'
                                 />
                             </div>
@@ -108,13 +77,9 @@ export default function page() {
             <div ref={ref} className='h-[400vh] relative'>
                 <div className='h-screen sticky bg-[#AA8867] overflow-hidden top-0 flex items-center justify-center'>
                     {images.map((pos, index) => {
-                        const x = useTransform(scrollYProgress, [0, 1], pos.x);
-                        const y = useTransform(scrollYProgress, [0, 1], pos.y);
-                        const scale = useTransform(scrollYProgress, [0, 1], [1, pos.scale]);
                         return (
-                            <motion.div key={index} style={{ scale, x, y }} className=' z-40 absolute h-[27rem] w-[27rem] overflow-hidden'>
-                                <img className='object-cover h-full w-full' src={pos.src} alt='image' />
-                            </motion.div>
+                            <MovingImage key={index} src={pos.src} xRange={pos.x} yRange={pos.y} scaleRange={pos.scale} scrollYProgress={scrollYProgress} />
+
                         );
                     })}
                     <motion.div
@@ -129,4 +94,16 @@ export default function page() {
             </div>
         </section>
     )
+}
+
+function MovingImage({ src, xRange, yRange, scaleRange, scrollYProgress }: { src: string; xRange: string[]; yRange: string[]; scaleRange: number; scrollYProgress: MotionValue<number>; }) {
+    const x = useTransform(scrollYProgress, [0, 1], xRange);
+    const y = useTransform(scrollYProgress, [0, 1], yRange);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, scaleRange]);
+
+    return (
+        <motion.div style={{ scale, x, y }} className="absolute z-40 h-[27rem] w-[27rem] overflow-hidden">
+            <img width={50} height={50} className="object-cover h-full w-full" src={src} alt="image" />
+        </motion.div>
+    );
 }

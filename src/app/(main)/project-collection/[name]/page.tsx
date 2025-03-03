@@ -2,9 +2,11 @@
 
 import { Icons } from '@/icons';
 import React, { useEffect, useState } from 'react'
+
 import { AnimatePresence, motion } from 'framer-motion';
 import data from "@/lib/data.json";
 import { useParams } from "next/navigation";
+import Link from 'next/link';
 
 export default function ProjectPage() {
     const articles = [
@@ -37,7 +39,7 @@ export default function ProjectPage() {
     const params = useParams();
     const name = params?.name as string;
 
-    const project = data.projects.find((p) => p.name === name);
+    const project = data.workCollection.projects.find((p) => p.name === name);
 
     if (!project) {
         return <div className="text-center p-10">Project not found</div>;
@@ -59,7 +61,7 @@ export default function ProjectPage() {
                         </h1>
                     </div>
                     <div className="h-full w-full relative">
-                        <img className="absolute left-0 top-0 w-full h-full object-cover" src={titleimg} />
+                        <img width={50} height={50} alt="logo" className="absolute left-0 top-0 w-full h-full object-cover" src={titleimg[0]} />
                     </div>
                 </div>
 
@@ -67,14 +69,14 @@ export default function ProjectPage() {
                     {renderAlternating ? (
                         lines.map((line, index) => (
                             <div key={index} className="mb-6">
-                                <img src={images[index]} className="w-full rounded-lg mb-4" alt={`Project Image ${index + 1}`} />
+                                <img width={50} height={50} src={images[index]} className="w-full rounded-lg mb-4" alt={`Project Image ${index + 1}`} />
                                 <p className="text-lg text-[#333333] font-semibold mt-2">{line}</p>
                             </div>
                         ))
                     ) : images.length > lines.length ? (
                         images.map((img, index) => (
                             <div key={index} className="mb-6">
-                                <img src={img} className="w-full rounded-lg mb-4" alt={`Project Image ${index + 1}`} />
+                                <img width={50} height={50} src={img} className="w-full rounded-lg mb-4" alt={`Project Image ${index + 1}`} />
                                 {lines[index] && <p className="text-lg mt-2 text-[#333333] font-semibold">{lines[index]}</p>}
                             </div>
                         ))
@@ -85,7 +87,7 @@ export default function ProjectPage() {
                             ))}
                             <div className="grid grid-cols-2 gap-4 mt-6">
                                 {images.map((img, index) => (
-                                    <img key={index} src={img} className="w-full rounded-lg" alt={`Project Image ${index + 1}`} />
+                                    <img width={50} height={50} key={index} src={img} className="w-full rounded-lg" alt={`Project Image ${index + 1}`} />
                                 ))}
                             </div>
                         </>
@@ -109,9 +111,9 @@ export default function ProjectPage() {
                                     />
                                 </div>
                                 <h1 className='text-[22px] mt-5 leading-7 text-left'>{article.title}</h1>
-                                <a href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
+                                <Link href='/' className='text-[14px] mt-7 text-[#333333] text-left flex gap-3 items-center'>
                                     <Icons.ButtonIcon className='size-[1.12rem]' />Read
-                                </a>
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -195,7 +197,7 @@ const AnimatedLogoCloud = () => {
                         className="flex shrink-0 flex-row justify-around gap-2 pr-6"
                     >
                         {logos.map((logo, i) => (
-                            <img
+                            <img width={50} height={50}
                                 key={i}
                                 src={logo.url}
                                 className="h-[25rem] w-[28rem] object-cover  dark:brightness-0 dark:invert"
@@ -204,7 +206,7 @@ const AnimatedLogoCloud = () => {
                         ))}
                         {/** second set of logo */}
                         {logos.map((logo, i) => (
-                            <img
+                            <img width={50} height={50}
                                 key={i}
                                 src={logo.url}
                                 className="h-[25rem] w-[28rem] object-cover  dark:brightness-0 dark:invert"

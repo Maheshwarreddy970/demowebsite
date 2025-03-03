@@ -39,9 +39,7 @@ interface TextAnimateProps extends MotionProps {
    */
   duration?: number;
   /**
-   * Custom motion variants for the animation
-   */
-  variants?: Variants;
+
   /**
    * The element type to render
    */
@@ -302,7 +300,6 @@ const defaultItemAnimationVariants: Record<
 
 export function TextAnimate({
   children,
-  variants,
   className,
   segmentClassName,
   as: Component = "p",
