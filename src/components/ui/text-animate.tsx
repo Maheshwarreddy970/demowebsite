@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, MotionProps, Variants } from "framer-motion";
-import { ElementType } from "react";
+import { ElementType, useMemo } from "react";
 
 type AnimationType = "text" | "word" | "character" | "line";
 type AnimationVariant =
@@ -334,22 +334,19 @@ export function TextAnimate({
     }
     : { container: defaultContainerVariants, item: defaultItemVariants };
 
-  let segments: string[] = [];
-  switch (by) {
-    case "word":
-      segments = children.split(/(\s+)/);
-      break;
-    case "character":
-      segments = children.split("");
-      break;
-    case "line":
-      segments = children.split("\n");
-      break;
-    case "text":
-    default:
-      segments = [children];
-      break;
-  }
+  const segments = useMemo(() => {
+    switch (by) {
+      case "word":
+        return children.split(/(\s+)/);
+      case "character":
+        return children.split("");
+      case "line":
+        return children.split("\n");
+      default:
+        return [children];
+    }
+  }, [children, by]);
+  
 
   return (
     <AnimatePresence mode="popLayout">

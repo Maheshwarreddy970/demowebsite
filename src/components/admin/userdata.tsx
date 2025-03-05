@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import * as React from "react"
 import {
@@ -15,6 +15,7 @@ import {
 } from "@tanstack/react-table"
 import { ChevronDown, MessageSquare } from "lucide-react"
 import { collection, getDocs } from "firebase/firestore"
+import * as XLSX from 'xlsx'
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -37,7 +38,7 @@ interface FirebaseUser {
     email?: string;
   };
   summary: string;
-  referralSource: string; // Fixed typo from "source" to "referralSource"
+  referralSource: string;
   messages: {
     isBot: boolean;
     createdAt: number;
@@ -57,7 +58,7 @@ interface FirebaseUser {
     city: string;
   };
 }
-// ConversationCell component to handle the dialog
+
 const ConversationCell = ({ user }: { user: FirebaseUser }) => {
   const [showMessages, setShowMessages] = React.useState(false)
 
@@ -76,8 +77,7 @@ const ConversationCell = ({ user }: { user: FirebaseUser }) => {
             {user.messages.map((message, index) => (
               <div key={index} className={`mb-4 flex flex-col ${message.isBot ? "items-start" : "items-end"}`}>
                 <div
-                  className={`rounded-lg px-4 py-2 ${message.isBot ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"
-                    }`}
+                  className={`rounded-lg px-4 py-2 ${message.isBot ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"}`}
                 >
                   {message.text}
                 </div>
@@ -91,6 +91,23 @@ const ConversationCell = ({ user }: { user: FirebaseUser }) => {
       </Dialog>
     </>
   )
+}
+
+const formatDataForExcel = (users: FirebaseUser[]) => {
+  return users.map(user => ({
+    ID: user.id,
+    Phone: user.contactInfo?.phone || 'N/A',
+    Email: user.contactInfo?.email || 'N/A',
+    'Referral Source': user.referralSource,
+    Summary: user.summary,
+    'Total Visits': user.totalVisits,
+    'Last Visit': user.lastVisit ? new Date(user.lastVisit).toLocaleString() : 'N/A',
+    Browser: user.deviceInfo?.browser || 'N/A',
+    OS: user.deviceInfo?.os || 'N/A',
+    'Device Type': user.deviceInfo?.deviceType || 'N/A',
+    Location: user.location ? `${user.location.city}, ${user.location.region}, ${user.location.country}` : 'N/A',
+    'Message Count': user.messages.length,
+  }))
 }
 
 export const columns: ColumnDef<FirebaseUser>[] = [
@@ -145,13 +162,12 @@ export const columns: ColumnDef<FirebaseUser>[] = [
   },
   {
     accessorKey: "lastVisit",
-    header: "lastVisit",
+    header: "Last Visit",
     cell: ({ row }) => (
       <div>
         {row.getValue("lastVisit") ? new Date(row.getValue("lastVisit") as number).toLocaleString() : "N/A"}
       </div>
     ),
-
   },
   {
     accessorKey: "deviceInfo.browser",
@@ -185,17 +201,44 @@ export const columns: ColumnDef<FirebaseUser>[] = [
     cell: ({ row }) => <ConversationCell user={row.original} />,
   },
 ];
+
 export function UserData() {
   const [data, setData] = React.useState<FirebaseUser[]>([])
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
-
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
 
-  console.log(data)
+  const exportToExcel = () => {
+    const selectedRows = table.getSelectedRowModel().rows
+    const dataToExport = selectedRows.length > 0 
+      ? selectedRows.map(row => row.original)
+      : data
+    const formattedData = formatDataForExcel(dataToExport)
+    const worksheet = XLSX.utils.json_to_sheet(formattedData)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Users")
+    
+    const wscols = [
+      { wch: 20 }, // ID
+      { wch: 15 }, // Phone
+      { wch: 25 }, // Email
+      { wch: 20 }, // Referral Source
+      { wch: 30 }, // Summary
+      { wch: 12 }, // Total Visits
+      { wch: 20 }, // Last Visit
+      { wch: 15 }, // Browser
+      { wch: 15 }, // OS
+      { wch: 15 }, // Device Type
+      { wch: 25 }, // Location
+      { wch: 12 }, // Message Count
+    ]
+    worksheet['!cols'] = wscols
+
+    XLSX.writeFile(workbook, `user_data_${new Date().toISOString().split('T')[0]}.xlsx`)
+  }
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -239,15 +282,20 @@ export function UserData() {
   if (error) return <div>Error: {error}</div>
 
   return (
-    <div className="w-full  bg-white p-5 overflow-y-scroll">
-      {/* Rest of the component remains the same */}
-      <div className="flex items-center py-4">
+    <div className="w-full bg-white p-5 overflow-y-scroll">
+      <div className="flex items-center py-4 gap-4">
         <Input
           placeholder="Filter by ID..."
           value={(table.getColumn("id")?.getFilterValue() as string) ?? ""}
           onChange={(event) => table.getColumn("id")?.setFilterValue(event.target.value)}
           className="max-w-sm"
         />
+        <Button 
+          variant="outline" 
+          onClick={exportToExcel}
+        >
+          Export to Excel
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">

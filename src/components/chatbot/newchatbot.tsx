@@ -134,7 +134,7 @@ export function FamilyButtonDemo() {
         const deviceInfo = getDeviceInfo(navigator.userAgent);
         await setDoc(userDocRef, {
           messages: [welcomeMessage],
-          summary: "Bot sent welcome message.",
+          summary: "",
           referralSource: document.referrer || "direct",
           visitCount: 1,
           lastVisit: currentTimestamp,

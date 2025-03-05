@@ -19,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <main className={`${bricolageGrotesque.className}  font-bricolage bg-background text-foreground`} >
+
         <CursorFollower />
         <Navbar />
         {children}

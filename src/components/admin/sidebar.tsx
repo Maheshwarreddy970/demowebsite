@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { LayoutDashboard, Upload } from "lucide-react";
 
 interface AppLayoutProps {
     children: React.ReactNode
@@ -20,23 +21,17 @@ export function SidebarAdmin({ children }: AppLayoutProps) {
       label: "Dashboard",
       href: "/admin",
       icon: (
-        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <LayoutDashboard  className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Profile",
-      href: "/admin/profile",
+      label: "Upload",
+      href: "/admin/upload",
       icon: (
-        <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <Upload  className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
-    {
-      label: "Settings",
-      href: "/admin/settings",
-      icon: (
-        <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
+
   ];
   const [open, setOpen] = useState(false);
   return (
