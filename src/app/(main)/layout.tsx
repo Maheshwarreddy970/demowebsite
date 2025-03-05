@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import CursorFollower from "@/components/ui/cursour";
 import { Bricolage_Grotesque } from "next/font/google";
 import { FamilyButtonDemo } from "@/components/chatbot/newchatbot";
+import { RecoilRoot } from "recoil";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -22,7 +23,8 @@ export default function RootLayout({
 
         <CursorFollower />
         <Navbar />
-        {children}
+        <RecoilRoot>{children}</RecoilRoot>
+
         <Footer />
         <FamilyButtonDemo />
     </main>

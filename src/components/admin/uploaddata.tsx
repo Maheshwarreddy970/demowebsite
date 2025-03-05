@@ -6,33 +6,9 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { uploadImageToCloudinary } from '@/actions/cloudinary';
 import { Upload } from 'lucide-react';
+import { Project, WorkCollection } from '@/lib/type';
 
-interface Project {
-  name: string;
-  title: string;
-  titleimg: string[];
-  lines: string[];
-  images: string[];
-}
 
-interface WorkCollection {
-  title: string;
-  projects: Project[];
-  featured_projects: {
-    title: string;
-    description: string;
-    icon: string;
-  };
-  description?: string;
-  work_collection_footer?: {
-    company: {
-      logo: string;
-      name: string;
-      tagline: string;
-    };
-    image: string;
-  };
-}
 
 export default function AdminAddProject() {
   const [workData, setWorkData] = useState<WorkCollection | null>(null);
@@ -279,7 +255,7 @@ export default function AdminAddProject() {
                 )}
               </div>
             ))}
-            
+
             <button
               onClick={() => addArrayItem('lines')}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-2"
@@ -291,45 +267,46 @@ export default function AdminAddProject() {
             <label className="block mb-1 font-semibold">Images</label>
             {newProject.images.map((img, index) => (
               <div key={index} className="flex flex-col gap-2 mb-2">
-                <div className="flex items-center gap-2">
-                  <div className="flex h-full w-full items-center gap-2">
+                <div className="flex  items-center gap-2 ">
+                  <div className=' relative w-full h-96 '>
+                    <div className="flex h-full w-full items-center gap-2">
+                      <label className="w-full shadow-xl h-full rounded-xl  p-2 border  flex flex-col items-center justify-center cursor-pointer gap-2">
+                        <Upload size={24} className="text-gray-500" />
+                        <span className="text-sm text-gray-500">Upload Images</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => handleImageUpload(e, 'images', index)}
+                          className=" hidden "
+                        />
+                      </label>
+                    </div>
 
-                    <label className="w-full shadow-xl h-96 rounded-xl  p-2 border  flex flex-col items-center justify-center cursor-pointer gap-2">
-                      <Upload size={24} className="text-gray-500" />
-                      <span className="text-sm text-gray-500">Upload Images</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => handleImageUpload(e, 'images', index)}
-                        className=" hidden "
-                      />
-                    </label>
+                    {newProject.images.length > 1 && (
+                      <button
+                        onClick={() => removeArrayItem('images', index)}
+                        className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                      >
+                        Remove
+                      </button>
+                    )}
+                    {img && (
+                      <div className="w-full z-10 absolute  top-0 left-0 h-full">
+                        <img
+                          src={img}
+                          alt={`Image ${index + 1}`}
+                          className="w-full h-full object-cover rounded"
+                        />
+                        <button
+                          onClick={() => removeUploadedImage('images', index)}
+                          className="absolute top-1 right-1 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                        >
+                          X
+                        </button>
+                      </div>
+                    )}
                   </div>
-
-                  {newProject.images.length > 1 && (
-                    <button
-                      onClick={() => removeArrayItem('images', index)}
-                      className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-                    >
-                      Remove
-                    </button>
-                  )}
                 </div>
-                {img && (
-                  <div className="relative">
-                    <img
-                      src={img}
-                      alt={`Image ${index + 1}`}
-                      className="w-full h-32 object-cover rounded"
-                    />
-                    <button
-                      onClick={() => removeUploadedImage('images', index)}
-                      className="absolute top-1 right-1 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-                    >
-                      X
-                    </button>
-                  </div>
-                )}
               </div>
             ))}
             <button

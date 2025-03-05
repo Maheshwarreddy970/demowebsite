@@ -6,23 +6,16 @@ import data from '@/lib/data.json';
 import ProjectPage from '../ProjectComponent';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
+import { Project } from '@/lib/type';
 
 export default function WorkSections() {
-  // Define the project type based on your data structure
-  type Project = {
-    name: string;
-    title: string;
-    titleimg: string[];
-    lines: string[];
-    images: string[];
-  };
 
   // Allow selectedProject to be either null or a Project
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   // If a project is selected, render the ProjectPage
   if (selectedProject !== null) {
-    return <ProjectPage project={selectedProject} onBack={() => setSelectedProject(null)} />;
+    return <ProjectPage key="project-page" project={selectedProject} onBack={() => setSelectedProject(null)} />;
   }
   return (
     <div className="relative min-h-screen w-full">
@@ -54,7 +47,9 @@ export default function WorkSections() {
               </TextAnimate>
 
               <div className="md:grid md:grid-cols-7 p-4 md:p-0">
-                <div className="md:col-span-4 mt-14 group cursor-pointer" onClick={() => setSelectedProject(data.workCollection.projects[0])}>
+                <div className="md:col-span-4 mt-14 group cursor-pointer"   onClick={() => {
+    setSelectedProject(data.workCollection.projects[0])
+  }}>
                   <img width={40} height={40}
                     src={data.workCollection.projects[0].titleimg[0]}
                     className='h-[45rem] group-hover:block hidden object-cover w-full md:pr-20'

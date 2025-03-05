@@ -1,3 +1,5 @@
+
+
 import { SidebarAdmin } from "@/components/admin/sidebar"
 
 interface AppLayoutProps {
@@ -6,9 +8,10 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
-      <main className="">
-        <SidebarAdmin>{children}</SidebarAdmin>
-        
-        </main>
+    <main className="">
+      <SidebarAdmin>
+        {children}
+        </SidebarAdmin>
+    </main>
   )
 }
