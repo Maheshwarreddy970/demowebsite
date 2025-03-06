@@ -31,6 +31,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { db } from "@/lib/firebase"
 import ReferenceSource from "../ui/Reffrencesource"
+import { Excel } from "@/icons/socialicons"
 
 interface FirebaseUser {
   id: string;
@@ -300,12 +301,23 @@ export function UserData() {
           onChange={(event) => table.getColumn("id")?.setFilterValue(event.target.value)}
           className="max-w-sm"
         />
-        <Button
-          variant="outline"
+        <button
+ className=" w-40 rounded-full bg-green-50 border-green-800 text-green-600 font-semibold text-sm  relative justify-center items-center text-nowrap border flex "
           onClick={exportToExcel}
         >
+          <Excel className=" absolute left-0  " ></Excel>
           Export to Excel
-        </Button>
+        </button>
+        {/* <button
+ className=" w-40 py-2.5 rounded-full bg-green-50 border-green-800 text-green-600 font-semibold text-sm  relative justify-center items-center text-nowrap border flex "
+          
+        >
+          <Sheet className=" size-8 absolute left-3  " ></Sheet>
+          <span className=" ml-9">
+
+          Export to Sheet
+          </span>
+        </button> */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
