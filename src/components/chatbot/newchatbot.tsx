@@ -40,6 +40,33 @@ interface UserChatData {
   totalVisits: number;
 }
 
+// Helper function to determine referral source
+const getReferralSource = (referrer: string): string => {
+  if (!referrer) return "direct";
+
+  const referrerUrl = new URL(referrer).hostname.toLowerCase();
+  const referralMap: { [key: string]: string } = {
+    "github.com": "GitHub",
+    "google.com": "Google",
+    "google.com.hk": "Google",
+    "lnkd.in": "LinkedIn",
+    "linkedin.com": "LinkedIn",
+    "t.co": "Twitter",
+    "twitter.com": "Twitter",
+    "facebook.com": "Facebook",
+    "instagram.com": "Instagram",
+    "whatsapp.com": "WhatsApp",
+  };
+
+  for (const [domain, source] of Object.entries(referralMap)) {
+    if (referrerUrl.includes(domain)) {
+      return source;
+    }
+  }
+
+  return "direct"; // Default to "direct" if no match is found
+};
+
 const extractContactInfo = (text: string) => {
   const phoneRegex = /(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/;
   const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
@@ -119,8 +146,9 @@ export function FamilyButtonDemo() {
       const userDoc = await getDoc(userDocRef);
       const hasSentWelcome = localStorage.getItem(welcomeSentKey);
 
+      const referralSource = getReferralSource(document.referrer); // Enhanced referral source detection
+
       if (!userDoc.exists()) {
-        // New user: Initialize document with welcome message
         const currentTimestamp = Date.now();
         let location = {};
         try {
@@ -135,7 +163,7 @@ export function FamilyButtonDemo() {
         await setDoc(userDocRef, {
           messages: [welcomeMessage],
           summary: "",
-          referralSource: document.referrer || "direct",
+          referralSource, // Use enhanced referral source
           visitCount: 1,
           lastVisit: currentTimestamp,
           deviceInfo,
@@ -145,11 +173,9 @@ export function FamilyButtonDemo() {
         setMessages([welcomeMessage]);
         localStorage.setItem(welcomeSentKey, "true");
       } else if (!hasSentWelcome && (!userDoc.data()?.messages || userDoc.data()?.messages.length === 0)) {
-        // Existing user without welcome message
         await saveChatMessage(welcomeMessage.text, true);
         localStorage.setItem(welcomeSentKey, "true");
       } else {
-        // Existing user: Update visit info only
         const currentTimestamp = Date.now();
         let location = {};
         try {
@@ -166,7 +192,7 @@ export function FamilyButtonDemo() {
           {
             visitCount: increment(1),
             lastVisit: currentTimestamp,
-            referralSource: document.referrer || "direct",
+            referralSource, // Update referral source for returning users
             deviceInfo,
             location,
             totalVisits: increment(1),
@@ -186,14 +212,14 @@ export function FamilyButtonDemo() {
     try {
       const userDocRef = doc(db, "users", userId);
       const userDoc = await getDoc(userDocRef);
-      const referralSource = isClient ? (document.referrer || "direct") : "unknown";
+      const referralSource = getReferralSource(document.referrer); // Enhanced referral source detection
 
       const userData: UserChatData = userDoc.exists()
         ? (userDoc.data() as UserChatData)
         : {
           messages: [],
           summary: "",
-          referralSource: referralSource,
+          referralSource,
           visitCount: 0,
           lastVisit: Date.now(),
           deviceInfo: getDeviceInfo(navigator.userAgent),
@@ -278,8 +304,9 @@ export function FamilyButtonDemo() {
       <div className="fixed bottom-4 right-4 z-[50]">
         <FamilyButton>
           <div className="h-[10%] flex items-center gap-2 py-3 shadow-sm border-b pl-7">
-            <img width={40} height={40}
-
+            <img
+              width={40}
+              height={40}
               src="/aa8c7f48-de04-4d37-98aa-da071b0809be.svg"
               className="size-8"
               alt="svg icon"
@@ -306,10 +333,11 @@ export function FamilyButtonDemo() {
                   )}
                 >
                   <div
-                    className={`max-w-[80%] shadow px-4 py-1.5 ${msg.isBot
-                      ? "bg-gray-100 text-gray-800 rounded-r-3xl rounded-tl-3xl"
-                      : "bg-[rgb(170,136,103)] text-white rounded-s-3xl rounded-tr-3xl"
-                      }`}
+                    className={`max-w-[80%] shadow px-4 py-1.5 ${
+                      msg.isBot
+                        ? "bg-gray-100 text-gray-800 rounded-r-3xl rounded-tl-3xl"
+                        : "bg-[rgb(170,136,103)] text-white rounded-s-3xl rounded-tr-3xl"
+                    }`}
                   >
                     {msg.text}
                   </div>

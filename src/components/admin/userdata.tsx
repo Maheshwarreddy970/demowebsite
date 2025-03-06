@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ChevronDown, MessageSquare } from "lucide-react"
+import { BotMessageSquare, ChevronDown, LocateFixed, MapPin, MessageCircle, MessageSquare } from "lucide-react"
 import { collection, getDocs } from "firebase/firestore"
 import * as XLSX from 'xlsx'
 
@@ -30,6 +30,7 @@ import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { db } from "@/lib/firebase"
+import ReferenceSource from "../ui/Reffrencesource"
 
 interface FirebaseUser {
   id: string;
@@ -64,9 +65,10 @@ const ConversationCell = ({ user }: { user: FirebaseUser }) => {
 
   return (
     <>
-      <Button variant="ghost" size="sm" onClick={() => setShowMessages(true)}>
-        <MessageSquare className="mr-2 h-4 w-4" />
+ 
+      <Button variant="ghost" className="px-4 py-2 hover:text-white rounded-xl font-semibold bg-gradient-to-b from-blue-500 to-blue-600 text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200" size="sm" onClick={() => setShowMessages(true)}>
         View
+        <BotMessageSquare strokeWidth={3} className="h-8 w-8 " />
       </Button>
       <Dialog open={showMessages} onOpenChange={setShowMessages}>
         <DialogContent className="max-w-[800px] w-full">
@@ -133,22 +135,22 @@ export const columns: ColumnDef<FirebaseUser>[] = [
   {
     accessorKey: "id",
     header: "ID",
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
+    cell: ({ row }) => <div className="w-[60px] break-words ">{row.getValue("id")}</div>,
   },
   {
     accessorKey: "contactInfo.phone",
     header: "Phone",
-    cell: ({ row }) => <div>{row.original.contactInfo?.phone || "N/A"}</div>,
+    cell: ({ row }) => <div className=" bg-blue-100 text-blue-800 border-blue-400 border  font-medium me-2 px-2.5 py-0.5 rounded-lg shadow  text-base w-32 break-words text-center ">{row.original.contactInfo?.phone || "N/A"}</div>,
   },
   {
     accessorKey: "contactInfo.email",
     header: "Email",
-    cell: ({ row }) => <div>{row.original.contactInfo?.email || "N/A"}</div>,
+    cell: ({ row }) => <div className=" bg-green-100 text-green-800 border-green-400 border  font-medium me-2 px-2.5 py-0.5 rounded-lg shadow  text-base w-40 break-words text-center ">{row.original.contactInfo?.email || "N/A"}</div>,
   },
   {
     accessorKey: "referralSource",
     header: "Referral Source",
-    cell: ({ row }) => <div>{row.getValue("referralSource")}</div>,
+    cell: ({ row }) => <ReferenceSource name={row.getValue("referralSource")} ></ReferenceSource>,
   },
   {
     accessorKey: "summary",
@@ -158,37 +160,45 @@ export const columns: ColumnDef<FirebaseUser>[] = [
   {
     accessorKey: "totalVisits",
     header: "Total Visits",
-    cell: ({ row }) => <div>{row.getValue("totalVisits")}</div>,
+    cell: ({ row }) => <div className="flex items-center text-center flex-col  justify-center ">{row.getValue("totalVisits")}</div>,
   },
   {
     accessorKey: "lastVisit",
     header: "Last Visit",
     cell: ({ row }) => (
-      <div>
-        {row.getValue("lastVisit") ? new Date(row.getValue("lastVisit") as number).toLocaleString() : "N/A"}
-      </div>
+      <div className=" flex items-center text-center flex-col  justify-center">
+      {row.getValue("lastVisit") 
+        ? new Date(row.getValue("lastVisit") as number).toLocaleString([], { 
+            year: "numeric", 
+            month: "2-digit", 
+            day: "2-digit", 
+            hour: "numeric", 
+            hour12: true 
+          }) 
+        : "N/A"}
+    </div>
     ),
   },
   {
     accessorKey: "deviceInfo.browser",
     header: "Browser",
-    cell: ({ row }) => <div>{row.original.deviceInfo?.browser || "N/A"}</div>,
-  },
-  {
-    accessorKey: "deviceInfo.os",
-    header: "OS",
-    cell: ({ row }) => <div>{row.original.deviceInfo?.os || "N/A"}</div>,
+    cell: ({ row }) => <div className="flex items-center text-center flex-col  justify-center ">
+      {
+        row.original.deviceInfo?.browser==="Chrome"?<img src="/Google_Chrome_icon_(February_2022).svg.png" alt="chrome" className="h-6 w-6"/>:<img src="/Safari_browser_logo.svg.png" alt="edge" className="h-6 w-6"></img>
+      }
+      </div>
   },
   {
     accessorKey: "deviceInfo.deviceType",
     header: "Device Type",
-    cell: ({ row }) => <div>{row.original.deviceInfo?.deviceType || "N/A"}</div>,
+    cell: ({ row }) => <div className="flex items-center text-center flex-col  justify-center ">{row.original.deviceInfo?.deviceType || "N/A"}</div>,
   },
   {
     accessorKey: "location",
     header: "Location",
     cell: ({ row }) => (
-      <div>
+      <div className=" flex items-center text-center flex-col  justify-center">
+        <LocateFixed className=" "/>
         {row.original.location
           ? `${row.original.location.city}, ${row.original.location.region}, ${row.original.location.country}`
           : "N/A"}
@@ -213,14 +223,14 @@ export function UserData() {
 
   const exportToExcel = () => {
     const selectedRows = table.getSelectedRowModel().rows
-    const dataToExport = selectedRows.length > 0 
+    const dataToExport = selectedRows.length > 0
       ? selectedRows.map(row => row.original)
       : data
     const formattedData = formatDataForExcel(dataToExport)
     const worksheet = XLSX.utils.json_to_sheet(formattedData)
     const workbook = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(workbook, worksheet, "Users")
-    
+
     const wscols = [
       { wch: 20 }, // ID
       { wch: 15 }, // Phone
@@ -290,8 +300,8 @@ export function UserData() {
           onChange={(event) => table.getColumn("id")?.setFilterValue(event.target.value)}
           className="max-w-sm"
         />
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onClick={exportToExcel}
         >
           Export to Excel
@@ -347,7 +357,7 @@ export function UserData() {
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead className=" font-semibold  text-black" key={header.id}>
                       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   )
@@ -360,7 +370,7 @@ export function UserData() {
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                    <TableCell className="p-2" key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                   ))}
                 </TableRow>
               ))

@@ -10,7 +10,7 @@ export default function Team() {
     return (
         <>
             <section className=' flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] lg:pr-[5rem] lg:pl-[10rem]  mx-auto relative'>
-                <TextAnimate animation="slideLeft" by="character" className="px-4 lg:px-0 font-semibold max-w-xl text-[112px] tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
+                <TextAnimate animation="slideLeft"  className="px-4 lg:px-0 font-semibold max-w-xl text-6xl md:text-[112px] md:tracking-[-6.8px] md:leading-[1em] text-left text-[rgb(170,136,103)]"
                 >
                     Our talented
                     team
@@ -44,7 +44,7 @@ export default function Team() {
                                 the years.
                             </TextAnimate>
                             <div className=' mt-5 flex  items-center justify-start'>
-                                <a className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-semibold text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
+                                <a href='/about' className='z-10 flex items-center justify-center gap-2 rounded-[22px] py-3 px-6  font-semibold text-white hover:bg-[rgb(112,79,46)] bg-[rgb(170,136,103)] text-[14px] text-center fill-white ]   '>
                                     <Icons.ButtonIcon className=' size-5' ></Icons.ButtonIcon>
                                     Meet Team
                                 </a>

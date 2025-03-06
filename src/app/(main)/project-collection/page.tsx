@@ -1,21 +1,18 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TextAnimate } from '@/components/ui/text-animate';
 import { TextRotate } from '@/components/TextRotate';
-import { AnimatedImagesCloud } from '@/components/AnimatedImagesCloud';
 import ProjectCollection from '@/components/ProjectCollection';
 import { Project, WorkCollection } from '@/lib/type';
-import { db } from '@/lib/firebase';
-import { doc, getDoc } from 'firebase/firestore';
 import AnimatedLogoCloud from '@/components/AnimatedLogoCloud';
+import data from '@/lib/data.json';
 
 export default function Page() {
-    const [workData, setWorkData] = useState<WorkCollection | null>(null);
+    const [workData, setWorkData] = useState<WorkCollection | null>(data.workCollection);
     const [selectProject, setSelectProject] = useState<Project | null>(null);
     const projectSectionRef = useRef<HTMLDivElement | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
 
     const onProjectSelect = (selectedProject: Project) => {
         setSelectProject(selectedProject);
@@ -24,37 +21,6 @@ export default function Page() {
         }, 500);
     };
     const renderAlternating = selectProject?.images.length === selectProject?.lines.length;
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setIsLoading(true);
-                const docRef = doc(db, 'website', 'workSection');
-                const docSnap = await getDoc(docRef);
-                if (docSnap.exists()) {
-                    setWorkData(docSnap.data() as WorkCollection);
-                } else {
-                    const defaultData = (await import('@/lib/data.json')).default;
-                    setWorkData(defaultData.workCollection as WorkCollection);
-                }
-            } catch (error) {
-                console.error('Error fetching work section data:', error);
-                const defaultData = (await import('@/lib/data.json')).default;
-                setWorkData(defaultData.workCollection as WorkCollection);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchData();
-    }, []);
-
-    if (isLoading) {
-        return (
-            <div className="flex items-center justify-center min-h-screen">
-                <p className="text-xl font-semibold">Loading projects...</p>
-            </div>
-        );
-    }
 
     if (!workData) {
         return (
@@ -68,7 +34,7 @@ export default function Page() {
         <section>
             <div className="w-full bg-[#ede9cf] grid lg:grid-cols-2 overflow-hidden h-screen">
                 <div className="flex flex-col gap-28 lg:pl-20 justify-center">
-                    <TextAnimate animation="slideLeft" className="mx-auto text-7xl lg:text-[64px] tracking-[-1.5px] font-semibold leading-[1.1em] text-center lg:text-left text-[rgb(102,79,53)] max-w-xl">
+                    <TextAnimate animation="slideLeft" className="mx-auto text-6xl lg:text-[64px] tracking-[-1.5px] font-semibold leading-[1.1em] text-center lg:text-left text-[rgb(102,79,53)] max-w-xl">
                         Explore Our Interior Design Project Collection
                     </TextAnimate>
                 </div>
@@ -193,9 +159,7 @@ export default function Page() {
 
                         <section className="bg-[#664f35] pb-20">
                             <div className="flex flex-col gap-6">
-                                <h1 className="text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white">
-                                    Crafting Spaces for
-                                </h1>
+                                <TextAnimate animation="slideLeft" className=' text-6xl md:text-[112px] font-semibold md:tracking-[-1.4px] md:leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
                                 <TextRotate />
                             </div>
                             <AnimatedLogoCloud />
@@ -204,14 +168,13 @@ export default function Page() {
                 </motion.div>
             )}
 
-            <section className="bg-[#664f35] pt-36 overflow-hidden">
+
+            <section className="bg-[#664f35] pb-20">
                 <div className="flex flex-col gap-6">
-                    <TextAnimate animation="slideLeft" className="text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white">
-                        Crafting Spaces for
-                    </TextAnimate>
+                    <TextAnimate animation="slideLeft" className=' text-6xl md:text-[112px] font-semibold md:tracking-[-1.4px] md:leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
                     <TextRotate />
                 </div>
-                <AnimatedImagesCloud />
+                <AnimatedLogoCloud />
             </section>
         </section>
     );

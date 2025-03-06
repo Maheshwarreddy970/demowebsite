@@ -129,8 +129,8 @@ export default function Page() {
                         </div>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>One Great Jones Alley</h1>
                     </div>
-                    <div className="col-span-4 mt-36 group flex flex-col items-end">
-                        <img width={50} height={50} alt='sofa' src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover  lg:w-[80%]  '></img>
+                    <div className="lg:col-span-4 mt-36 group lg:flex  lg:flex-col p-4  lg:items-end">
+                        <img width={50} height={50} alt='sofa' src='/H8faO2ICSTlF8flEidDi0Qy7fmw.avif' className=' object-cover w-full  lg:w-[80%]  '></img>
                         <h1 className='  text-xl font-medium mt-2 group-hover:font-semibold'>The Meadow House</h1>
                     </div>
                 </div>
@@ -257,10 +257,10 @@ const AnimatedLogoCloud = () => {
                             className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-6"
                         >
                             {logos.map((logo) => (
-                                <div key={logo.name} className='bg-[rgb(170,136,103)] flex items-center gap-[10px] h-[213px] justify-center relative w-[213px] p-8'>
+                                <div key={logo.name} className='bg-[rgb(170,136,103)] p-12 flex items-center h-[213px] justify-center relative w-[213px] '>
                                     <img width={50} height={50}
                                         src={logo.url}
-                                        className="brightness-0 dark:invert"
+                                        className="brightness-0  w-full dark:invert"
                                         alt={`${logo.name}`}
                                     />
                                 </div>

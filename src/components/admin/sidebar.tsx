@@ -1,34 +1,27 @@
 "use client";
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar";
-import {
-  IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
-} from "@tabler/icons-react";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, Upload } from "lucide-react";
 
 interface AppLayoutProps {
-    children: React.ReactNode
-  }
-  
+  children: React.ReactNode
+}
+
 export function SidebarAdmin({ children }: AppLayoutProps) {
   const links = [
     {
       label: "Dashboard",
       href: "/admin",
       icon: (
-        <LayoutDashboard  className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <LayoutDashboard className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Upload",
       href: "/admin/upload",
       icon: (
-        <Upload  className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <Upload className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
 
@@ -52,49 +45,33 @@ export function SidebarAdmin({ children }: AppLayoutProps) {
             </div>
           </div>
           <div>
-            <SidebarLink
-              link={{
-                label: "Manu Arora",
-                href: "#",
-                icon: (
-                  <div
-                    className="h-7 w-7 bg-black flex-shrink-0 rounded-full"
-                  />
-                ),
-              }}
-            />
+        
           </div>
         </SidebarBody>
       </Sidebar>
-      { children }
+      {children}
     </div>
   );
 }
 export const Logo = () => {
   return (
-    <Link
-      href="#"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="font-medium text-black dark:text-white whitespace-pre"
-      >
-        Acet Labs
-      </motion.span>
-    </Link>
+    <div className=' flex items-center gap-2 '>
+      <img width={50} height={50} src='/aa8c7f48-de04-4d37-98aa-da071b0809be.svg' className=' size-7' alt='svg icon '></img>
+      <div className='text-[0.8rem] leading-4 tracking-[-1.9px] text-left text-[rgb(170,136,103)]'>
+        <span className=' font-semibold'>OAKWOOD</span>
+        <br></br>
+        <span className='font-thin'>
+          ARCHITECTS
+        </span>
+      </div>
+    </div>
   );
 };
 export const LogoIcon = () => {
   return (
-    <Link
-      href="#"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-    </Link>
+    <div className=' flex items-center gap-2 '>
+    <img width={50} height={50} src='/aa8c7f48-de04-4d37-98aa-da071b0809be.svg' className=' size-7' alt='svg icon '></img>
+  </div>
   );
 };
 

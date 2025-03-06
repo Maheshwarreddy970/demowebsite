@@ -6,6 +6,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Project, WorkCollection } from "@/lib/type";
 import ProjectCollection from "./ProjectCollection";
+import { TextAnimate } from "./ui/text-animate";
 
 export default function ProjectPage({
   project,
@@ -183,15 +184,14 @@ export default function ProjectPage({
             </>
           )}
         </div>
-        
+
         {/* Projects Section */}
         <ProjectCollection projects={workData?.projects ?? []} onProjectSelect={onProjectSelect} />
 
         <section className="bg-[#664f35] pb-20">
           <div className="flex flex-col gap-6">
-            <h1 className="text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white">
-              Crafting Spaces for
-            </h1>
+            <TextAnimate animation="slideLeft" className=' text-6xl md:text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
+
             <TextRotate />
           </div>
           <AnimatedLogoCloud />

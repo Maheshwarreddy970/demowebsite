@@ -113,7 +113,7 @@ export default function WorkSections() {
               </div>
 
               <div className="md:grid md:grid-cols-7 p-4 md:p-0">
-                <div className="md:col-span-3 pr-7 group mt-[34rem] cursor-pointer" onClick={() => setSelectedProject(data.workCollection.projects[2])}>
+                <div className="md:col-span-3 md:pr-7 group md:mt-[34rem] cursor-pointer" onClick={() => setSelectedProject(data.workCollection.projects[2])}>
                   <img width={40} height={40}
                     src={data.workCollection.projects[2].titleimg[0]}
                     className='transition-all duration-150 ease-in-out group-hover:hidden w-full h-[36rem] object-cover'
@@ -129,7 +129,7 @@ export default function WorkSections() {
                   </h1>
                 </div>
 
-                <div className="md:col-span-4 mt-20 group ml-24 overflow-hidden cursor-pointer" onClick={() => setSelectedProject(data.workCollection.projects[3])}>
+                <div className="md:col-span-4 md:mt-20 group md:ml-24 overflow-hidden cursor-pointer" onClick={() => setSelectedProject(data.workCollection.projects[3])}>
                   <img width={40} height={40}
                     src={data.workCollection.projects[3].titleimg[0]}
                     className='h-[45rem] w-full transition-all duration-150 ease-in-out group-hover:hidden object-cover'
