@@ -3,52 +3,439 @@
 
 import { Message } from "@/components/chatbot/newchatbot";
 import { ChatGroq } from "@langchain/groq";
-
+// Define the data structure
 const data = {
-    benefitssection: {
-        heading: "Benefits",
-        subheading: "Our Offerings",
-        list: [
-            {
-                title: "Turn financial goals into a fun, visual experience",
-                description: "With Cove, saving is more than just numbers. Customize your virtual island with rare decorations that represent your progress. Every dollar saved brings you closer to a unique, personalized world that grows as you do."
-            },
-            {
-                title: "Invest with ease and confidence",
-                description: "Earn competitive interest rates on FDIC-insured savings and SIPC-protected investments. With Cove, your money works as hard as you do—without the stress of traditional financial tools."
-            },
-            {
-                title: "A community that grows together",
-                description: "Connect with other savers through leaderboards, quests, and a dedicated Discord community. Share tips, find motivation, and celebrate milestones with friends."
-            },
-            {
-                title: "Direct integrations with your favorite tools",
-                description: "Cove syncs seamlessly with your bank accounts, ensuring you have complete control over your money without any extra effort."
-            }
-        ]
+  title: "OAKWOOD ARCHITECTS",
+  menu: {
+    items: ["Menu", "Get Started"],
+  },
+  featuredProject: {
+    name: "The Meadow House",
+    description:
+      "The Meadow House by Mark English Architects draws on Californian and Korean influences",
+  },
+  projects: {
+    featured: "Featured Projects",
+    description:
+      "Highlights of cases that we passionately built with forward-thinking clients and friends over the years.",
+    list: ["One Great Jones Alley", "Scorpia", "Dovecote"],
+  },
+  interiorDesign: "Interior Design",
+  journal: {
+    title: "Explore Journal",
+    entries: [
+      {
+        title:
+          "The concept of biophilia—human beings' inherent connection to nature.",
+      },
+      {
+        title: "Smart Homes and Buildings: Integrating Technology and Design",
+      },
+      {
+        title: "Wellness-Centric Design: Creating Healthy Interiors",
+      },
+    ],
+  },
+  footer: {
+    address: "76-86 Manners Street, Wellington 6140, New Zealand",
+    copyright: "© 2024 Aurum Company. All rights reserved.",
+    credits: "Design and developed by SWT",
+  },
+  FooterList: [
+    { name: "Home", link: "/" },
+    { name: "Projects", link: "/project-collection" },
+    { name: "About", link: "/about" },
+    { name: "Journal", link: "/journal" },
+    { name: "Sustainability", link: "/sustainability" },
+  ],
+  workCollection: {
+    title: "The Meadow House",
+    description:
+      "The Meadow House by Mark English Architects draws on Californian and Korean influences",
+    projects: [
+      {
+        name: "the-meadow-house",
+        title: "The Meadow House",
+        titleimg: [
+          "/Y1SlBye7bzROKCM4Z8mb5VbHg.avif",
+          "/CtqdgxpGYO4WFK0ftEeQyDERY0w.avif",
+        ],
+        lines: [
+          "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+          "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+          "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant.",
+        ],
+        images: [
+          "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+          "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+          "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+          "/6mVf040uObmMYQk0MdjLSZvyx6U.avif",
+        ],
+      },
+      {
+        name: "one-great-jones-alley",
+        title: "One Great Jones Alley",
+        titleimg: [
+          "/MrwrMt2iox7UPFuxfxwQoOg4s.avif",
+          "/TTdNsUIJ7hNa3fW196hmNHfRznM.png",
+        ],
+        lines: [
+          "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+          "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+          "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant.",
+        ],
+        images: [
+          "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+          "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+          "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+          "/6mVf040uObmMYQk0MdjLSZvyx6U.avif",
+        ],
+      },
+      {
+        name: "scorpia",
+        title: "Scorpia",
+        titleimg: [
+          "/xY2ltysjjeDPAv2h8IdjICqEio_1.png",
+          "/apr1iyeVu0giJ4G3Ouvu0nDGOmE.avif",
+        ],
+        lines: [
+          "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+          "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+          "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant.",
+        ],
+        images: [
+          "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+          "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+          "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+          "/6mVf040uObmMYQk0MdjLSZvyx6U.avif",
+        ],
+      },
+      {
+        name: "dovecote",
+        title: "Dovecote",
+        titleimg: [
+          "/fpSz08cqO9CONW7pXT8QyafavKA_1.png",
+          "/MOLE-ARCHITECTS-HOUSEBOAT-AT-WEB-phRoryGardiner001.jpg",
+        ],
+        lines: [
+          "Conceived to respond to a variety of commercial and domestic uses, The Meadow House by Mark English Architects draws on Californian and Korean influences, illustrating a multiplicity that is as nuanced as it is resolved.",
+          "The Santa Lucia Preserve is a private community spanning eight thousand hectares in California’s Carmel Valley. Ninety per cent of the expansive property is protected by a conservation land trust and, as a result, the environment is vast and untamed. Only a few hundred dwellings sit within this stunning landscape, including The Meadow House by Mark English Architects – a large family home that elegantly fuses Korean and Californian design sensibilities.",
+          "Many of the biophilic tendencies they uncovered are aligned with Californian vernacular traditions, culminating in a project that is both conceptually unique and contextually relevant.",
+        ],
+        images: [
+          "/TXUKQyclKbig1wkTbb4gGFKDk.avif",
+          "/DErGBXCKfVwGZjfxm4iDjYawu9s.avif",
+          "/cVL7GQJ93oveO40lFxMSHpDcsHI.avif",
+          "/6mVf040uObmMYQk0MdjLSZvyx6U.avif",
+        ],
+      },
+    ],
+    featured_projects: {
+      title: "Featured Projects",
+      description:
+        "Highlights of cases that we passionately built with forward-thinking clients and friends over the years.",
+      icon: "/41328140-da2b-4d17-9f32-4ee3288447e1.svg",
     },
-    faqsection: {
-        heading: "Frequently Asked Questions",
-        subheading: "FAQs",
-        list: [
-            {
-                title: "Can you customize my existing Shopify theme?",
-                answer: "Connect with other savers through leaderboards, quests, and a dedicated Discord community. Share tips, find motivation, and celebrate milestones with friends."
-            },
-            {
-                title: "What is a Development Sprint and how does it work?",
-                answer: "Connect with other savers through leaderboards, quests, and a dedicated Discord community. Share tips, find motivation, and celebrate milestones with friends."
-            },
-            {
-                title: "How long does it typically take to build a complete Shopify site?",
-                answer: "Connect with other savers through leaderboards, quests, and a dedicated Discord community. Share tips, find motivation, and celebrate milestones with friends."
-            },
-            {
-                title: "Are your Shopify solutions mobile-responsive?",
-                answer: "Connect with other savers through leaderboards, quests, and a dedicated Discord community. Share tips, find motivation, and celebrate milestones with friends."
-            },
-        ]
+    work_collection_footer: {
+      company: {
+        name: "OAKWOOD ARCHITECTS",
+        tagline: "Where housing innovation is shaped.",
+        logo: "/b79bf2b3-bd8b-410f-8022-7be6172fe960.svg",
+      },
+      image: "bWFZ6VKV9dQV7yjOspAjXxx0D4.avif",
     },
+  },
+  ExploreJournal: {
+    journal: [
+      {
+        name: "biophilic-design-bringing-nature-indoors",
+        title:
+          "The concept of biophilia—human beings' inherent connection to nature.",
+        titleimg: "/istockphoto-1405772777-612x612.jpg",
+        href: "/journal/biophilic-design-bringing-nature-indoors",
+        smartHomesAndBuildings: [
+          {
+            title: "Introduction to Smart Homes and Buildings",
+            sections: [
+              {
+                name: "Definition and Overview",
+                description:
+                  "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design.",
+              },
+              {
+                name: "Historical Evolution",
+                description:
+                  "Discuss the development of smart technology and its adoption in residential and commercial buildings over time.",
+              },
+            ],
+          },
+          {
+            title: "Core Technologies in Smart Homes and Buildings",
+            sections: [
+              {
+                name: "Internet of Things (IoT)",
+                description:
+                  "Explain the role of IoT in creating interconnected devices and systems within smart environments.",
+              },
+              {
+                name: "Automation Systems",
+                description:
+                  "Detail various automation systems such as lighting, heating, cooling, and security.",
+              },
+              {
+                name: "Smart Appliances",
+                description:
+                  "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits.",
+              },
+              {
+                name: "Energy Management",
+                description:
+                  "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration.",
+              },
+            ],
+          },
+          {
+            title: "Design Principles for Smart Homes and Buildings",
+            sections: [
+              {
+                name: "User-Centric Design",
+                description:
+                  "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience.",
+              },
+              {
+                name: "Aesthetic Integration",
+                description:
+                  "Explore how technology can be seamlessly integrated into the design without compromising aesthetics.",
+              },
+              {
+                name: "Space Optimization",
+                description:
+                  "Discuss how smart technologies can optimize space usage and enhance functionality.",
+              },
+              {
+                name: "Flexibility and Scalability",
+                description:
+                  "Examine how designs can accommodate future upgrades and changes in technology.",
+              },
+            ],
+          },
+          {
+            title: "Benefits of Smart Technology",
+            sections: [
+              {
+                name: "Convenience and Comfort",
+                description:
+                  "Highlight how smart technology enhances daily living through automation and remote control.",
+              },
+              {
+                name: "Energy Efficiency",
+                description:
+                  "Explore how smart systems contribute to energy savings and sustainability.",
+              },
+              {
+                name: "Security and Safety",
+                description:
+                  "Discuss advanced security features such as smart locks, cameras, and emergency response systems.",
+              },
+              {
+                name: "Health and Well-Being",
+                description:
+                  "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments.",
+              },
+            ],
+          },
+          {
+            title: "Case Studies and Examples",
+            sections: [
+              {
+                name: "Residential Projects",
+                description:
+                  "Provide examples of smart homes with integrated technology and innovative design.",
+              },
+              {
+                name: "Commercial Buildings",
+                description:
+                  "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration.",
+              },
+              {
+                name: "Public Buildings",
+                description:
+                  "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs.",
+              },
+            ],
+          },
+          {
+            title: "Design and Technology Integration Challenges",
+            sections: [
+              {
+                name: "Interoperability",
+                description:
+                  "Address the challenges of ensuring that different smart devices and systems work together seamlessly.",
+              },
+              {
+                name: "Privacy and Security",
+                description:
+                  "Discuss concerns related to data privacy and cybersecurity in smart environments.",
+              },
+              {
+                name: "Complexity and Usability",
+                description:
+                  "Explore the balance between sophisticated technology and user-friendly design.",
+              },
+              {
+                name: "Cost and Accessibility",
+                description:
+                  "Consider the cost implications of smart technology and its accessibility for different types of projects.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "sustainable-spaces-eco-friendly-design-solutions",
+        title: "Sustainable Spaces: Eco-Friendly Design Solutions",
+        titleimg: "/LplpVPUpxDHnVTfRW8XsfQNw.avif",
+        href: "/journal/sustainable-spaces-eco-friendly-design-solutions",
+        smartHomesAndBuildings: [
+          {
+            title: "Introduction to Smart Homes and Buildings",
+            sections: [
+              {
+                name: "Definition and Overview",
+                description:
+                  "Define what constitutes a smart home or building and provide a brief overview of the integration of technology and design.",
+              },
+              {
+                name: "Historical Evolution",
+                description:
+                  "Discuss the development of smart technology and its adoption in residential and commercial buildings over time.",
+              },
+            ],
+          },
+          {
+            title: "Core Technologies in Smart Homes and Buildings",
+            sections: [
+              {
+                name: "Internet of Things (IoT)",
+                description:
+                  "Explain the role of IoT in creating interconnected devices and systems within smart environments.",
+              },
+              {
+                name: "Automation Systems",
+                description:
+                  "Detail various automation systems such as lighting, heating, cooling, and security.",
+              },
+              {
+                name: "Smart Appliances",
+                description:
+                  "Explore the range of smart appliances available, from refrigerators to washing machines, and their benefits.",
+              },
+              {
+                name: "Energy Management",
+                description:
+                  "Discuss smart energy management systems, including smart meters, thermostats, and renewable energy integration.",
+              },
+            ],
+          },
+          {
+            title: "Design Principles for Smart Homes and Buildings",
+            sections: [
+              {
+                name: "User-Centric Design",
+                description:
+                  "Emphasize the importance of designing with the end-user in mind, focusing on usability and user experience.",
+              },
+              {
+                name: "Aesthetic Integration",
+                description:
+                  "Explore how technology can be seamlessly integrated into the design without compromising aesthetics.",
+              },
+              {
+                name: "Space Optimization",
+                description:
+                  "Discuss how smart technologies can optimize space usage and enhance functionality.",
+              },
+              {
+                name: "Flexibility and Scalability",
+                description:
+                  "Examine how designs can accommodate future upgrades and changes in technology.",
+              },
+            ],
+          },
+          {
+            title: "Benefits of Smart Technology",
+            sections: [
+              {
+                name: "Convenience and Comfort",
+                description:
+                  "Highlight how smart technology enhances daily living through automation and remote control.",
+              },
+              {
+                name: "Energy Efficiency",
+                description:
+                  "Explore how smart systems contribute to energy savings and sustainability.",
+              },
+              {
+                name: "Security and Safety",
+                description:
+                  "Discuss advanced security features such as smart locks, cameras, and emergency response systems.",
+              },
+              {
+                name: "Health and Well-Being",
+                description:
+                  "Analyze how smart technologies can contribute to a healthier living environment, including air quality monitoring and ergonomic adjustments.",
+              },
+            ],
+          },
+          {
+            title: "Case Studies and Examples",
+            sections: [
+              {
+                name: "Residential Projects",
+                description:
+                  "Provide examples of smart homes with integrated technology and innovative design.",
+              },
+              {
+                name: "Commercial Buildings",
+                description:
+                  "Highlight smart office buildings, retail spaces, and other commercial environments with successful technology integration.",
+              },
+              {
+                name: "Public Buildings",
+                description:
+                  "Showcase smart public infrastructure such as smart libraries, museums, and transportation hubs.",
+              },
+            ],
+          },
+          {
+            title: "Design and Technology Integration Challenges",
+            sections: [
+              {
+                name: "Interoperability",
+                description:
+                  "Address the challenges of ensuring that different smart devices and systems work together seamlessly.",
+              },
+              {
+                name: "Privacy and Security",
+                description:
+                  "Discuss concerns related to data privacy and cybersecurity in smart environments.",
+              },
+              {
+                name: "Complexity and Usability",
+                description:
+                  "Explore the balance between sophisticated technology and user-friendly design.",
+              },
+              {
+                name: "Cost and Accessibility",
+                description:
+                  "Consider the cost implications of smart technology and its accessibility for different types of projects.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 };
 
 const dataString = JSON.stringify(data, null, 2);
