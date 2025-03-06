@@ -1,4 +1,3 @@
-// components/AdminAddProject.tsx
 'use client'
 
 import React, { useState, useEffect } from 'react';
@@ -6,9 +5,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { uploadImageToCloudinary } from '@/actions/cloudinary';
 import { Upload } from 'lucide-react';
-import { Project, WorkCollection } from '@/lib/type';
-
-
+import { Project, WorkCollection, CloudinaryUploadResult } from '@/lib/type'; // Import the new type
 
 export default function AdminAddProject() {
   const [workData, setWorkData] = useState<WorkCollection | null>(null);
@@ -71,7 +68,11 @@ export default function AdminAddProject() {
     setNewProject({ ...newProject, [field]: updatedArray });
   };
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: 'titleimg' | 'images', index: number) => {
+  const handleImageUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: 'titleimg' | 'images',
+    index: number
+  ) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -80,14 +81,14 @@ export default function AdminAddProject() {
     formData.append('file', file);
 
     try {
-      const result = await uploadImageToCloudinary(formData);
-      if (result.success && result.url) {
+      const result: CloudinaryUploadResult = await uploadImageToCloudinary(formData);
+      if (result.success && result.url) { // TypeScript now knows `url` exists when `success` is true
         const updatedArray = [...newProject[field]];
         updatedArray[index] = result.url;
         setNewProject({ ...newProject, [field]: updatedArray });
         setUploadStatus(`Uploaded ${field} ${index + 1} successfully!`);
       } else {
-        setUploadStatus(`Failed to upload ${field} ${index + 1}: ${result.error}`);
+        setUploadStatus(`Failed to upload ${field} ${index + 1}: ${result.error || 'Unknown error'}`);
         alert(result.error || 'Failed to upload image');
       }
     } catch (error) {
@@ -146,7 +147,7 @@ export default function AdminAddProject() {
   return (
     <div className="relative min-h-screen w-full p-6">
       <h2 className="text-3xl font-bold mb-6 text-center">Add New Project to Work Collection</h2>
-      <div className="bg-white p-6 rounded-lg shadow-lg  mx-auto">
+      <div className="bg-white p-6 rounded-lg shadow-lg mx-auto">
         <div className="space-y-4">
           <div>
             <label className="block mb-1 font-semibold">Name</label>
@@ -154,7 +155,7 @@ export default function AdminAddProject() {
               type="text"
               value={newProject.name}
               onChange={(e) => handleNewProjectChange(e, 'name')}
-              className="w-full  p-2 border rounded"
+              className="w-full p-2 border rounded"
               placeholder="e.g., scorpia"
             />
           </div>
@@ -170,11 +171,11 @@ export default function AdminAddProject() {
           </div>
           <div>
             <label className="block mb-1 font-semibold">Title Images (Exactly 2 Required)</label>
-            <div className=' grid grid-cols-2 gap-20'>
+            <div className="grid grid-cols-2 gap-20">
               {/* Fixed Title Image 1 */}
               <div className="flex relative flex-col w-full h-[36rem] gap-2 mb-2">
                 <div className="flex h-full w-full items-center gap-2">
-                  <label className="w-full   shadow-xl rounded-xl h-full p-2 border flex flex-col items-center justify-center cursor-pointer gap-2">
+                  <label className="w-full shadow-xl rounded-xl h-full p-2 border flex flex-col items-center justify-center cursor-pointer gap-2">
                     <Upload size={24} className="text-gray-500" />
                     <span className="text-sm text-gray-500">Upload Title Images</span>
                     <input
@@ -186,7 +187,7 @@ export default function AdminAddProject() {
                   </label>
                 </div>
                 {newProject.titleimg[0] && (
-                  <div className=" absolute h-full left-0 top-0 w-full">
+                  <div className="absolute h-full left-0 top-0 w-full">
                     <img
                       src={newProject.titleimg[0]}
                       alt="Title Image 1"
@@ -204,7 +205,7 @@ export default function AdminAddProject() {
               {/* Fixed Title Image 2 */}
               <div className="flex flex-col relative h-[36rem] gap-2 mb-2">
                 <div className="flex h-full w-full items-center gap-2">
-                  <label className="w-full shadow-xl rounded-xl h-full p-2 border  flex flex-col items-center justify-center cursor-pointer gap-2">
+                  <label className="w-full shadow-xl rounded-xl h-full p-2 border flex flex-col items-center justify-center cursor-pointer gap-2">
                     <Upload size={24} className="text-gray-500" />
                     <span className="text-sm text-gray-500">Upload Title Images</span>
                     <input
@@ -214,10 +215,9 @@ export default function AdminAddProject() {
                       className="hidden"
                     />
                   </label>
-
                 </div>
                 {newProject.titleimg[1] && (
-                  <div className=" absolute top-0 left-0 w-full h-full">
+                  <div className="absolute top-0 left-0 w-full h-full">
                     <img
                       src={newProject.titleimg[1]}
                       alt="Title Image 2"
@@ -237,7 +237,7 @@ export default function AdminAddProject() {
           <div>
             <label className="block mb-1 font-semibold">Lines</label>
             {newProject.lines.map((line, index) => (
-              <div key={index} className="flex shadow-lg rounded-2xl text-lg mt-2 text-[#333333] border-none  font-semibold gap-2 mb-2">
+              <div key={index} className="flex shadow-lg rounded-2xl text-lg mt-2 text-[#333333] border-none font-semibold gap-2 mb-2">
                 <textarea
                   value={line}
                   onChange={(e) => handleNewProjectChange(e, 'lines', index)}
@@ -255,7 +255,6 @@ export default function AdminAddProject() {
                 )}
               </div>
             ))}
-
             <button
               onClick={() => addArrayItem('lines')}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-2"
@@ -267,21 +266,20 @@ export default function AdminAddProject() {
             <label className="block mb-1 font-semibold">Images</label>
             {newProject.images.map((img, index) => (
               <div key={index} className="flex flex-col gap-2 mb-2">
-                <div className="flex  items-center gap-2 ">
-                  <div className=' relative w-full h-96 '>
+                <div className="flex items-center gap-2">
+                  <div className="relative w-full h-96">
                     <div className="flex h-full w-full items-center gap-2">
-                      <label className="w-full shadow-xl h-full rounded-xl  p-2 border  flex flex-col items-center justify-center cursor-pointer gap-2">
+                      <label className="w-full shadow-xl h-full rounded-xl p-2 border flex flex-col items-center justify-center cursor-pointer gap-2">
                         <Upload size={24} className="text-gray-500" />
                         <span className="text-sm text-gray-500">Upload Images</span>
                         <input
                           type="file"
                           accept="image/*"
                           onChange={(e) => handleImageUpload(e, 'images', index)}
-                          className=" hidden "
+                          className="hidden"
                         />
                       </label>
                     </div>
-
                     {newProject.images.length > 1 && (
                       <button
                         onClick={() => removeArrayItem('images', index)}
@@ -291,7 +289,7 @@ export default function AdminAddProject() {
                       </button>
                     )}
                     {img && (
-                      <div className="w-full z-10 absolute  top-0 left-0 h-full">
+                      <div className="w-full z-10 absolute top-0 left-0 h-full">
                         <img
                           src={img}
                           alt={`Image ${index + 1}`}

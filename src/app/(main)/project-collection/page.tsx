@@ -10,7 +10,7 @@ import AnimatedLogoCloud from '@/components/AnimatedLogoCloud';
 import data from '@/lib/data.json';
 
 export default function Page() {
-    const [workData, setWorkData] = useState<WorkCollection | null>(data.workCollection);
+    const [workData] = useState<WorkCollection | null>(data.workCollection);
     const [selectProject, setSelectProject] = useState<Project | null>(null);
     const projectSectionRef = useRef<HTMLDivElement | null>(null);
 

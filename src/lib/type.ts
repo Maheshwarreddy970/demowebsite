@@ -1,5 +1,4 @@
 // lib/recoil.ts
-import { atom } from "recoil";
 
 export interface Project {
   name: string;
@@ -19,12 +18,21 @@ export interface WorkCollection {
   };
 }
 
-export const workDataState = atom<WorkCollection | null>({
-  key: "workDataState",
-  default: null,
-});
+// @/lib/type.ts
+export interface Project {
+  name: string;
+  title: string;
+  titleimg:  string[]; // Tuple for exactly 2 images
+  lines: string[];
+  images: string[];
+}
 
-export const isLoadingState = atom<boolean>({
-  key: "isLoadingState",
-  default: true,
-});
+export interface WorkCollection {
+  projects: Project[];
+}
+
+export interface CloudinaryUploadResult {
+  success: boolean;
+  url?: string;
+  error?: string;
+}

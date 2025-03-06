@@ -1,3 +1,6 @@
+'use server';
+
+
 import { Message } from "@/components/chatbot/newchatbot";
 import { ChatGroq } from "@langchain/groq";
 

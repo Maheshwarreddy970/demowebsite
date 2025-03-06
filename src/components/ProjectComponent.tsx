@@ -191,7 +191,6 @@ export default function ProjectPage({
         <section className="bg-[#664f35] pb-20">
           <div className="flex flex-col gap-6">
             <TextAnimate animation="slideLeft" className=' text-6xl md:text-[112px] font-semibold tracking-[-1.4px] leading-[1em] text-center text-white'>Crafting Spaces for</TextAnimate>
-
             <TextRotate />
           </div>
           <AnimatedLogoCloud />

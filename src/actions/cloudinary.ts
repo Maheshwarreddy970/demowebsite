@@ -22,7 +22,7 @@ export async function uploadImageToCloudinary(formData: FormData) {
     // Convert Buffer to Readable Stream
     const stream = Readable.from(buffer);
 
-    const result = await new Promise((resolve, reject) => {
+    await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         { upload_preset: 'demoweb' }, // Hardcoded preset
         (error, result) => {
@@ -34,7 +34,7 @@ export async function uploadImageToCloudinary(formData: FormData) {
       stream.pipe(uploadStream);
     });
 
-    return { success: true, url: (result as any).secure_url };
+    return { success: true};
   } catch (error) {
     console.error('Error uploading image to Cloudinary:', error);
     return { success: false, error: error instanceof Error ? error.message : 'Failed to upload image' };

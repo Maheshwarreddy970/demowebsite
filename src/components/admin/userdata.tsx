@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { BotMessageSquare, ChevronDown, LocateFixed, MapPin, MessageCircle, MessageSquare } from "lucide-react"
+import { BotMessageSquare, ChevronDown, LocateFixed } from "lucide-react"
 import { collection, getDocs } from "firebase/firestore"
 import * as XLSX from 'xlsx'
 
