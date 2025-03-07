@@ -503,13 +503,13 @@ export async function AiChatBotCall(messages: Message[]) {
         // Pass the latest user message as the "user" input, or empty string if none
         { role: "user", content: messages.length > 0 && !messages[messages.length - 1].isBot ? messages[messages.length - 1].text : "" },
     ]);
-
-    return aiMsg;
+console.log(aiMsg.content);
+    return aiMsg.content;
 }
 
 const llm = new ChatGroq({
-    apiKey: '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',
-    model: "llama-3.1-8b-instant",
+    apiKey: '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',
+    model: "llama-3.2-1b-preview",
     temperature: 0.7, // Adjusted for more human-like variability
     maxRetries: 2,
 });

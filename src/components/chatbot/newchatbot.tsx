@@ -258,7 +258,8 @@ export function FamilyButtonDemo() {
     try {
       const updatedMessages = [...messages, { text: newMessage, isBot: false, createdAt: Date.now() }];
       const aiMsg = await AiChatBotCall(updatedMessages);
-      return aiMsg.content as string;
+      console.log(aiMsg)
+      return aiMsg;
     } catch (error) {
       console.error("Error getting AI response:", error);
       return "Sorry, I encountered an error. Please try again.";
