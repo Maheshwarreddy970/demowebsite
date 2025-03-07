@@ -64,8 +64,8 @@ export default function Page() {
     const opacitycenter = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
     return (
-        <section>
-            <div className=' w-full bg-[rgb(102,79,53)]  grid lg:grid-cols-2 h-screen '>
+        <section className=' '>
+            <div className=' overflow-hidden w-full bg-[rgb(102,79,53)]  grid lg:grid-cols-2 h-screen '>
                 <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
 
                     <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold mx-auto  leading-[1.1em] text-center lg:text-left text-[#ede9cf] max-w-xl'>
@@ -85,7 +85,7 @@ export default function Page() {
                     </video>
                 </div>
             </div>
-            <section className='flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] lg:pr-[5rem] lg:pl-[10rem]  mx-auto relative'>
+            <section className=' flex flex-col  bg-white overflow-hidden  gap-6   w-full h-min py-[9rem] lg:pr-[5rem] lg:pl-[10rem]  mx-auto relative'>
                 <TextAnimate animation="slideLeft" className=" px-4 lg:px-0 font-semibold max-w-xl text-6xl lg:text-[112px]  tracking-wide lg:tracking-[-6.8px] leading-[1em] text-left text-[rgb(170,136,103)]"
                 >
                     Our talented
@@ -163,7 +163,7 @@ export default function Page() {
                     </div>
                 </div>
             </section>
-            <div className=" px-5 lg:px-[60px] py-36 bg-[#ede9cf]">
+            <div className=" overflow-hidden px-5 lg:px-[60px] py-36 bg-[#ede9cf]">
                 <div className='  lg:px-20'>
                     <TextAnimate animation="slideLeft" className=' font-semibold text-7xl lg:text-[112px] tracking-[-2.6px] leading-[1em] text-left text-[#aa8867]'>Our Approach</TextAnimate>
                     <TextAnimate animation="slideLeft" className=' mt-8 lg:mt-3 font-semibold text-left text-[#aa8867] lg:pl-5 text-3xl max-w-4xl'>At Oakwood Architects, we believe that design should be both functional and inspiring. </TextAnimate>

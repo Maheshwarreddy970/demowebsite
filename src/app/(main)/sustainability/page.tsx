@@ -46,7 +46,7 @@ export default function page() {
         exit: { borderRadius: 0, transition: { duration: 0.8, ease: 'easeInOut' } },
     };
     return (
-        <section>
+        <section className=' overflow-hidden'>
             <div className=' w-full bg-[#0c652d]  lg:grid lg:grid-cols-2  overflow-hidden  h-[150vh] lg:h-screen '>
                 <div className=' flex flex-col gap-28 lg:pl-20 justify-center'>
                     <TextAnimate animation="slideLeft" className='text-[64px] tracking-[-1.5px] font-semibold  leading-[1.1em] px-5 py-28 lg:px-0 lg:py-0 text-center lg:text-left text-[#ede9cf] max-w-xl'>
