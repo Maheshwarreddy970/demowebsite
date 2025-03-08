@@ -2,10 +2,10 @@ import { Facebook, GoogleIcon, Instagram, Linkedin, TwitterIcon } from '@/icons/
 import React, { JSX } from 'react';
 
 const logos: Record<string, JSX.Element> = {
-  twitter: <TwitterIcon size={24} />,
-  facebook: <Facebook size={24} />,
-  linkedin: <Linkedin size={24} />,
-  instagram: <Instagram size={24} />,
+  Twitter: <TwitterIcon size={24} />,
+  Facebook: <Facebook className='h-7 w-7 mr-2'  />,
+  Linkedin: <Linkedin size={24} />,
+  Instagram: <img src='/Instagram_logo_2016.svg.png' className='h-7 w-7 mr-2'  />,
   direct:<GoogleIcon></GoogleIcon>
 };
 
