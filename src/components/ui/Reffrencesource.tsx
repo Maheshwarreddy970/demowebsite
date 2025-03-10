@@ -1,4 +1,4 @@
-import { Facebook, GoogleIcon, Instagram, Linkedin, TwitterIcon } from '@/icons/socialicons';
+import { Facebook, GoogleIcon,Linkedin, TwitterIcon } from '@/icons/socialicons';
 import React, { JSX } from 'react';
 
 const logos: Record<string, JSX.Element> = {
