@@ -64,7 +64,7 @@ const getReferralSource = (referrer: string): string => {
     }
   }
 
-  return "direct"; // Default to "direct" if no match is found
+  return "direct";
 };
 
 const extractContactInfo = (text: string) => {
@@ -101,8 +101,10 @@ export function FamilyButtonDemo() {
   const [isClient, setIsClient] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const prevMessagesLength = useRef(0);
 
   useEffect(() => {
     setIsClient(true);
@@ -114,7 +116,19 @@ export function FamilyButtonDemo() {
       localStorage.setItem("chat-user-id", newId);
       setUserId(newId);
     }
+
+    // Initialize audio
+    audioRef.current = new Audio("/new-message-31-183617.mp3");
   }, []);
+
+  useEffect(() => {
+    if (messages.length > prevMessagesLength.current && audioRef.current) {
+      audioRef.current.play().catch(error => {
+        console.log("Audio playback failed:", error);
+      });
+    }
+    prevMessagesLength.current = messages.length;
+  }, [messages]);
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -145,8 +159,7 @@ export function FamilyButtonDemo() {
     const initializeUser = async () => {
       const userDoc = await getDoc(userDocRef);
       const hasSentWelcome = localStorage.getItem(welcomeSentKey);
-
-      const referralSource = getReferralSource(document.referrer); // Enhanced referral source detection
+      const referralSource = getReferralSource(document.referrer);
 
       if (!userDoc.exists()) {
         const currentTimestamp = Date.now();
@@ -163,7 +176,7 @@ export function FamilyButtonDemo() {
         await setDoc(userDocRef, {
           messages: [welcomeMessage],
           summary: "",
-          referralSource, // Use enhanced referral source
+          referralSource,
           visitCount: 1,
           lastVisit: currentTimestamp,
           deviceInfo,
@@ -192,7 +205,7 @@ export function FamilyButtonDemo() {
           {
             visitCount: increment(1),
             lastVisit: currentTimestamp,
-            referralSource, // Update referral source for returning users
+            referralSource,
             deviceInfo,
             location,
             totalVisits: increment(1),
@@ -212,7 +225,7 @@ export function FamilyButtonDemo() {
     try {
       const userDocRef = doc(db, "users", userId);
       const userDoc = await getDoc(userDocRef);
-      const referralSource = getReferralSource(document.referrer); // Enhanced referral source detection
+      const referralSource = getReferralSource(document.referrer);
 
       const userData: UserChatData = userDoc.exists()
         ? (userDoc.data() as UserChatData)
@@ -258,7 +271,6 @@ export function FamilyButtonDemo() {
     try {
       const updatedMessages = [...messages, { text: newMessage, isBot: false, createdAt: Date.now() }];
       const aiMsg = await AiChatBotCall(updatedMessages);
-      console.log(aiMsg)
       return aiMsg as string;
     } catch (error) {
       console.error("Error getting AI response:", error);

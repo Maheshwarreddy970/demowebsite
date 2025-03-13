@@ -41,7 +41,7 @@ export default function WorkSections() {
             <section className='flex flex-col  bg-white overflow-hidden gap-[100px] w-full h-min  md:py-[3.7rem] md:pr-[5rem] md:pl-[10rem] mx-auto relative'>
               <TextAnimate
                 animation="slideLeft"
-                className='text-7xl pl-5 md:pl-0 md:text-[112px] mt-28 tracking-[-4px] text-left font-semibold leading-[1em] text-[rgb(170,136,103)]'
+                className='text-7xl px-5 md:px-0 md:text-[112px] mt-28 tracking-[-4px] text-left font-semibold leading-[1em] text-[rgb(170,136,103)]'
               >
                 {data.workCollection.title}
               </TextAnimate>

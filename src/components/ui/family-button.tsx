@@ -1,8 +1,8 @@
 "use client"
 
-import React, { FC, ReactNode, useState } from "react"
+import React, { FC, ReactNode, useEffect, useState } from "react"
 import { XIcon } from "lucide-react"
-import {motion} from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { cn } from "@/lib/utils"
 
@@ -14,11 +14,20 @@ interface FamilyButtonProps {
 const FamilyButton: React.FC<FamilyButtonProps> = ({ children }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const toggleExpand = () => setIsExpanded(!isExpanded)
+  const [startingMessage, setStartingMessage] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStartingMessage(false);
+    }, 5000); // Change to false after 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup on unmount
+  }, []);
 
   return (
     <div
       className={cn(
-        "rounded-[24px] z-[9999] shadow-xl overflow-hidden bg-white"
+        "rounded-[24px]  z-[9999] shadow-xl overflow-hidden bg-white"
       )}
     >
       <div className="rounded-[23px] border   overflow-hidden border-[#3e362e]/60 ">
@@ -48,6 +57,20 @@ const FamilyButton: React.FC<FamilyButtonProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <AnimatePresence>
+      {
+        startingMessage && !isExpanded && (
+          <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 80 }}
+          transition={{ duration: 0.5 ,ease: "easeInOut",stiffness: 100 ,type: "spring"}}
+          className=" absolute w-80 sm:w-96 text-[rgb(0,0,0)] -top-52 sm:-top-48 shadow-md right-10 bg-white border-black/60 border  rounded-t-2xl rounded-bl-2xl p-4 ">
+            Hey there! 👋😊 Glad to have you here! How’s your day going? I’d love to help you out—just let me know what you need! Oh, and if you’re cool with it, could you share your phone number or email? It’d make staying in touch so much easier! 😊
+          </motion.div>
+        )
+      }
+      </AnimatePresence>
     </div>
   )
 }
@@ -67,15 +90,15 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
-      const checkMobile = () => {
-        setIsMobile(window.innerWidth <= 868);
-      };
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-      return () => {
-        window.removeEventListener("resize", checkMobile);
-      };
-    }, []);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 868);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
   return (
     <motion.div
       className={cn(
@@ -90,22 +113,22 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
       animate={
         isExpanded
           ? {
-              borderRadius: 20,
-              width: isMobile ? '95vw' : 400,
-              height: "90vh",
+            borderRadius: 20,
+            width: isMobile ? '95vw' : 400,
+            height: "90vh",
 
-              transition: {
-                type: "spring",
-                damping: 25,
-                stiffness: 400,
-                when: "beforeChildren",
-              },
-            }
+            transition: {
+              type: "spring",
+              damping: 25,
+              stiffness: 400,
+              when: "beforeChildren",
+            },
+          }
           : {
-              borderRadius: 21,
-              width: "3.5rem",
-              height: "3.5rem",
-            }
+            borderRadius: 21,
+            width: "3.5rem",
+            height: "3.5rem",
+          }
       }
     >
       {children}
@@ -125,7 +148,7 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
           left: isExpanded ? "" : "50%",
           bottom: 6,
         }}
-        
+
       >
         {isExpanded ? (
           <motion.div
@@ -163,8 +186,8 @@ const FamilyButtonContainer: FC<FamilyButtonContainerProps> = ({
             }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="  size-9  fill-white" x="0px" y="0px" width="50" height="50" viewBox="0 0 24 24">
-            <path className="" d="M 12 2 A 9 9 0 0 0 3 11 A 9 9 0 0 0 12 20 L 12 23 C 12 23 19.39165 19.370314 20.761719 13.015625 A 9 9 0 0 0 20.839844 12.65625 C 20.880821 12.423525 20.923277 12.190914 20.947266 11.951172 A 9 9 0 0 0 20.957031 11.863281 C 20.982749 11.579721 21 11.293169 21 11 A 9 9 0 0 0 12 2 z"></path>
-          </svg>
+              <path className="" d="M 12 2 A 9 9 0 0 0 3 11 A 9 9 0 0 0 12 20 L 12 23 C 12 23 19.39165 19.370314 20.761719 13.015625 A 9 9 0 0 0 20.839844 12.65625 C 20.880821 12.423525 20.923277 12.190914 20.947266 11.951172 A 9 9 0 0 0 20.957031 11.863281 C 20.982749 11.579721 21 11.293169 21 11 A 9 9 0 0 0 12 2 z"></path>
+            </svg>
           </motion.div>
         )}
       </motion.div>
